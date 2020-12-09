@@ -10,6 +10,15 @@
         :loop= 'true'>
       <h1 class="typing"></h1>
     </vue-typed-js>
+    <el-container>
+      <el-container>
+        <el-aside width="200px">Aside</el-aside>
+
+          <el-main>Main</el-main>
+
+      </el-container>
+      <el-footer>Footer</el-footer>
+    </el-container>
   </div>
 </template>
 
