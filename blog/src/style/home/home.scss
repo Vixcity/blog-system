@@ -1,0 +1,29 @@
+.home{
+    display: flex;
+    .siderBar{
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: .8rem;
+        z-index: 2;
+        opacity: .9;
+        background: $menuColor;
+        color: $menuFontColor;
+    }
+    .banner{
+        width: 100vw;
+        position: relative;
+        img{
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            object-position: center center;
+            vertical-align: bottom;
+        }
+    }
+}
+
+
+
+
+

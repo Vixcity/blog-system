@@ -1,4 +1,25 @@
 .typed-cursor{
-  font-size: 40px;
-  margin: 32px 0;
+  margin: 0.32rem 0;
+  font-weight: 100;
+  font-size: 0.4rem;
+  background: rgba($color: #000000, $alpha: .5);
+}
+
+.typing{
+  display: inline;
+  font-weight: 100;
+  background: rgba($color: #000000, $alpha: .5);
+}
+
+.typed-element{
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%,-100%);
+  display: inline;
+  font-size: 0.2rem;
+  font-family: 'Titillium Web,PingFang SC,Hiragino Sans GB,Microsoft JhengHei,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif';
+  color: white;
 }
