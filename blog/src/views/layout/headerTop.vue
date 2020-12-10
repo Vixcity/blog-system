@@ -1,12 +1,12 @@
 <template>
-  <div class="siderBar hidden-xs-only">
-    我是侧边栏
+  <div class="header hidden-sm-and-up fixed">
+    111
   </div>
 </template>
 
 <script>
 export default {
-name: "siderBar"
+name: "header"
 }
 </script>
 

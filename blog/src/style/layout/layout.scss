@@ -1,0 +1,29 @@
+.siderBar{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: .8rem;
+    z-index: 2;
+    background: $menuColor;
+    color: $menuFontColor;
+}
+
+.header{
+    background-color: rgba($color: #fff, $alpha: .8);
+    left: 0;
+    right: 0;
+    z-index: 1;
+    height: .5rem;
+    line-height: .5rem;
+}
+
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px){
+    .container{
+        padding: .2rem;
+    }
+}

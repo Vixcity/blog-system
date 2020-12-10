@@ -1,7 +1,7 @@
 .typed-cursor{
   margin: 0.32rem 0;
   font-weight: 100;
-  font-size: 0.4rem;
+  font-size: $fontSize;
   background: rgba($color: #000000, $alpha: .5);
 }
 
@@ -22,4 +22,13 @@
   font-size: 0.2rem;
   font-family: 'Titillium Web,PingFang SC,Hiragino Sans GB,Microsoft JhengHei,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif';
   color: white;
+}
+
+@media (max-width: 768px){
+  .typing{
+    font-size: $smallFontSize;
+  }
+  .typed-cursor{
+    font-size: $smallFontSize;
+  }
 }

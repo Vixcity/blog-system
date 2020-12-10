@@ -11,10 +11,14 @@ body{
 	background: $defaultColor;
 	color:$fontColor;
 	font-size: 0.16rem;
-	overflow-x: hidden;
+	// overflow-x: hidden;
 	overflow-y: auto;
-	.container{
-		width: 800px;
-		margin: 0 auto;
+
+	.flex{
+		display: flex;
+	}
+
+	.fixed{
+		position: fixed;
 	}
 }

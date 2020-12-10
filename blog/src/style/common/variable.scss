@@ -1,5 +1,8 @@
 $backgroundColor:var(--backgroundColor,white);
 $defaultColor:var(--defaultColor,white);
-$menuColor:var(--menuColor,#2e2f34);
+$menuColor:var(--menuColor,rgba(0,0,0,0.5));
 $menuFontColor:var(--menuColor,white);
 $fontColor:var(--fontColor,#2e2f34);
+
+$fontSize:var(--fontSize, 40px);
+$smallFontSize:var(--smallFontSize, 20px)
