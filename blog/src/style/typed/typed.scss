@@ -1,4 +1,5 @@
 .typed-cursor{
+  transition: all 1.2s;
   margin: 0.32rem 0;
   font-weight: 100;
   font-size: $fontSize;
@@ -6,16 +7,14 @@
 }
 
 .typing{
+  transition: all 1.2s;
   display: inline;
   font-weight: 100;
   background: rgba($color: #000000, $alpha: .5);
 }
 
 .typed-element{
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  width: 95%;
   text-align: center;
   transform: translate(-50%,-100%);
   display: inline;

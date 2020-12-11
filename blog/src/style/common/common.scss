@@ -7,6 +7,11 @@ body,div,h1,h2,h3,h4,h5,h6,ul,ol,li,span,p{
 	padding: 0;
 }
 
+a,ul,ol,li{
+	text-decoration: none;
+	list-style: none;
+}
+
 body{
 	background: $defaultColor;
 	color:$fontColor;
