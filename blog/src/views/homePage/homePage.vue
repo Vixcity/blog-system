@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="bannerDown">
-        <i class="iconfont icon-price-arrow-down"></i>
+        <i class="iconfont icon-xiajiantou"></i>
       </div>
       <img src="../../assets/image/homePage/backgroundBanner.jpg" alt="">
     </div>

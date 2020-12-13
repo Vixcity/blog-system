@@ -32,7 +32,7 @@ export default {
       document.getElementsByClassName("header")[0].className = 'header fixed';
       document.getElementsByClassName("siderBar")[0].className = 'siderBar';
       if(document.getElementsByClassName('moreOpen')[0]){
-        document.getElementsByClassName('moreOpen')[0].className = 'iconfont icongengduo moreClose'
+        document.getElementsByClassName('moreOpen')[0].className = 'iconfont icon-gengduo moreClose'
       }
     }
   }

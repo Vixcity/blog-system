@@ -13,10 +13,10 @@ a,ul,ol,li{
 }
 
 body{
+	transition: all .5s;
 	background: $defaultColor;
 	color:$fontColor;
 	font-size: 0.16rem;
-	// overflow-x: hidden;
 	overflow-y: auto;
 
 	.flex{

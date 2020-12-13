@@ -18,7 +18,10 @@ export default {
   components: {
     siderBar,
     headerTop
-  }
+  },
+  methods: {
+
+  },
 }
 </script>
 
