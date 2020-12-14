@@ -1,4 +1,4 @@
-$backgroundColor:var(--backgroundColor,white);
+$backgroundColor:var(--backgroundColor,#efefef);
 $defaultColor:var(--defaultColor,white);
 $menuColor:var(--menuColor,rgba(0,0,0,0.5));
 $menuFontColor:var(--menuColor,white);
@@ -7,6 +7,17 @@ $menuFontColor:var(--menuColor,white);
 $fontSize:var(--fontSize, 40px);
 $fontColor:var(--fontColor,#2e2f34);
 $smallFontSize:var(--smallFontSize, 20px);
+$noticeFontColor:var(--noticeFontColor,#969696);
 
 // color
-$lightGrey:var(--light-grey,#eeeeee)
+$lightGrey:var(--light-grey,#eeeeee);
+$noticeBackgroundColor:var(--noticeBackgroundColor,#fbfbfb50);
+$blockquoteColor:var(--blockquoteColor,#5c6b72);
+$hrefColor:var(--hrefColor,#0681d0);
+$cardColor:var(--card-bg,#fff);
+$btnColor:var(--btnColor,#fcd985);
+$btnHoverColor:var(--btnHoverColor,#ff7242);
+$cardDocColor:var(--cardDocColor,#49b1f5);
+
+// opacity
+$avatarImgFilter:var(--avatarImgFilter,1)

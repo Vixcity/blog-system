@@ -2,6 +2,10 @@ html{
 	font-size: 100px
 }
 
+h2{
+	font-size: .28rem;
+}
+
 body,div,h1,h2,h3,h4,h5,h6,ul,ol,li,span,p{
 	margin: 0;
 	padding: 0;
@@ -25,5 +29,9 @@ body{
 
 	.fixed{
 		position: fixed;
+	}
+
+	.is-center{
+		text-align: center;
 	}
 }
