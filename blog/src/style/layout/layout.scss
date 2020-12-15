@@ -7,7 +7,34 @@
     z-index: 2;
     background: $menuColor;
     color: $menuFontColor;
-
+    .navbar{
+        position: relative;
+        padding-top: .3rem;
+        text-align: center;
+        .logo {
+            text-align: center;
+            margin-bottom: .2rem;
+        }
+        .nav-item-link{
+            display: block;
+            padding: .1rem;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .nav-item-link::after{
+            content: '';
+            display: block;
+            height: .02rem;
+            background-color: #fff;
+            width: 0%;
+            margin-top: .02rem;
+            transition: all .5s;
+        }
+        .nav-item-link:hover::after{
+            width: 100%;
+        }
+    }
 }
 
 .changeLOD{
@@ -29,6 +56,9 @@
     i:hover{
         color: #2e2f34;
         background-color: rgba($color: #fff, $alpha: .9);
+    }
+    .icon-sousuo{
+        transform: translateY(-.6rem);
     }
     .icon-taiyang{
         transform: translateY(-.5rem);
@@ -86,6 +116,42 @@
     margin: 0 auto;
     display: flex;
 }
+.changeLODIndex{
+    transition: all .5s;
+    position: fixed;
+    right: -1rem;
+    bottom: 0rem;
+    i{
+        display: block;
+        margin: 0 auto;
+        cursor: pointer;
+        text-align: center;
+        width: .3rem;
+        height: .3rem;
+        color: white;
+        background-color: rgba($color: #000, $alpha: .5);
+        border-radius: .3rem;
+        font-size:.15rem;
+        line-height: .3rem;
+        transition: all .5s;
+    }
+    i:hover{
+        color: white;
+        background-color: rgba($color: #000, $alpha: .9);
+    }
+    .icon-sousuo{
+        transform: translateY(-.6rem);
+    }
+    .icon-taiyang{
+        transform: translateY(-.5rem);
+    }
+    .icon-yueliang{
+        transform: translateY(-.5rem);
+    }
+    .icon-huidaodingbu{
+        transform: translateY(-.4rem);
+    }
+}
 
 @media (max-width: 768px){
     .siderBar {
@@ -96,12 +162,16 @@
     }
     .main{
         .changeLOD{
+            display: none;
             i{
                 width: .3rem;
                 height: .3rem;
                 line-height: .3rem;
                 font-size: .15rem;
             }
+        }
+        .changeLODIndex{
+            right: 10px;
         }
     }
 }

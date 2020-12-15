@@ -1,13 +1,23 @@
 <template>
   <div class="siderBar" @click="siderBarClick">
     <div style="height:90vh;">
-      我是侧边栏
-      <div style="background:red;width:100%"></div>
+      <div class="navbar" style="width:100%">
+        <div class="logo">
+          <a href="/" >
+            <i class="iconfont icon-v-" style="font-size:.4rem;color:white;"></i>
+          </a>
+        </div>
+        <ul class="nav nav-main">
+          <li v-for="item in menuTree" :key="item" class="nav-item">
+            <a :href="item.href" class="nav-item-link">{{item.title}}</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="changeLOD" @click="changeLOD">
-      <i v-if="isLight" class="iconfont icon-yueliang icon_button"></i>
-      <i v-else class="iconfont icon-taiyang icon_button"></i>
-      <i class="iconfont icon-huidaodingbu icon_button"></i>
+    <div class="changeLOD">
+      <i v-if="isLight" class="iconfont icon-yueliang icon_button" @click="changeLOD"></i>
+      <i v-else class="iconfont icon-taiyang icon_button" @click="changeLOD"></i>
+      <i class="iconfont icon-huidaodingbu icon_button" @click="toTop"></i>
     </div>
   </div>
 </template>
@@ -17,16 +27,80 @@ export default {
   name: "siderBar",
   data() {
     return {
-      isLight:true
+      showSearch:false,
+      isLight:true,
+      menuTree:[
+        {
+          title:'首页',
+          href:'/'
+        },
+        {
+          title:'归档',
+          href:'/archives'
+        },
+        {
+          title:'分类',
+          href:'/categories'
+        },
+        {
+          title:'标签',
+          href:'/tags'
+        },
+        {
+          title:'旅行',
+          href:'/archives'
+        },
+        {
+          title:'摄影',
+          href:'/archives'
+        },
+        {
+          title:'文档',
+          href:'/archives'
+        },
+        {
+          title:'娱乐',
+          href:'/archives'
+        },
+        {
+          title:'友链',
+          href:'/archives'
+        },
+        {
+          title:'留言板',
+          href:'/archives'
+        },
+        {
+          title:'关于我',
+          href:'/archives'
+        },
+        {
+          title:'自言自语',
+          href:'/archives'
+        },
+        {
+          title:'更多示例',
+          href:'/archives'
+        }
+      ]
     }
+  },
+  created() {
+    this.isLight = localStorage.getItem('isLight') === 'true';
+    this.getModel(this.isLight)
   },
   methods: {
     siderBarClick(e) {
       e.stopPropagation()
     },
     changeLOD() {
+      this.isLight=!this.isLight
+      this.getModel(this.isLight)
+      localStorage.setItem('isLight', this.isLight)
+    },
+    getModel(isLight){
       let changeColor = function (varName='--fontColor', color='#ffffff') {document.getElementsByTagName('body')[0].style.setProperty(varName, color)};
-      if(!this.isLight) {
+      if(isLight=='true' || isLight==true) {
         changeColor('--defaultColor', '#ffffff')
         changeColor('--fontColor', '#2e2f34')
         changeColor('--noticeFontColor','#969696')
@@ -49,8 +123,10 @@ export default {
         changeColor('--cardDocColor','#383838')
         changeColor()
       }
-      this.isLight=!this.isLight
     },
+    toTop(){
+      document.getElementsByTagName('body')[0].scrollIntoView({behavior:'smooth'});
+    }
   },
 }
 </script>

@@ -17,7 +17,7 @@
           </vue-typed-js>
         </div>
       </div>
-      <div class="bannerDown">
+      <div class="bannerDown" @click="scrollTo">
         <i class="iconfont icon-xiajiantou"></i>
       </div>
       <img src="../../assets/image/homePage/backgroundBanner.jpg" alt="">
@@ -115,7 +115,9 @@ export default {
     }
   },
   methods: {
-    
+    scrollTo(){
+      document.getElementsByClassName('container')[0].scrollIntoView({behavior:'smooth'});
+    }
   }
 }
 </script>

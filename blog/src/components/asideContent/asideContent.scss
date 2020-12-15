@@ -1,4 +1,5 @@
 .aside_content{
+  font-size: 15px;
   padding-top: .5rem;
   padding-left: .15rem;
   width: 25%; 
@@ -202,7 +203,25 @@
     }
   }
   .card-tag-cloud{
-    
+    a {
+      display: inline-block;
+      padding: 0 .02rem;
+      transition: all .25s;
+    }
+    a:hover{
+      color:#49B1f5!important;
+    }
+  }
+  .webinfo{
+    .webinfo-item {
+      display: flex;
+      align-items: center;
+      padding: .02rem .1rem 0;
+      div:first-child {
+        flex: 1;
+        padding-right: .2rem;
+      }
+    }
   }
 }
 

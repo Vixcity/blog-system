@@ -165,7 +165,11 @@
                     padding: .05rem .1rem;
                     border-radius: 4px;
                     color: #fff!important;
+                    transition: all .4s;
                     text-decoration: none;
+                }
+                .article-more-link:hover {
+                    background-color: #5f5d5d;
                 }
             }
             .article-footer{

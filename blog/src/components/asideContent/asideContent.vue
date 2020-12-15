@@ -50,7 +50,7 @@
           <span>文档</span>
         </div>
         <ul class="card-category-list">
-          <li v-for="item in myInfo.docList" :key="item" class="card-category-list-item">
+          <li v-for="item in docList" :key="item" class="card-category-list-item">
             <a :href="item.href" class="card-category-list-link">{{item.title}}</a>
           </li>
         </ul>
@@ -120,14 +120,56 @@
         </div>
       </div>
     </div>
+    <div class="card-widget card-categories">
+      <div class="card-content">
+        <div class="item-headline">
+          <i class="iconfont icon-guidang"></i>
+          <span>归档</span>
+        </div>
+         <ul class="card-category-list">
+          <li v-for="item in archiveList" :key="item" class="card-category-list-item">
+            <a :href="item.href" class="card-category-list-link">
+              <span class="card-category-list-name">{{item.archiveData}}</span>
+              <span class="card-category-list-count">{{item.archiveCount}}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="card-widget card-categories">
+      <div class="card-content">
+        <div class="item-headline">
+          <i class="iconfont icon-charts"></i>
+          <span>网站资讯</span>
+        </div>
+         <div class="webinfo">
+           <div v-for="item in webInfo" :key="item" class="webinfo-item">
+             <div class="item-name">{{item.name}}</div>
+             <div class="item-count">{{item.count}}</div>
+           </div>
+         </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import { randomColor,random } from '../../utils/common'
+
 export default {
   name: "asideContent",
+  created() {
+    for(let i in this.tagsList){
+      this.tagsList[i].style={
+        color:this.randomColor(),
+        fontSize:this.random(20,12)+'px'
+      }
+    }
+  },
   data(){
     return{
+      randomColor:randomColor,
+      random:random,
       myInfo: {
         avatarImgSrc: 'https://butterfly.js.org/image/avatar.png',
         name: 'Vixcity',
@@ -151,37 +193,37 @@ export default {
         ],
         giteeHref: 'https://gitee.com/vixcity',
         showGitee: false,
-        docList: [
-          {
-            title:'🚀 快速开始',
-            href:'www.vip.com'
-          },
-          {
-            title:'📑 主题页面',
-            href:'www.vip.com'
-          },
-          {
-            title:'🛠 主题配置-1',
-            href:'www.vip.com'
-          },
-          {
-            title:'⚔️ 主题配置-2',
-            href:'www.vip.com'
-          },
-          {
-            title:'❓ 主题问答',
-            href:'www.vip.com'
-          },
-          {
-            title:'⚡️ 进阶教程',
-            href:'www.vip.com'
-          },
-          {
-            title:'✨ 更新日誌',
-            href:'www.vip.com'
-          },
-        ]
       },
+      docList: [
+        {
+          title:'🚀 快速开始',
+          href:'www.vip.com'
+        },
+        {
+          title:'📑 主题页面',
+          href:'www.vip.com'
+        },
+        {
+          title:'🛠 主题配置-1',
+          href:'www.vip.com'
+        },
+        {
+          title:'⚔️ 主题配置-2',
+          href:'www.vip.com'
+        },
+        {
+          title:'❓ 主题问答',
+          href:'www.vip.com'
+        },
+        {
+          title:'⚡️ 进阶教程',
+          href:'www.vip.com'
+        },
+        {
+          title:'✨ 更新日誌',
+          href:'www.vip.com'
+        },
+      ],
       articleList:[
         {
           title:'Butterfly添加全局吸底Aplayer教程',
@@ -283,6 +325,99 @@ export default {
         {
           tag:'教程',
           href:'www.baidu.com'
+        },
+        {
+          tag:'Hexo',
+          href:'www.baidu.com'
+        },
+        {
+          tag:'主题',
+          href:'www.baidu.com'
+        },
+        {
+          tag:'butterfly',
+          href:'www.baidu.com'
+        },
+        {
+          tag:'打赏',
+          href:'www.baidu.com'
+        },
+        {
+          tag:'Aplayer',
+          href:'www.baidu.com'
+        },
+        {
+          tag:'标籤外挂',
+          href:'www.baidu.com'
+        },
+        {
+          tag:'highlight',
+          href:'www.baidu.com'
+        },
+        {
+          tag:'Bar',
+          href:'www.baidu.com'
+        },
+        {
+          tag:'top_img',
+          href:'www.baidu.com'
+        },
+        {
+          tag:'demo',
+          href:'www.baidu.com'
+        }
+      ],
+      archiveList:[
+        {
+          href:'www.baidu.com',
+          archiveData:'2020年10月',
+          archiveCount:3
+        },
+        {
+          href:'www.baidu.com',
+          archiveData:'2020年10月',
+          archiveCount:3
+        },
+        {
+          href:'www.baidu.com',
+          archiveData:'2020年10月',
+          archiveCount:3
+        },
+        {
+          href:'www.baidu.com',
+          archiveData:'2020年10月',
+          archiveCount:3
+        },
+        {
+          href:'www.baidu.com',
+          archiveData:'2020年10月',
+          archiveCount:3
+        },
+      ],
+      webInfo:[
+        {
+          name:'文章数目',
+          count:16
+        },
+        {
+          name:'已运行时间',
+          count:'398 天'
+        },
+        {
+          name:'本站总字数',
+          count:'46.7k'
+        },
+        {
+          name:'本站访客数',
+          count:9235
+        },
+        {
+          name:'本站总访问量',
+          count:77731
+        },
+        {
+          name:'最后更新时间',
+          count:'1 天前'
         },
       ]
     }
