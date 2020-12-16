@@ -192,7 +192,7 @@ export default {
           }
         ],
         giteeHref: 'https://gitee.com/vixcity',
-        showGitee: false,
+        showGitee: true,
       },
       docList: [
         {

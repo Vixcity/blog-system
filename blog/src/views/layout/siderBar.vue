@@ -48,39 +48,39 @@ export default {
         },
         {
           title:'旅行',
-          href:'/archives'
+          href:'/journey'
         },
         {
           title:'摄影',
-          href:'/archives'
+          href:'/photography'
         },
         {
           title:'文档',
-          href:'/archives'
+          href:'/docs'
         },
         {
           title:'娱乐',
-          href:'/archives'
+          href:'/amusement'
         },
         {
           title:'友链',
-          href:'/archives'
+          href:'/friendLink'
         },
         {
           title:'留言板',
-          href:'/archives'
+          href:'/messageBoard'
         },
         {
           title:'关于我',
-          href:'/archives'
+          href:'/aboutMe'
         },
         {
           title:'自言自语',
-          href:'/archives'
+          href:'/talkToMyself'
         },
         {
           title:'更多示例',
-          href:'/archives'
+          href:'/moreDemo'
         }
       ]
     }
