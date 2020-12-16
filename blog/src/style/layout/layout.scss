@@ -4,7 +4,7 @@
     top: 0;
     bottom: 0;
     width: .8rem;
-    z-index: 2;
+    z-index: 101;
     background: $menuColor;
     color: $menuFontColor;
     .navbar{
@@ -159,6 +159,7 @@
     }
     .header{
         transform: translateY(0rem);
+        z-index: 101;
     }
     .main{
         .changeLOD{

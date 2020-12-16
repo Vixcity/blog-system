@@ -111,6 +111,7 @@ export default {
         changeColor('--btnColor','#fcd985')
         changeColor('--btnHoverColor','#ff7242')
         changeColor('--cardDocColor','#49b1f5')
+        changeColor('--hrefHoverColor','#47e0fc')
       } else {
         changeColor('--noticeFontColor','#efefef')
         changeColor('--defaultColor','#2e2f34')
@@ -121,6 +122,7 @@ export default {
         changeColor('--btnColor','#1f1f1f')
         changeColor('--btnHoverColor','#787878')
         changeColor('--cardDocColor','#383838')
+        changeColor('--hrefHoverColor','#cdcdcd')
         changeColor()
       }
     },
