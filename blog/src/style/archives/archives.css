@@ -1,0 +1,28 @@
+.archives {
+  width: 100%;
+}
+
+.archives .container {
+  display: block;
+}
+
+.archives .container .archivesHeader {
+  width: 100%;
+  padding-top: .7rem;
+  justify-content: space-between;
+}
+
+.archives .container .archivesHeader i {
+  font-size: .4rem;
+}
+
+.archives .container .archivesHeader i::after {
+  content: '';
+  display: block;
+  height: 100%;
+  width: 2px;
+}
+
+.archives .container .archivesBody .year .flex {
+  justify-content: space-between;
+}

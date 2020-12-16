@@ -1,5 +1,40 @@
 .archives{
-  h1{
-    width: 100%;
+  width:100%;
+  .container{
+    display: block;
+    .archivesHeader{
+      background: $defaultColor;
+      width: 100%;
+      padding-top: .7rem;
+      justify-content: space-between;
+      i{
+        font-size: .4rem;
+      }
+    }
+    .archivesBody{
+      position: relative;
+      .timeline-line {
+        position: absolute;
+        left: 41.25%;
+        top: 0;
+        height: 105%;
+        width: 2px;
+        background: $fontColor;
+        z-index: 0;
+      }
+      .year{
+        .flex{
+          justify-content: space-between;
+        }
+        ul{
+          .flex{
+            position: relative;
+            background-color: $defaultColor;
+            margin-bottom: .2rem;
+            align-items:center;
+          }
+        }
+      }
+    }
   }
 }
