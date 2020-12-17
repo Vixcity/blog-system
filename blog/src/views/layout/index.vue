@@ -9,6 +9,8 @@
       <i v-if="isLight" class="iconfont icon-yueliang icon_button" @click="changeLOD"></i>
       <i v-else class="iconfont icon-taiyang icon_button" @click="changeLOD"></i>
       <i class="iconfont icon-huidaodingbu icon_button" @click="toTop"></i>
+      <i v-if="isShowAside" class="iconfont icon-tubiaozhengli-34" @click="changeBOS"></i>
+      <i v-else class="iconfont icon-tubiaozhengli-33" @click="changeBOS"></i>
     </div>
   </div>
 </template>
@@ -16,6 +18,7 @@
 <script>
 import siderBar from '@/views/layout/siderBar'
 import headerTop from '@/views/layout/headerTop'
+import bus from '@/assets/js/eventBus'
 
 export default {
   name: 'main',
@@ -26,6 +29,7 @@ export default {
   data() {
     return {
       isLight:true,
+      isShowAside:true
     }
   },
   created() {
@@ -33,10 +37,14 @@ export default {
     this.getModel(this.isLight)
   },
   methods: {
+    changeBOS(){
+      this.isShowAside=!this.isShowAside
+      localStorage.setItem('isShowAside', this.isShowAside)
+      bus.$emit('changeAside',this.isShowAside)
+    },
     changeLOD() {
       this.isLight=!this.isLight
       this.getModel(this.isLight)
-      console.log(this.isLigh);
       localStorage.setItem('isLight', this.isLight)
     },
     getModel(isLight){

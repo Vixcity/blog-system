@@ -18,15 +18,20 @@
       <i v-if="isLight" class="iconfont icon-yueliang icon_button" @click="changeLOD"></i>
       <i v-else class="iconfont icon-taiyang icon_button" @click="changeLOD"></i>
       <i class="iconfont icon-huidaodingbu icon_button" @click="toTop"></i>
+      <i v-if="isShowAside" class="iconfont icon-tubiaozhengli-34" @click="changeBOS"></i>
+      <i v-else class="iconfont icon-tubiaozhengli-33" @click="changeBOS"></i>
     </div>
   </div>
 </template>
 
 <script>
+import bus from '@/assets/js/eventBus'
+
 export default {
   name: "siderBar",
   data() {
     return {
+      isShowAside:true,
       showSearch:false,
       isLight:true,
       menuTree:[
@@ -78,7 +83,6 @@ export default {
     }
   },
   created() {
-    console.log(typeof (localStorage.getItem('isLight')));
     this.isLight = localStorage.getItem('isLight') === 'true' || localStorage.getItem('isLight') ==='undefined' || localStorage.getItem('isLight') ===null;
     localStorage.setItem('isLight', this.isLight)
     this.getModel(this.isLight)
@@ -86,6 +90,11 @@ export default {
   methods: {
     siderBarClick(e) {
       e.stopPropagation()
+    },
+    changeBOS(){
+      this.isShowAside=!this.isShowAside
+      localStorage.setItem('isShowAside', this.isShowAside)
+      bus.$emit('changeAside',this.isShowAside)
     },
     changeLOD() {
       this.isLight=!this.isLight

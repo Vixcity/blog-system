@@ -1,5 +1,5 @@
 <template>
-  <div style="height:auto;" class="aside_content">
+  <div style="height:auto;" v-show="isShowAside" class="aside_content">
     <div class="card-widget card-info">
       <div class="card-content">
         <div class="card-info-avatar is-center">
@@ -155,6 +155,7 @@
 
 <script>
 import { randomColor,random } from '../../utils/common'
+import bus from '@/assets/js/eventBus'
 
 export default {
   name: "asideContent",
@@ -166,8 +167,14 @@ export default {
       }
     }
   },
+  mounted() {
+    bus.$on('changeAside', isShowAside =>{
+      this.isShowAside = isShowAside
+    })
+  },
   data(){
     return{
+      isShowAside:true,
       randomColor:randomColor,
       random:random,
       myInfo: {
