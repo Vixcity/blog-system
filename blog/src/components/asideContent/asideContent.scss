@@ -68,6 +68,9 @@
       z-index: 1;
       transition: color 1s;
       overflow: hidden;
+      i{
+        margin-right: .1rem;
+      }
     }
     #card-info-btn::before{
       content: '';
@@ -227,6 +230,7 @@
 
 @media (max-width: 1000px){
   .aside_content{
-      display: none;
+      width: 94vw;
+      box-sizing: border-box;
   }
 }

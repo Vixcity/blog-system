@@ -43,22 +43,6 @@ const routes = [
         component: () => import('@/views/tags/tags')
       },
       {
-        path: 'journey',
-        name: 'journey',
-        meta: {
-          breadList: [{path: '/journey', name: '旅行'}]
-        },
-        component: () => import('@/views/journey/journey')
-      },
-      {
-        path: 'photography',
-        name: 'photography',
-        meta: {
-          breadList: [{path: '/photography', name: '摄影'}]
-        },
-        component: () => import('@/views/photography/photography')
-      },
-      {
         path: 'docs',
         name: 'docs',
         meta: {

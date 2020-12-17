@@ -36,6 +36,7 @@ export default {
     changeLOD() {
       this.isLight=!this.isLight
       this.getModel(this.isLight)
+      console.log(this.isLigh);
       localStorage.setItem('isLight', this.isLight)
     },
     getModel(isLight){

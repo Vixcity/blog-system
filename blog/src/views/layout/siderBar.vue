@@ -47,14 +47,6 @@ export default {
           href:'/tags'
         },
         {
-          title:'旅行',
-          href:'/journey'
-        },
-        {
-          title:'摄影',
-          href:'/photography'
-        },
-        {
           title:'文档',
           href:'/docs'
         },
@@ -86,7 +78,9 @@ export default {
     }
   },
   created() {
-    this.isLight = localStorage.getItem('isLight') === 'true';
+    console.log(typeof (localStorage.getItem('isLight')));
+    this.isLight = localStorage.getItem('isLight') === 'true' || localStorage.getItem('isLight') ==='undefined' || localStorage.getItem('isLight') ===null;
+    localStorage.setItem('isLight', this.isLight)
     this.getModel(this.isLight)
   },
   methods: {

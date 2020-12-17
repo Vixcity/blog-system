@@ -1,17 +1,24 @@
 .archives{
   width:100%;
   .container{
+    justify-content: space-between;
+  }
+  .containers{
     display: block;
+    width: 100%;
     .archivesHeader{
+      transition: all .5s;
       background: $defaultColor;
       width: 100%;
-      padding-top: .7rem;
+      padding-top: .4rem;
       justify-content: space-between;
       i{
         font-size: .4rem;
+        transform: translateX(59%);
       }
     }
     .archivesBody{
+      padding: 0 .2rem;
       position: relative;
       .timeline-line {
         position: absolute;
@@ -23,18 +30,131 @@
         z-index: 0;
       }
       .year{
+        transition: all .5s;
+        a{
+          color: $fontColor;
+          padding-left: 1rem;
+        }
+        h1{
+          display: inline;  
+          i{
+            display: block;
+            position: relative;
+            height: 0;
+            width: 0;
+            left: 2rem;
+            top: -20px;
+            border-width: 6px;
+            border-style: solid;
+            border-color: $fontColor transparent transparent transparent;
+            transition: .5s;
+            transform-origin: 6px 3px;
+          }
+        }
         .flex{
           justify-content: space-between;
         }
         ul{
+          overflow: hidden;
+          transition: .5s;
           .flex{
+            transition: all .5s;
             position: relative;
             background-color: $defaultColor;
             margin-bottom: .2rem;
             align-items:center;
+            a{
+              display: block;
+              width: 32.8%;
+              text-align: right ;
+              padding: 0;
+            }
+            i{
+              transition: all.5s;
+              color: $fontColor;
+            }
+            .dataContent{
+              width: 50%;
+              a{
+                width: 100%;
+                text-align: left;
+                .title{
+
+                }
+                .summary{
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                }
+              }
+            }
+          }
+          .light{
+            color: orangered;
+            a{
+              color: orangered;
+            }
+            i{
+              color: orangered;
+            }
           }
         }
       }
+      .close{
+        i{
+          transform: rotate(-90deg);
+        }
+        ul{
+          height: 0px!important;
+        }
+      }
     }
+  }
+}
+@media (max-width: 1000px){
+  .container{
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .archivesBody{
+    margin-bottom: .5rem;
+  }
+  .iconfont.icon-Clock{
+    transform: translateX(1%)!important;
+  }
+}
+
+@media (max-width: 768px){
+  .archivesHeader {
+    justify-content: center!important;
+    transform: translateX(-11.5%)!important;
+    h1{
+      display: none;
+    }
+  }
+  .iconfont.icon-Clock{
+    transform: translateX(50%)!important;
+  }
+}
+
+@media (max-width: 590px){
+  .archivesHeader {
+    justify-content: center!important;
+    transform: translateX(-11.5%);
+    h1{
+      display: none;
+    }
+  }
+  .archives .container .archivesBody .year a{
+    padding-left: .2rem;
+  }
+  .archives .container .archivesBody .year h1 i{
+    left:1.1rem;
+  }
+  .archives .container .archivesBody .year ul .flex a h2{
+    font-size: .2rem;
+  }
+  .iconfont.icon-Clock{
+    transform: translateX(35%)!important;
   }
 }

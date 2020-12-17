@@ -1,0 +1,66 @@
+.categories{
+    width: 100%;
+    .container{
+        .page{
+            align-self: flex-start;
+            padding: .5rem .4rem;
+            margin: .5rem auto 0;
+            width: 75%;
+            border-radius: 8px;
+            background: $cardColor;
+            box-shadow: 0 4px 8px 6px rgba(7,17,27,.06);
+            transition: all .3s;
+            .category-lists{
+                padding: .2rem 0 .3rem;
+            }
+            .category-title{
+                font-size: 2em;
+            }
+            .category-list{
+                margin-top: .08rem;
+                padding: 0 0 0 .2rem;
+                list-style: none;
+                counter-reset: li;
+                .category-list-item{
+                    position: relative;
+                    margin: .06rem 0;
+                    padding: .12em .4em .12em 1.4em;
+                    a{
+                        text-decoration: none;
+                        word-wrap: break-word;
+                        transition: all .2s;
+                        overflow-wrap: break-word;
+                        color: $fontColor;
+                        transition: all .25s;
+                    }
+                    a:hover{
+                        color:$cardDocColor
+                    }
+                    .category-list-count {
+                        margin-left: .08rem;
+                        color: #858585;
+                    }
+                }
+                .category-list-item:before {
+                    position: absolute;
+                    left: 0;
+                    cursor: pointer;
+                    transition: all .3s ease-out;
+                    top: .4em;
+                    width: .43em;
+                    height: .43em;
+                    border: .215em solid #49b1f5;
+                    border-radius: .43em;
+                    background: 0 0;
+                    content: '';
+                }
+                .category-list-item:hover:before {
+                    border-color: #ff7242;
+                }
+            }
+        }
+        .page:hover{
+            box-shadow: 0 4px 12px 12px rgba(7,17,27,.15);
+        }
+    }
+}
