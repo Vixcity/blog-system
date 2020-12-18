@@ -72,7 +72,7 @@
     </div>
   </div>
 </template>
-
+<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
 <script>
 import AsideContent from "../../components/asideContent/asideContent"
 
@@ -80,6 +80,9 @@ export default {
   name: "homePage",
   components: {
     AsideContent
+  },
+  mounted() {
+    this.ready()
   },
   data() {
     return {
@@ -117,7 +120,18 @@ export default {
   methods: {
     scrollTo(){
       document.getElementsByClassName('container')[0].scrollIntoView({behavior:'smooth'});
-    }
+    },
+    ready(){
+      this.$api.getIp().then(r=>{
+        //获取花括号里面的内容
+        r = r.match(/(?<=\{)[^}]*(?=\})/)[0];
+        r = JSON.parse('{'+r+'}')
+        console.log(r);
+      })
+      this.$api.getTitle().then(r=>{
+        console.log(r);
+      })
+    },
   }
 }
 </script>

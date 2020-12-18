@@ -1,7 +1,7 @@
 <template>
   <div class="header fixed">
     <span class="toHome">
-      <a href="" style="font-family:TitilliumWeb">Vixcity</a>
+      <a href="/" style="font-family:TitilliumWeb">Vixcity</a>
     </span>
     <i class="iconfont icon-gengduo moreClose" @click="moreClick"></i>
   </div>
