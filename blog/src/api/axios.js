@@ -13,7 +13,6 @@ function exitLogin () {
 }
 // 添加请求拦截器
 axios.interceptors.request.use((config) => {
-    console.log(config);
     // 在发送请求之前做些什么
     if (config.method === 'post' && !config.isJson) {
         config.data = Qs.stringify(config.data)
