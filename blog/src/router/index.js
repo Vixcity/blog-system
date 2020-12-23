@@ -37,7 +37,7 @@ const routes = [
       {
         path: 'tags',
         name: 'tags',
-        meta: {
+        meta: { 
           breadList: [{path: '/tags', name: '标签'}]
         },
         component: () => import('@/views/tags/tags')

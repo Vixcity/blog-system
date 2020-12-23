@@ -1,6 +1,6 @@
 <template>
   <div style="height:auto;" v-show="isShowAside" class="aside_content">
-    <div class="card-widget card-info">
+    <div v-if="myInfo.showMyInfo" class="card-widget card-info">
       <div class="card-content">
         <div class="card-info-avatar is-center">
           <img :src="myInfo.avatarImgSrc" class="" alt="">
@@ -32,38 +32,38 @@
         </div>
       </div>
     </div>
-    <div class="card-widget card-announcement">
+    <div v-if="announcement.isShowAnnouncement" class="card-widget card-announcement">
       <div class="card-content">
         <div class="item-headline">
           <i class="iconfont icon-gonggao gonggao"></i>
           <span>公告</span>
         </div>
         <div class="announcement_content">
-          balabalabalabalabalabalbalablablabalbalbalbalbalblabaaaaalslkjdefbkaljrlkrbsbdvlasbdfbvgsekrtbvrjnvilrbtvglskrbhgklsrdbhgvfkrbhgkusgbvu
+          {{ announcement.content }}
         </div>
       </div>
     </div>
-    <div class="card-widget card-categories card-docs">
+    <div v-if="docList.isShowDoc" class="card-widget card-categories card-docs">
       <div class="card-content">
         <div class="item-headline">
           <i class="iconfont icon-wendang"></i>
           <span>文档</span>
         </div>
         <ul class="card-category-list">
-          <li v-for="item in docList" :key="item" class="card-category-list-item">
+          <li v-for="item in docList.docs" :key="item" class="card-category-list-item">
             <a :href="item.href" class="card-category-list-link">{{item.title}}</a>
           </li>
         </ul>
       </div>
     </div>
-    <div class="card-widget card-categories card-docs">
+    <div v-if="articleList.isShowarticle" class="card-widget card-categories card-docs">
       <div class="card-content">
         <div class="item-headline">
           <i class="iconfont icon-lishi"></i>
           <span>最新文章</span>
         </div>
         <div class="aside-list">
-          <div v-for="item in articleList" :key="item" class="aside-list-item">
+          <div v-for="item in articleList.articles" :key="item" class="aside-list-item">
             <a :href="item.href" class="thumbnail"><img :src="item.imgSrc" alt=""></a>
             <div class="content">
               <a :href="item.href" :title="item.title" class="title">{{item.title}}</a>
@@ -73,14 +73,14 @@
         </div>
       </div>
     </div>
-    <div class="card-widget">
+    <div v-if="comments.isShowComment" class="card-widget">
       <div class="card-content">
         <div class="item-headline">
           <i class="iconfont icon-shandian"></i>
           <span>最新评论</span>
         </div>
         <div class="aside-list">
-          <div v-for="item in comments" :key="item" class="aside-list-item">
+          <div v-for="item in comments.commentsList" :key="item" class="aside-list-item">
             <a href="/messageboard/" class="thumbnail"><img :src="item.gravatarSrc" alt=""></a>
             <div class="content">
               <a href="/messageboard/" :title="item.comment" class="title">{{item.comment}}</a>
@@ -93,14 +93,14 @@
         </div>
       </div>
     </div>
-    <div class="card-widget card-categories">
+    <div v-if="categoryList.isShowCategory" class="card-widget card-categories">
       <div class="card-content">
         <div class="item-headline">
           <i class="iconfont icon-folder"></i>
           <span>分类</span>
         </div>
          <ul class="card-category-list">
-          <li v-for="item in categoryList" :key="item" class="card-category-list-item">
+          <li v-for="item in categoryList.categorys" :key="item" class="card-category-list-item">
             <a :href="item.href" class="card-category-list-link">
               <span class="card-category-list-name">{{item.categoryName}}</span>
               <span class="card-category-list-count">{{item.categoryCount}}</span>
@@ -109,25 +109,25 @@
         </ul>
       </div>
     </div>
-    <div class="card-widget card-categories">
+    <div v-if="tagsList.isShowTag" class="card-widget card-categories">
       <div class="card-content">
         <div class="item-headline">
           <i class="iconfont icon-biaoqian"></i>
           <span>标签</span>
         </div>
         <div class="card-tag-cloud">
-          <a v-for="item in tagsList" :key="item" :href="item.href" :style="item.style">{{item.tag}}</a>
+          <a v-for="item in tagsList.tags" :key="item" :href="item.href" :style="item.style">{{item.tag}}</a>
         </div>
       </div>
     </div>
-    <div class="card-widget card-categories">
+    <div v-if="archiveList.isShowArchiveList" class="card-widget card-categories">
       <div class="card-content">
         <div class="item-headline">
           <i class="iconfont icon-guidang"></i>
           <span>归档</span>
         </div>
          <ul class="card-category-list">
-          <li v-for="item in archiveList" :key="item" class="card-category-list-item">
+          <li v-for="item in archiveList.archives" :key="item" class="card-category-list-item">
             <a :href="item.href" class="card-category-list-link">
               <span class="card-category-list-name">{{item.archiveData}}</span>
               <span class="card-category-list-count">{{item.archiveCount}}</span>
@@ -136,14 +136,14 @@
         </ul>
       </div>
     </div>
-    <div class="card-widget card-categories">
+    <div v-if="webInfo.isShowWebInfo" class="card-widget card-categories">
       <div class="card-content">
         <div class="item-headline">
           <i class="iconfont icon-charts"></i>
           <span>网站资讯</span>
         </div>
          <div class="webinfo">
-           <div v-for="item in webInfo" :key="item" class="webinfo-item">
+           <div v-for="item in webInfo.webInfoList" :key="item" class="webinfo-item">
              <div class="item-name">{{item.name}}</div>
              <div class="item-count">{{item.count}}</div>
            </div>
@@ -160,12 +160,7 @@ import bus from '@/assets/js/eventBus'
 export default {
   name: "asideContent",
   created() {
-    for(let i in this.tagsList){
-      this.tagsList[i].style={
-        color:this.randomColor(),
-        fontSize:this.random(20,12)+'px'
-      }
-    }
+    this.getMyInfo()
   },
   mounted() {
     bus.$on('changeAside', isShowAside =>{
@@ -177,256 +172,54 @@ export default {
       isShowAside:true,
       randomColor:randomColor,
       random:random,
-      myInfo: {
-        avatarImgSrc: 'https://butterfly.js.org/image/avatar.png',
-        name: 'Vixcity',
-        description: 'A Simple and Card UI Design theme for Hexo',
-        count:[
-          {
-            href: 'www.baidu.com',
-            handLine: '文章',
-            count: 11
-          },
-          {
-            href: 'www.baidu.com',
-            handLine: '标签',
-            count: 6
-          },
-          {
-            href: 'www.baidu.com',
-            handLine: '分类',
-            count: 3
+      myInfo: {},
+      announcement:{},
+      docList: {},
+      articleList:{},
+      comments:{},
+      categoryList:{},
+      tagsList:{},
+      archiveList:{},
+      webInfo:{
+        
+      }
+    }
+  },
+  methods: {
+    getMyInfo(){
+      this.$api.getMyInfo().then(r=>{
+        this.myInfo = r.data
+      })
+      this.$api.announcement().then(r=>{
+        this.announcement = r.data
+      })
+      this.$api.getDocList().then(r=>{
+        this.docList = r.data
+      })
+      this.$api.getArticleList().then(r=>{
+        this.articleList = r.data
+      })
+      this.$api.getComments().then(r=>{
+        this.comments = r.data
+      })
+      this.$api.getCategoryList().then(r=>{
+        this.categoryList = r.data
+      })
+      this.$api.getTagsList().then(r=>{
+        this.tagsList = r.data
+        for(let i in this.tagsList.tags){
+          this.tagsList.tags[i].style={
+            color:this.randomColor(),
+            fontSize:this.random(20,12)+'px'
           }
-        ],
-        giteeHref: 'https://gitee.com/vixcity',
-        showGitee: true,
-      },
-      docList: [
-        {
-          title:'🚀 快速开始',
-          href:'www.vip.com'
-        },
-        {
-          title:'📑 主题页面',
-          href:'www.vip.com'
-        },
-        {
-          title:'🛠 主题配置-1',
-          href:'www.vip.com'
-        },
-        {
-          title:'⚔️ 主题配置-2',
-          href:'www.vip.com'
-        },
-        {
-          title:'❓ 主题问答',
-          href:'www.vip.com'
-        },
-        {
-          title:'⚡️ 进阶教程',
-          href:'www.vip.com'
-        },
-        {
-          title:'✨ 更新日誌',
-          href:'www.vip.com'
-        },
-      ],
-      articleList:[
-        {
-          title:'Butterfly添加全局吸底Aplayer教程',
-          imgSrc:'https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/when-set-the-top-img-to-false.png',
-          createTime:'2020-10-28',
-          href:'www.baidu.com'
-        },
-        {
-          title:'Butterfly添加全局吸底Aplayer教程',
-          imgSrc:'https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/when-set-the-top-img-to-false.png',
-          createTime:'2020-10-28',
-          href:'www.baidu.com'
-        },
-        {
-          title:'Butterfly添加全局吸底Aplayer教程',
-          imgSrc:'https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/when-set-the-top-img-to-false.png',
-          createTime:'2020-10-28',
-          href:'www.baidu.com'
-        },
-        {
-          title:'Butterfly添加全局吸底Aplayer教程',
-          imgSrc:'https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/when-set-the-top-img-to-false.png',
-          createTime:'2020-10-28',
-          href:'www.baidu.com'
-        },
-        {
-          title:'Butterfly添加全局吸底Aplayer教程Butterfly添加全局吸底Aplayer教程Butterfly添加全局吸底Aplayer教程Butterfly添加全局吸底Aplayer教程',
-          imgSrc:'https://cdn.jsdelivr.net/gh/jerryc127/CDN/img/when-set-the-top-img-to-false.png',
-          createTime:'2020-10-28',
-          href:'www.baidu.com'
         }
-      ],
-      comments:[
-        {
-          gravatarSrc:'https://gravatar.loli.net/avatar/f8496f42e482f457a85613e8bbb2b711?d=robohash',
-          userName:'火星飞鸟',
-          comment:'嘻嘻嘻',
-          reTime:'22小时前'
-        },
-        {
-          gravatarSrc:'https://gravatar.loli.net/avatar/f8496f42e482f457a85613e8bbb2b711?d=robohash',
-          userName:'火星飞鸟',
-          comment:'嘻嘻嘻火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟',
-          reTime:'22小时前'
-        },
-        {
-          gravatarSrc:'https://gravatar.loli.net/avatar/f8496f42e482f457a85613e8bbb2b711?d=robohash',
-          userName:'火星飞鸟',
-          comment:'嘻嘻嘻',
-          reTime:'22小时前'
-        },
-        {
-          gravatarSrc:'https://gravatar.loli.net/avatar/f8496f42e482f457a85613e8bbb2b711?d=robohash',
-          userName:'火星飞鸟',
-          comment:'嘻嘻嘻火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟',
-          reTime:'22小时前'
-        },
-        {
-          gravatarSrc:'https://gravatar.loli.net/avatar/f8496f42e482f457a85613e8bbb2b711?d=robohash',
-          userName:'火星飞鸟',
-          comment:'嘻嘻嘻',
-          reTime:'22小时前'
-        },
-        {
-          gravatarSrc:'https://gravatar.loli.net/avatar/f8496f42e482f457a85613e8bbb2b711?d=robohash',
-          userName:'火星飞鸟',
-          comment:'嘻嘻嘻火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟',
-          reTime:'22小时前'
-        },
-      ],
-      categoryList:[
-        {
-          href:'www.baidu.com',
-          categoryName:'Demo',
-          categoryCount:5
-        },
-        {
-          href:'www.baidu.com',
-          categoryName:'Doc文档',
-          categoryCount:7
-        },
-        {
-          href:'www.baidu.com',
-          categoryName:'Markdown',
-          categoryCount:1
-        },
-        {
-          href:'www.baidu.com',
-          categoryName:'Thx',
-          categoryCount:1
-        },
-        {
-          href:'www.baidu.com',
-          categoryName:'进阶教程',
-          categoryCount:2
-        }
-      ],
-      tagsList:[
-        {
-          tag:'教程',
-          href:'www.baidu.com'
-        },
-        {
-          tag:'Hexo',
-          href:'www.baidu.com'
-        },
-        {
-          tag:'主题',
-          href:'www.baidu.com'
-        },
-        {
-          tag:'butterfly',
-          href:'www.baidu.com'
-        },
-        {
-          tag:'打赏',
-          href:'www.baidu.com'
-        },
-        {
-          tag:'Aplayer',
-          href:'www.baidu.com'
-        },
-        {
-          tag:'标籤外挂',
-          href:'www.baidu.com'
-        },
-        {
-          tag:'highlight',
-          href:'www.baidu.com'
-        },
-        {
-          tag:'Bar',
-          href:'www.baidu.com'
-        },
-        {
-          tag:'top_img',
-          href:'www.baidu.com'
-        },
-        {
-          tag:'demo',
-          href:'www.baidu.com'
-        }
-      ],
-      archiveList:[
-        {
-          href:'www.baidu.com',
-          archiveData:'2020年10月',
-          archiveCount:3
-        },
-        {
-          href:'www.baidu.com',
-          archiveData:'2020年10月',
-          archiveCount:3
-        },
-        {
-          href:'www.baidu.com',
-          archiveData:'2020年10月',
-          archiveCount:3
-        },
-        {
-          href:'www.baidu.com',
-          archiveData:'2020年10月',
-          archiveCount:3
-        },
-        {
-          href:'www.baidu.com',
-          archiveData:'2020年10月',
-          archiveCount:3
-        },
-      ],
-      webInfo:[
-        {
-          name:'文章数目',
-          count:16
-        },
-        {
-          name:'已运行时间',
-          count:'398 天'
-        },
-        {
-          name:'本站总字数',
-          count:'46.7k'
-        },
-        {
-          name:'本站访客数',
-          count:9235
-        },
-        {
-          name:'本站总访问量',
-          count:77731
-        },
-        {
-          name:'最后更新时间',
-          count:'1 天前'
-        },
-      ]
+      })
+      this.$api.getArchiveList().then(r=>{
+        this.archiveList = r.data
+      })
+      this.$api.getWebInfo().then(r=>{
+        this.webInfo = r.data
+      })
     }
   }
 }

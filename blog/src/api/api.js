@@ -3,6 +3,7 @@ import axios from './axios'
 // params：参数(备注用)
 let list = [].concat(require('./homePage.js'))
     .concat(require('./archives.js'))
+    .concat(require('./siderBar.js'))
 
 let api = {}
 for (let k in list) {
