@@ -34,7 +34,7 @@
         </div>
       </div>
       <article>
-        <article v-for="item in contentInfo.articleTypePost" :key="item" class="article">
+        <article v-for="(item,index) in contentInfo.articleTypePost" :key="index" class="article">
           <div class="article-inner">
             <heaeder class="article-header">
               <h2>

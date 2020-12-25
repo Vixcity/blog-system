@@ -8,7 +8,7 @@
           <div class="author-info_description">{{myInfo.description}}</div>
         </div>
         <div class="card-info-data">
-          <div v-for="item in myInfo.count" :key="item" class="card-info-data-item is-center">
+          <div v-for="(item,index) in myInfo.count" :key="index" class="card-info-data-item is-center">
             <a :href="item.href" data-pjax-state="">
               <div class="headline">{{item.handLine}}</div>
               <div class="length-num">{{item.count}}</div>
@@ -50,7 +50,7 @@
           <span>文档</span>
         </div>
         <ul class="card-category-list">
-          <li v-for="item in docList.docs" :key="item" class="card-category-list-item">
+          <li v-for="(item,index) in docList.docs" :key="index" class="card-category-list-item">
             <a :href="item.href" class="card-category-list-link">{{item.title}}</a>
           </li>
         </ul>
@@ -63,7 +63,7 @@
           <span>最新文章</span>
         </div>
         <div class="aside-list">
-          <div v-for="item in articleList.articles" :key="item" class="aside-list-item">
+          <div v-for="(item,index) in articleList.articles" :key="index" class="aside-list-item">
             <a :href="item.href" class="thumbnail"><img :src="item.imgSrc" alt=""></a>
             <div class="content">
               <a :href="item.href" :title="item.title" class="title">{{item.title}}</a>
@@ -80,7 +80,7 @@
           <span>最新评论</span>
         </div>
         <div class="aside-list">
-          <div v-for="item in comments.commentsList" :key="item" class="aside-list-item">
+          <div v-for="(item,index) in comments.commentsList" :key="index" class="aside-list-item">
             <a href="/messageboard/" class="thumbnail"><img :src="item.gravatarSrc" alt=""></a>
             <div class="content">
               <a href="/messageboard/" :title="item.comment" class="title">{{item.comment}}</a>
@@ -100,7 +100,7 @@
           <span>分类</span>
         </div>
          <ul class="card-category-list">
-          <li v-for="item in categoryList.categorys" :key="item" class="card-category-list-item">
+          <li v-for="(item,index) in categoryList.categorys" :key="index" class="card-category-list-item">
             <a :href="item.href" class="card-category-list-link">
               <span class="card-category-list-name">{{item.categoryName}}</span>
               <span class="card-category-list-count">{{item.categoryCount}}</span>
@@ -116,7 +116,7 @@
           <span>标签</span>
         </div>
         <div class="card-tag-cloud">
-          <a v-for="item in tagsList.tags" :key="item" :href="item.href" :style="item.style">{{item.tag}}</a>
+          <a v-for="(item,index) in tagsList.tags" :key="index" :href="item.href" :style="item.style">{{item.tag}}</a>
         </div>
       </div>
     </div>
@@ -127,7 +127,7 @@
           <span>归档</span>
         </div>
          <ul class="card-category-list">
-          <li v-for="item in archiveList.archives" :key="item" class="card-category-list-item">
+          <li v-for="(item,index) in archiveList.archives" :key="index" class="card-category-list-item">
             <a :href="item.href" class="card-category-list-link">
               <span class="card-category-list-name">{{item.archiveData}}</span>
               <span class="card-category-list-count">{{item.archiveCount}}</span>
@@ -143,7 +143,7 @@
           <span>网站资讯</span>
         </div>
          <div class="webinfo">
-           <div v-for="item in webInfo.webInfoList" :key="item" class="webinfo-item">
+           <div v-for="(item,index) in webInfo.webInfoList" :key="index" class="webinfo-item">
              <div class="item-name">{{item.name}}</div>
              <div class="item-count">{{item.count}}</div>
            </div>

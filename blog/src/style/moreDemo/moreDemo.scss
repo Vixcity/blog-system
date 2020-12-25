@@ -1,0 +1,51 @@
+.moreDemo{
+  width: 100%;
+  .container{
+    .page{
+      align-self: flex-start;
+      padding: .5rem .4rem;
+      margin: .5rem auto 0;
+      width: 75%;
+      border-radius: 8px;
+      background: $cardColor;
+      box-shadow: 0 4px 8px 6px rgba(7,17,27,.06);
+      transition: all .3s;
+      .moreDemo-lists{
+        padding: .2rem 0 .3rem;
+      }
+      .moreDemo-title{
+        font-size: 2em;
+      }
+      .moreDemo-list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        li:first-child{
+          margin-left: 0;
+        }
+        li{
+          margin-left: .2rem;
+          a{
+            display: block;
+            transition: all .3s;
+          }
+        }
+        li:hover{
+          a{
+            color:#49B1f5!important;
+            transform: scale(1.1);
+          }
+        }
+      }
+      hr{
+        margin-top: .25rem;
+      }
+      .showDemos{
+        margin-top: .3rem;
+      }
+    }
+    .page:hover{
+      box-shadow: 0 4px 12px 12px rgba(7,17,27,.15);
+    }
+  }
+}

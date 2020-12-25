@@ -12,9 +12,20 @@ export default {
       reload: this.reload
     }
   },
+  created() {
+    // 加载动画显示
+    this.$loading.show(
+        {
+          text:'正在加载中>>>',
+        }
+    )
+    setTimeout(()=>{
+      this.$loading.hide()
+    },1000)
+  },
   data () {
     return {
-      isRouterAlive: true
+      isRouterAlive: true,
     }
   },
   methods: {

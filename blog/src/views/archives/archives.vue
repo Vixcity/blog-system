@@ -10,7 +10,7 @@
         </div>
         <div class="archivesBody">
           <div class="timeline-line"></div>
-          <div v-for="item in this.timeData" :key="item" class="year">
+          <div v-for="(item,index) in this.timeData" :key="index" class="year">
             <a href="javascript:void(0)" @click="changeHeight">
               <h1>{{item.year}}<i></i></h1>
             </a>

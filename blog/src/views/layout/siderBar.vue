@@ -8,7 +8,7 @@
           </a>
         </div>
         <ul class="nav nav-main">
-          <li v-for="item in menuTree" :key="item" class="nav-item">
+          <li v-for="(item,index) in menuTree" :key="index" class="nav-item">
             <a :href="item.href" class="nav-item-link">{{item.title}}</a>
           </li>
         </ul>

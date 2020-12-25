@@ -1,5 +1,5 @@
 @import './common/variable';
-@import url(//at.alicdn.com/t/font_2266192_llsd8hystu.css);
+@import url(//at.alicdn.com/t/font_2266192_8i1hvoz92fk.css);
 @import './common/common';
 @import './typed/typed';
 @import './layout/layout';
@@ -7,6 +7,12 @@
 @import './archives/archives';
 @import './categories/categories';
 @import './tags/tags';
+@import './moreDemo/moreDemo';
 
+// 菜单栏和侧边栏组件样式
 @import '../components/asideContent/asideContent';
 @import '../components/contentBanner/contentBanner';
+
+// css的好看的效果样式
+@import '../components/loading/loading';
+@import '../components/hoverButton/hoverButton';

@@ -5,12 +5,12 @@
       <div class="page">
         <div class="category-lists">
           <div class="category-title is-center">
-            分类 -
+            {{ title }} -
             <span class="category-amount">{{ categories.length }}</span>
           </div>
           <div>
             <ul class="category-list">
-              <li v-for="item in categories" :key="item" class="category-list-item">
+              <li v-for="(item,index) in categories" :key="index" class="category-list-item">
                 <a :href="item.href" class="category-list-link">{{ item.title }}</a>
                 <span class="category-list-count">({{ item.count }})</span>
               </li>

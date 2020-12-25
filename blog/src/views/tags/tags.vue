@@ -5,11 +5,11 @@
       <div class="page">
         <div class="category-lists">
           <div class="tag-cloud-title is-center">
-            标签 -
+            {{ title }} -
             <span class="tag-cloud-amount">{{ tags.length }}</span>
           </div>
           <div class="tag-cloud-list is-center">
-            <a v-for="item in tags" :key="item" :href="item.href" :style="item.style">{{item.tagName}}</a>
+            <a v-for="(item,index) in tags" :key="index" :href="item.href" :style="item.style">{{item.tagName}}</a>
           </div>
         </div>
       </div>
