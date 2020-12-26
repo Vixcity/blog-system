@@ -180,9 +180,7 @@ export default {
       categoryList:{},
       tagsList:{},
       archiveList:{},
-      webInfo:{
-        
-      }
+      webInfo:{}
     }
   },
   methods: {

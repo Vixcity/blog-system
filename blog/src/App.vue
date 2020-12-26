@@ -16,12 +16,12 @@ export default {
     // 加载动画显示
     this.$loading.show(
         {
-          text:'正在加载中>>>',
+          text:'正在加载中...',
         }
     )
-    setTimeout(()=>{
-      this.$loading.hide()
-    },1000)
+    this.$nextTick(()=>{
+        this.$loading.hide()
+    })
   },
   data () {
     return {
