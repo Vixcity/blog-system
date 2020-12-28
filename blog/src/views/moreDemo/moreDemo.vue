@@ -23,7 +23,8 @@
               <lightButton text="测试按钮" :color="{'--i': 5}"/>
             </div>
             <div v-if="showDemo==1">
-              <lightButton text="loading效果" @click.native="showLoading()" :color="{'--i': 4}" />
+              <lightButton text="loading效果1" @click.native="showLoading(1,3000)" :color="{'--i': 4}" />
+              <lightButton text="loading效果2" @click.native="showLoading(2,6000)" :color="{'--i': 3}" />
             </div>
             <div v-if="showDemo==2">
               <div style="display: flex;justify-content: center;align-items: center">
@@ -38,8 +39,27 @@
                       '#bf00ff',
                       '#00a4ee',
                       '#04BE02']"
+                    type="1"
                 />
               </div>
+              <div style="display: flex;justify-content: center;align-items: center;margin-top: .4rem">
+                <hoverButton
+                    :icon="['iconfont icon-logo_gitee_icon',
+                        'iconfont icon-github',
+                        'iconfont icon-INS',
+                        'iconfont icon-ttww',
+                        'iconfont icon-weixin']"
+                    :color="['#cd4a38',
+                      'rgb(0, 0, 0)',
+                      '#bf00ff',
+                      '#00a4ee',
+                      '#04BE02']"
+                    :type="2"
+                />
+              </div>
+            </div>
+            <div v-if="showDemo==3" class="hoverLightButton">
+              <hoverLightButton text="loading效果1" @click.native="showLoading(1,3000)"/>
             </div>
           </div>
         </div>
@@ -54,6 +74,7 @@ import asideContent from "../../components/asideContent/asideContent";
 import contentBanner from "../../components/contentBanner/contentBanner";
 import lightButton from "../../components/lightButton/lightButton";
 import hoverButton from "../../components/hoverButton/hoverButton";
+import hoverLightButton from "../../components/hoverLightButton/hoverLightButton"
 import { randomColor,random } from '../../utils/common'
 
 export default {
@@ -62,7 +83,8 @@ export default {
     hoverButton,
     contentBanner,
     asideContent,
-    lightButton
+    lightButton,
+    hoverLightButton
   },
   created() {
     for(let i in this.moreDemoList){
@@ -90,6 +112,9 @@ export default {
           title:'悬停按钮',
         },
         {
+          title:'流光按钮',
+        },
+        {
           title:'关闭所有显示效果',
         }
       ]
@@ -102,16 +127,17 @@ export default {
       }
       this.showDemo = index
     },
-    showLoading(){
+    showLoading(num,time){
       // 加载动画显示
       this.$loading.show(
           {
             text:'正在加载中...',
+            type:num
           }
       )
       setTimeout(()=>{
         this.$loading.hide()
-      },2000)
+      },time)
     }
   }
 }

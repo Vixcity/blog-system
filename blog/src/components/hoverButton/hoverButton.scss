@@ -41,3 +41,41 @@
     left: -30%;
   }
 }
+@media (max-width:660px) {
+  .hoverButton{
+    display: none;
+  }
+}
+.btn{
+  position: relative;
+  width: 2rem;
+  height: .6rem;
+  border: 4px solid;
+  font-width: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: .2rem;
+}
+.btn::after,.btn::before{
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 4px;
+  background: $defaultColor;
+  transform: skewX(50deg);
+  transition: .4s linear;
+}
+.btn::before{
+  top: -4px;
+  left: 10%;
+}
+.btn::after{
+  bottom: -4px;
+  right: 10%;
+}
+.btn:hover::before{
+  left: 80%;
+}
+.btn:hover::after{
+  right: 80%;
+}

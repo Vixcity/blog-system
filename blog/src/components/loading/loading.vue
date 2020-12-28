@@ -1,7 +1,15 @@
 <template>
   <div v-if="show" class="loading">
-    <div class="loading-content"></div>
-    <div style="color: white;position: absolute;top: 58%">{{text}}</div>
+    <div v-if="type==1">
+      <div class="loading-content1"></div>
+      <div style="color: white;position: absolute;top: 58%">{{text}}</div>
+    </div>
+    <div class="loading2" v-if="type==2">
+      <div class="loading-content2">
+        <div class="ball"></div>
+      </div>
+      <div style="color: white;position: absolute;top: 60%;left: 55%;transform: translateX(-50%)">{{text}}</div>
+    </div>
   </div>
 </template>
 
@@ -13,7 +21,8 @@
       text:{
         type:String,
         default:'正在加载中...'
-      }
+      },
+      type:Number
     },
     watch:{
       show(newVal) {

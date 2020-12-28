@@ -17,6 +17,7 @@ export default {
     this.$loading.show(
         {
           text:'正在加载中...',
+          type:1
         }
     )
     this.$nextTick(()=>{

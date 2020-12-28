@@ -49,3 +49,12 @@
     }
   }
 }
+
+@media (max-width:530px) {
+  .moreDemo-list li:nth-child(4){
+    display: none;
+  }
+  .hoverLightButton{
+    display: none;
+  }
+}

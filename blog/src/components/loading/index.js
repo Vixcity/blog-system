@@ -16,6 +16,7 @@ const loading = {
         if (options){
             document.getElementsByTagName('body')[0].appendChild(instance.$el);
             instance.text = options.text;
+            instance.type = options.type;
         }
     },
     hide(){
