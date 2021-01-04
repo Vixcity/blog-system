@@ -25,6 +25,7 @@
             <div v-if="showDemo==1">
               <lightButton text="loading效果1" @click.native="showLoading(1,3000)" :color="{'--i': 4}" />
               <lightButton text="loading效果2" @click.native="showLoading(2,6000)" :color="{'--i': 3}" />
+              <lightButton text="loading效果3" @click.native="showLoading(3,4000)" />
             </div>
             <div v-if="showDemo==2">
               <div style="display: flex;justify-content: center;align-items: center">

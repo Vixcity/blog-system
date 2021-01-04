@@ -10,6 +10,11 @@
       </div>
       <div style="color: white;position: absolute;top: 60%;left: 55%;transform: translateX(-50%)">{{text}}</div>
     </div>
+    <div class="loading3" v-if="type==3">
+      <div class="loding-content3">
+        <span>Loading...</span>
+      </div>
+    </div>
   </div>
 </template>
 
