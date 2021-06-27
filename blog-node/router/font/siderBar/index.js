@@ -48,7 +48,7 @@ router.get('/getMenu',function (req,res){
           title:'更多示例',
           href:'/moreDemo'
         }
-    ],'欢迎使用小温博客管理系统，查询菜单  信息成功').success(res)
+    ],'欢迎使用小温博客管理系统，查询菜单信息成功').success(res)
 })
 
 module.exports = router

@@ -6,18 +6,9 @@
           <span>{{contentInfo.title}}</span>
         </h1>
         <div class="site-subtitle">
-          <vue-typed-js
-              :strings="contentInfo.typed"
-              :typeSpeed= '150'
-              :backSpeed= '70'
-              :startDelay= '100'
-              :backDelay= '1500'
-              :loop= 'true'
-              :shuffle="true"
-              :smartBackspace="true"
-          >
-            <h1 class="typing"></h1>
-          </vue-typed-js>
+          <div class="beforeTyped">
+            <span id="typed" class="typed-cursor"></span>  
+          </div>
         </div>
       </div>
       <div class="bannerDown" @click="scrollTo">
@@ -36,11 +27,11 @@
       <article>
         <article v-for="(item,index) in contentInfo.articleTypePost" :key="index" class="article">
           <div class="article-inner">
-            <heaeder class="article-header">
+            <div class="article-header">
               <h2>
                 <a class="article-title" :href="item.href">{{item.title}}<i class="article-topping" v-if="item.isTopping">置顶</i></a>
               </h2>
-            </heaeder>
+            </div>
             <div class="article-meta">
               <a :href="item.href" class="article-date">
                 <i class="iconfont icon-riqiqishu"></i>
@@ -48,7 +39,7 @@
               </a>
               <div class="article-category">
                 <i class="iconfont icon-leibie"></i>
-                <span v-for="(o,i) in item.tags" :key="o">
+                <span v-for="(o,i) in item.tags" :key="i">
                   <a :href="o.href" class="article-category-link">{{o.tag}}</a>
                   <span v-if="item.tags.length!=1 && i!=item.tags.length-1"> / </span>
                 </span>
@@ -62,7 +53,7 @@
             <footer class="article-footer">
               <ul class="article-tag-list">
                 <i class="iconfont icon-biaoqian" style="margin-right:.1rem;"></i>
-                <li class="article-tag-list-item" v-for="o in item.tags" :key="o">
+                <li class="article-tag-list-item" v-for="(o,i) in item.tags" :key="i">
                   <a :href="o.href" class="article-tag-list-link">{{o.tag}}</a>
                 </li>
               </ul>
@@ -78,6 +69,7 @@
 <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
 <script>
 import AsideContent from "../../components/asideContent/asideContent"
+import Typed from  'typed.js'
 
 export default {
   name: "homePage",
@@ -94,7 +86,8 @@ export default {
         typed: ['面朝大海，春暖花开', 'Never put off till tomorrow what you can do today', '今日事，今日毕'],
         noticeContent: '最是人间留不住，朱颜辞镜花辞树',
         articleTypePost:[]
-      }
+      },
+      theTyped:"",
     }
   },
   methods: {
@@ -110,6 +103,18 @@ export default {
       })
       this.$api.getTitle().then(r=>{
         this.contentInfo = r.data
+        let options  =  { 
+          strings: this.contentInfo.typed, 
+          typeSpeed: 40,
+          loop:true,
+          typeSpeed:150,
+          backSpeed:70,
+          startDelay:100,
+          backDelay:1500,
+          shuffle:true,
+          smartBackspace:true
+        };
+        this.theTyped = new Typed('#typed', options);
       })
     }
   }

@@ -14,9 +14,6 @@
 export default {
   name: "contentBanner",
   props:['imgSrc','title'],
-  created() {
-    // let isLight = localStorage.setItem('isLight', this.isLight)
-  },
   mounted() {
     this.styles['background-image'] = 'url(' + this.imgSrc || this.styles['background-image'] + ')'
   },
@@ -32,6 +29,11 @@ export default {
         "background-repeat": "no-repeat",
         "transition": "all .5s"
       }
+    }
+  },
+  watch:{
+    imgSrc(newVal){
+      this.styles['background-image'] = 'url(' + newVal || this.styles['background-image'] + ')'
     }
   },
   methods:{

@@ -3,11 +3,10 @@ const Result = require('../../../models/Result')
 
 const router = express.Router()
 // homePage
-
 router.get('/getTitle',function (req,res){
     new Result({
         title: 'Vixcity',
-        typed: ['面朝大海，春暖花开', '今日事，今日毕'],
+        typed: ['面朝大海，春暖花开', 'Never put off till tomorrow what you can do today', '今日事，今日毕'],
         noticeContent: '最是人间留不住，朱颜辞镜花辞树',
         articleTypePost:[
             {
@@ -36,9 +35,7 @@ router.get('/getTitle',function (req,res){
     },'欢迎使用小温博客管理系统，查询首页信息成功').success(res)
 })
 
-
 // asideContent↓
-
 router.get('/getMyInfo',function (req,res){
     new Result({
         avatarImgSrc: 'https://butterfly.js.org/image/avatar.png',

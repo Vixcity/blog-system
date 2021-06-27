@@ -4,9 +4,9 @@
     <div class="container">
       <div class="containers">
         <div class="archivesHeader flex">
-          <h1>时间线</h1>
+          <h1>{{subTitle.leftTitle}}</h1>
           <i class="iconfont icon-Clock"></i>
-          <h1>奥义-时光倒流之术</h1>
+          <h1>{{subTitle.rightTitle}}</h1>
         </div>
         <div class="archivesBody">
           <div class="timeline-line"></div>
@@ -15,7 +15,7 @@
               <h1>{{item.year}}<i></i></h1>
             </a>
             <ul class="times">
-              <li v-for="value in item.dataInfo" :key="value" class="flex" :class="{light:value.isLight}">
+              <li v-for="(value,index) in item.dataInfo" :key="index" class="flex" :class="{light:value.isLight}">
                 <a :href="value.href"><h2>{{value.data}}</h2></a>
                 <i class="iconfont icon-center"></i>
                 <div class="dataContent">
@@ -46,97 +46,10 @@ export default {
   },
   data(){
     return{
-      timeData:[
-        {
-          year: '2020',
-          dataInfo: [
-            {
-              data:'2020.01.03',
-              title:'123132',
-              summary:'564654654654654654654654',
-              href:'www.baidu.com',
-              isLight:true
-            },
-            {
-              data:'2020.01.03',
-              title:'123132',
-              summary:'564654654654654654654654',
-              href:'www.baidu.com',
-              isLight:false
-            },
-            {
-              data:'2020.01.03',
-              title:'123132',
-              summary:'564654654654654654654654',
-              href:'www.baidu.com',
-              isLight:false
-            },
-            {
-              data:'2020.01.03',
-              title:'123132',
-              summary:'564654654654654654654654',
-              href:'www.baidu.com',
-              isLight:false
-            },
-            {
-              data:'2020.01.03',
-              title:'123132',
-              summary:'564654654654654654654654',
-              href:'www.baidu.com',
-              isLight:false
-            },
-            {
-              data:'2020.01.03',
-              title:'123132',
-              summary:'564654654654654654654654',
-              href:'www.baidu.com',
-              isLight:false
-            },
-            {
-              data:'2020.01.03',
-              title:'123132',
-              summary:'564654654654654654654654',
-              href:'www.baidu.com',
-              isLight:false
-            },
-            {
-              data:'2020.01.03',
-              title:'123132',
-              summary:'564654654654654654654654',
-              href:'www.baidu.com',
-              isLight:false
-            },
-            {
-              data:'2020.01.03',
-              title:'123132',
-              summary:'564654654654654654654654',
-              href:'www.baidu.com',
-              isLight:false
-            }
-          ]
-        },
-        {
-          year: '2020',
-          dataInfo: [
-            {
-              data:'2020.01.03',
-              title:'123132',
-              summary:'564654654654654654654654',
-              href:'www.baidu.com',
-              isLight:true
-            },
-            {
-              data:'2020.01.03',
-              title:'123132',
-              summary:'564654654654654654654654',
-              href:'www.baidu.com',
-              isLight:false
-            }
-          ]
-        }
-      ],
-      bannerSrc:'https://cdn.jsdelivr.net/gh/jerryc127/butterfly_cdn@2.1.0/top_img/archive.jpg',
-      title:'归档'
+      timeData:[],
+      bannerSrc:'',
+      title:'',
+      subTitle:{},
     }
   },
   created() {
@@ -148,6 +61,9 @@ export default {
       }
     })
   },
+  mounted() {
+    this.ready()
+  },
   methods: {
     changeHeight(e){
       for(let i in e.path) {
@@ -157,6 +73,20 @@ export default {
           e.path[i].className='year'
         }
       }
+    },
+    ready() {
+      this.$api.getTimeDate().then(r=>{
+        this.timeData = r.data
+      })
+      this.$api.getArchivesTitle().then(r=>{
+        this.title = r.data.title
+      })
+      this.$api.getArchivesBannerSrc().then(r=>{
+        this.bannerSrc = r.data.url
+      })
+      this.$api.getArchivesSubTitle().then(r=>{
+        this.subTitle = r.data
+      })
     }
   },
 }

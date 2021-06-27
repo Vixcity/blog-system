@@ -21,7 +21,7 @@ import headerTop from '@/views/layout/headerTop'
 import bus from '@/assets/js/eventBus'
 
 export default {
-  name: 'main',
+  name: 'mainWindow',
   components: {
     siderBar,
     headerTop
