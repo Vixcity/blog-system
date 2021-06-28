@@ -33,59 +33,26 @@ export default {
     contentBanner,
     asideContent
   },
+  mounted() {
+    this.ready()
+  },
   data() {
     return{
-      bannerSrc:'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/categories.jpg',
+      bannerSrc:'',
       title:'分类',
-      categories:[
-        {
-          href:'www.baidu.com',
-          title:'Demo',
-          count:5
-        },
-        {
-          href:'www.baidu.com',
-          title:'Docs文檔',
-          count:3
-        },
-        {
-          href:'www.baidu.com',
-          title:'Markdown',
-          count:55
-        },
-        {
-          href:'www.baidu.com',
-          title:'Thx',
-          count:51
-        },
-        {
-          href:'www.baidu.com',
-          title:'進階教程',
-          count:50
-        },
-        {
-          href:'www.baidu.com',
-          title:'测试',
-          count:6
-        },
-        {
-          href:'www.baidu.com',
-          title:'css',
-          count:8
-        },
-        {
-          href:'www.baidu.com',
-          title:'JavaScript',
-          count:9
-        },
-        {
-          href:'www.baidu.com',
-          title:'Html',
-          count:45
-        }
-      ]
+      categories:[]
     }
-  }
+  },
+  methods: {
+    ready() {
+      this.$api.getCategoriesList().then(r=>{
+        this.categories = r.data
+      })
+      this.$api.getCategoriesBannerSrc().then(r=>{
+        this.bannerSrc = r.data.url
+      })
+    },
+  },
 }
 </script>
 

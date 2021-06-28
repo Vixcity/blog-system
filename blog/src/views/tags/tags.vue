@@ -29,49 +29,34 @@ export default {
     contentBanner,
     asideContent
   },
-  created() {
-    for(let i in this.tags){
-      this.tags[i].style={
-        color:this.randomColor(),
-        fontSize:this.random(24,12)+'px'
-      }
-    }
+  mounted() {
+    this.ready()
   },
   data() {
     return{
       randomColor:randomColor,
       random:random,
       title:'标签',
-      bannerSrc:'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/tags.jpg',
-      tags:[
-        {
-          href:"www.baidu.com",
-          tagName:'文档aa'
-        },{
-          href:"www.baidu.com",
-          tagName:'文kabrhbva'
-        },{
-          href:"www.baidu.com",
-          tagName:'fgsdfvgbva'
-        },{
-          href:"www.baidu.com",
-          tagName:'rhbva'
-        },{
-          href:"www.baidu.com",
-          tagName:'文brhbva'
-        },{
-          href:"www.baidu.com",
-          tagName:'brhbva'
-        },{
-          href:"www.baidu.com",
-          tagName:'文档ava'
-        },{
-          href:"www.baidu.com",
-          tagName:'文档asdfavbjkabva'
-        }
-      ]
+      bannerSrc:'',
+      tags:[]
     }
-  }
+  },
+  methods:{
+    ready() {
+      this.$api.getTagsList().then(r => {
+        this.tags = r.data
+        for(let i in this.tags){
+          this.tags[i].style={
+            color:this.randomColor(),
+            fontSize:this.random(24,12)+'px'
+          }
+        }
+      })
+      this.$api.getTagsBannerSrc().then(r => {
+        this.bannerSrc = r.data.url
+      })
+    }
+  },
 }
 </script>
 
