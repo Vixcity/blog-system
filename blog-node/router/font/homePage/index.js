@@ -48,12 +48,12 @@ router.get('/getMyInfo',function (req,res){
             count: 11
           },
           {
-            href: 'www.baidu.com',
+            href: '/tags',
             handLine: '标签',
             count: 6
           },
           {
-            href: 'www.baidu.com',
+            href: '/categories',
             handLine: '分类',
             count: 3
           }
