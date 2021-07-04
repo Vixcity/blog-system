@@ -97,7 +97,7 @@ export default {
   data() {
     return{
       showDemo:null,
-      bannerSrc:'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/categories.jpg',
+      bannerSrc:'http://img2.zol.com.cn/product/93/902/ce4q2hEbUkT6.jpg',
       title:'更多示例',
       moreDemoList:[
         {

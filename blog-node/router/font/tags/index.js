@@ -33,7 +33,7 @@ router.get('/getTagsList',function (req,res){
 })
 
 router.get('/getBannerSrc',function (req,res){
-    new Result({url:'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/tags.jpg'},'欢迎使用小温博客管理系统，查询标签banner图信息成功').success(res)
+    new Result({url:'https://img.zcool.cn/community/01a74d5c00a04ca8012092526f1339.jpg@3000w_1l_2o_100sh.jpg'},'欢迎使用小温博客管理系统，查询标签banner图信息成功').success(res)
 })
 
 module.exports = router

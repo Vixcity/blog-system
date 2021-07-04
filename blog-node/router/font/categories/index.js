@@ -53,7 +53,7 @@ router.get('/getCategoriesList',function (req,res){
 })
 
 router.get('/getBannerSrc',function (req,res){
-    new Result({url:'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/categories.jpg'},'欢迎使用小温博客管理系统，查询分类banner图信息成功').success(res)
+    new Result({url:'https://img.zcool.cn/community/01637559b21e93a8012028a9e02d2e.jpg@1280w_1l_0o_100sh.jpg'},'欢迎使用小温博客管理系统，查询分类banner图信息成功').success(res)
 })
 
 module.exports = router
