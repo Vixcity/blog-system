@@ -76,7 +76,6 @@ import contentBanner from "../../components/contentBanner/contentBanner";
 import lightButton from "../../components/lightButton/lightButton";
 import hoverButton from "../../components/hoverButton/hoverButton";
 import hoverLightButton from "../../components/hoverLightButton/hoverLightButton"
-import { randomColor,random } from '../../utils/common'
 
 export default {
   name: "moreDemo",
@@ -90,15 +89,13 @@ export default {
   created() {
     for(let i in this.moreDemoList){
       this.moreDemoList[i].style={
-        color:this.randomColor(),
-        fontSize:this.random(24,12)+'px'
+        color:this.$.randomColor(),
+        fontSize:this.$.random(24,12)+'px'
       }
     }
   },
   data() {
     return{
-      randomColor,
-      random,
       showDemo:null,
       bannerSrc:'https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/categories.jpg',
       title:'更多示例',

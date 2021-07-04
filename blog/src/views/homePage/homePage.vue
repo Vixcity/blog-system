@@ -87,7 +87,6 @@ export default {
         noticeContent: '最是人间留不住，朱颜辞镜花辞树',
         articleTypePost:[]
       },
-      theTyped:"",
     }
   },
   methods: {
@@ -114,7 +113,7 @@ export default {
           shuffle:true,
           smartBackspace:true
         };
-        this.theTyped = new Typed('#typed', options);
+        new Typed('#typed', options);
       })
     }
   }

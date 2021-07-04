@@ -21,7 +21,6 @@
 <script>
 import contentBanner from "../../components/contentBanner/contentBanner";
 import asideContent from "../../components/asideContent/asideContent";
-import { randomColor,random } from '../../utils/common'
 
 export default {
   name: "tags",
@@ -34,8 +33,6 @@ export default {
   },
   data() {
     return{
-      randomColor:randomColor,
-      random:random,
       title:'标签',
       bannerSrc:'',
       tags:[]
@@ -47,8 +44,8 @@ export default {
         this.tags = r.data
         for(let i in this.tags){
           this.tags[i].style={
-            color:this.randomColor(),
-            fontSize:this.random(24,12)+'px'
+            color:this.$.randomColor(),
+            fontSize:this.$.random(24,12)+'px'
           }
         }
       })

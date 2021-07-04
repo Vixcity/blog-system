@@ -154,7 +154,6 @@
 </template>
 
 <script>
-import { randomColor,random } from '../../utils/common'
 import bus from '@/assets/js/eventBus'
 
 export default {
@@ -170,8 +169,6 @@ export default {
   data(){
     return{
       isShowAside:true,
-      randomColor:randomColor,
-      random:random,
       myInfo: {},
       announcement:{},
       docList: {},
@@ -207,8 +204,8 @@ export default {
         this.tagsList = r.data
         for(let i in this.tagsList.tags){
           this.tagsList.tags[i].style={
-            color:this.randomColor(),
-            fontSize:this.random(20,12)+'px'
+            color:this.$.randomColor(),
+            fontSize:this.$.random(20,12)+'px'
           }
         }
       })
