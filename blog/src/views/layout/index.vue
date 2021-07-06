@@ -1,21 +1,24 @@
 <template>
-  <div class="main">
-    <headerTop />
-    <div class="flex">
-      <siderBar />
-      <router-view />
+  <vuescroll>
+    <div class="main">
+      <headerTop />
+      <div class="flex">
+        <siderBar />
+        <router-view />
+      </div>
+      <div class="changeLODIndex">
+        <i v-if="isLight" class="iconfont icon-yueliang icon_button" @click="changeLOD"></i>
+        <i v-else class="iconfont icon-taiyang icon_button" @click="changeLOD"></i>
+        <i class="iconfont icon-huidaodingbu icon_button" @click="toTop"></i>
+        <i v-if="isShowAside" class="iconfont icon-tubiaozhengli-34" @click="changeBOS"></i>
+        <i v-else class="iconfont icon-tubiaozhengli-33" @click="changeBOS"></i>
+      </div>
     </div>
-    <div class="changeLODIndex">
-      <i v-if="isLight" class="iconfont icon-yueliang icon_button" @click="changeLOD"></i>
-      <i v-else class="iconfont icon-taiyang icon_button" @click="changeLOD"></i>
-      <i class="iconfont icon-huidaodingbu icon_button" @click="toTop"></i>
-      <i v-if="isShowAside" class="iconfont icon-tubiaozhengli-34" @click="changeBOS"></i>
-      <i v-else class="iconfont icon-tubiaozhengli-33" @click="changeBOS"></i>
-    </div>
-  </div>
+  </vuescroll>
 </template>
 
 <script>
+import vuescroll from 'vuescroll'
 import siderBar from '@/views/layout/siderBar'
 import headerTop from '@/views/layout/headerTop'
 import bus from '@/assets/js/eventBus'
@@ -23,6 +26,7 @@ import bus from '@/assets/js/eventBus'
 export default {
   name: 'mainWindow',
   components: {
+    vuescroll,
     siderBar,
     headerTop
   },
@@ -35,6 +39,9 @@ export default {
   created() {
     this.isLight = localStorage.getItem('isLight') === 'true';
     this.getModel(this.isLight)
+  },
+  mounted() {
+    this.$('.__vuescroll').css('height','100vh')    
   },
   methods: {
     changeBOS(){
