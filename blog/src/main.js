@@ -5,6 +5,8 @@ import 'element-ui/lib/theme-chalk/display.css'
 import vuescroll from 'vuescroll'
 import animated from 'animate.css'
 import loading from '@/components/loading'
+import lightGallery from 'lightgallery.js'
+import 'lightgallery.js/dist/css/lightgallery.min.css'
 import $ from 'jquery'
 import api from './api/api'
 import App from './App.vue'
@@ -13,11 +15,13 @@ import store from './store'
 var wx = require('./utils/common')
 
 Vue.config.productionTip = false
-
+// 图片查看插件
+Vue.use(lightGallery)
 Vue.use(ElementUI)
 Vue.use(animated)
 Vue.use(loading)
 Vue.use(wx)
+// 滚动条插件
 Vue.use(vuescroll)
 Vue.prototype.$vuescrollConfig = {
   bar: {

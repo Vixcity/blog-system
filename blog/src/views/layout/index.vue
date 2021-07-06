@@ -41,7 +41,7 @@ export default {
     this.getModel(this.isLight)
   },
   mounted() {
-    this.$('.__vuescroll').css('height','100vh')    
+    this.$('.__vuescroll').css('height','100vh')
   },
   methods: {
     changeBOS(){

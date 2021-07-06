@@ -70,6 +70,7 @@
 <script>
 import AsideContent from "../../components/asideContent/asideContent"
 import Typed from  'typed.js'
+import moment from 'moment'
 
 export default {
   name: "homePage",
@@ -99,6 +100,7 @@ export default {
         r = r.match(/(?<=\{)[^}]*(?=\})/)[0];
         r = JSON.parse('{'+r+'}')
         console.log('cid:',r.cid,'\ncip:',r.cip,'\ncname',r.cname);
+        console.log(moment().format("YYYY/MM/DD 星期d HH:mm:ss"))
       })
       this.$api.getTitle().then(r=>{
         this.contentInfo = r.data
