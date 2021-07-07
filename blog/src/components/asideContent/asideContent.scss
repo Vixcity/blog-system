@@ -26,6 +26,25 @@
     margin-bottom: .2rem;
   }
 
+  #tagCloud {
+    position:relative;
+    height:202px;
+    a {
+      position:absolute; 
+      top:0px; 
+      left:0px; 
+      font-family: Microsoft YaHei; 
+      font-weight:bold; 
+      text-decoration:none; 
+      padding: 4px 8px; 
+    }
+    a:hover {
+      transform: scale(1.2);
+      transition: all .5s;
+    }
+  }
+            
+  
   .card-info{
     img {
       width: 1.1rem;
@@ -237,5 +256,8 @@
   .aside_content{
       width: 94vw;
       box-sizing: border-box;
+      #tagCloud{
+        height: 72vw;
+      }
   }
 }

@@ -24,6 +24,10 @@ export default {
         this.$loading.hide()
     })
   },
+  mounted () {
+    window.vue = this
+    window.$ = this.$
+  },
   data () {
     return {
       isRouterAlive: true,

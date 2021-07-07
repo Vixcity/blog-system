@@ -116,7 +116,9 @@
           <span>标签</span>
         </div>
         <div class="card-tag-cloud">
-          <a v-for="(item,index) in tagsList.tags" :key="index" :href="item.href" :style="item.style">{{item.tag}}</a>
+          <div id="tagCloud">
+            <a v-for="(item,index) in tagsList.tags" :key="index" :href="item.href" :style="item.style">{{item.tag}}</a>
+          </div>
         </div>
       </div>
     </div>
@@ -165,6 +167,14 @@ export default {
     bus.$on('changeAside', isShowAside =>{
       this.isShowAside = isShowAside
     })
+
+     setTimeout(() => { 
+       this.$("#tagCloud").windstagball({
+          radius:70,
+          speed:1,
+          tagList:this.tagsList.tags
+        })
+     },500)
   },
   data(){
     return{
@@ -181,6 +191,7 @@ export default {
     }
   },
   methods: {
+    
     getMyInfo(){
       this.$api.getACMyInfo().then(r=>{
         this.myInfo = r.data
@@ -202,12 +213,12 @@ export default {
       })
       this.$api.getACTagsList().then(r=>{
         this.tagsList = r.data
-        for(let i in this.tagsList.tags){
-          this.tagsList.tags[i].style={
-            color:this.$.randomColor(),
-            fontSize:this.$.random(20,12)+'px'
-          }
-        }
+        // for(let i in this.tagsList.tags){
+        //   this.tagsList.tags[i].style={
+        //     color:this.$.randomColor(),
+        //     fontSize:this.$.random(20,12)+'px'
+        //   }
+        // }
       })
       this.$api.getACArchiveList().then(r=>{
         this.archiveList = r.data
