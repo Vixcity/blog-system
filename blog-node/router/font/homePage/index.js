@@ -35,8 +35,13 @@ router.get('/getTitle',function (req,res){
     },'欢迎使用小温博客管理系统，查询首页信息成功').success(res)
 })
 
+// 获取IP与时间
+router.post('/IPAndTime',function (req,res){
+    new Result().success(res)
+})
+
 // asideContent↓
-router.get('/getMyInfo',function (req,res){
+router.get('/getACMyInfo',function (req,res){
     new Result({
         avatarImgSrc: 'https://butterfly.js.org/image/avatar.png',
         name: 'Vixcity',
@@ -71,7 +76,7 @@ router.get('/announcement',function (req,res){
       },'欢迎使用小温博客管理系统，查询公告板成功').success(res)
 })
 
-router.get('/getDocList',function (req,res){
+router.get('/getACDocList',function (req,res){
     new Result({
         isShowDoc:true,
         docs:[
@@ -107,7 +112,7 @@ router.get('/getDocList',function (req,res){
       },'欢迎使用小温博客管理系统，查询文档成功').success(res)
 })
 
-router.get('/getArticleList',function (req,res){
+router.get('/getACArticleList',function (req,res){
     new Result({
         isShowarticle:true,
         articles:[
@@ -144,7 +149,7 @@ router.get('/getArticleList',function (req,res){
         ]},'欢迎使用小温博客管理系统，查询最新文章成功').success(res)
 })
 
-router.get('/getComments',function (req,res){
+router.get('/getACComments',function (req,res){
     new Result({
         isShowComment:true,
         commentsList:[
@@ -187,7 +192,7 @@ router.get('/getComments',function (req,res){
         ]},'欢迎使用小温博客管理系统，查询最新留言成功').success(res)
 })
 
-router.get('/getCategoryList',function (req,res){
+router.get('/getACCategoryList',function (req,res){
     new Result({
         isShowCategory:true,
         categorys:[
@@ -219,7 +224,7 @@ router.get('/getCategoryList',function (req,res){
         ]},'欢迎使用小温博客管理系统，查询分类成功').success(res)
 })
 
-router.get('/getTagsList',function (req,res){
+router.get('/getACTagsList',function (req,res){
     new Result({
         isShowTag:true,
         tags:[
@@ -270,7 +275,7 @@ router.get('/getTagsList',function (req,res){
         ]},'欢迎使用小温博客管理系统，查询标签成功').success(res)
 })
 
-router.get('/getArchiveList',function (req,res){
+router.get('/getACArchiveList',function (req,res){
     new Result({
         isShowArchiveList:true,
         archives:[
@@ -302,7 +307,7 @@ router.get('/getArchiveList',function (req,res){
       ]},'欢迎使用小温博客管理系统，查询归档成功').success(res)
 })
 
-router.get('/getWebInfo',function (req,res){
+router.get('/getACWebInfo',function (req,res){
     new Result({
         isShowWebInfo:true,
         webInfoList:[
