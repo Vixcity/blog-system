@@ -11,6 +11,13 @@ module.exports = {
                     '^/getIP': ''
                 }
             },
+            '/getUserIpInfo': {
+                target: 'https://restapi.amap.com/v5/ip',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/getUserIpInfo': ''
+                }
+            },
             '/font': {
                 target: 'https://127.0.0.1:2345',
                 changeOrigin: true,

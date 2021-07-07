@@ -182,25 +182,25 @@ export default {
   },
   methods: {
     getMyInfo(){
-      this.$api.getMyInfo().then(r=>{
+      this.$api.getACMyInfo().then(r=>{
         this.myInfo = r.data
       })
       this.$api.announcement().then(r=>{
         this.announcement = r.data
       })
-      this.$api.getDocList().then(r=>{
+      this.$api.getACDocList().then(r=>{
         this.docList = r.data
       })
-      this.$api.getArticleList().then(r=>{
+      this.$api.getACArticleList().then(r=>{
         this.articleList = r.data
       })
-      this.$api.getComments().then(r=>{
+      this.$api.getACComments().then(r=>{
         this.comments = r.data
       })
-      this.$api.getCategoryList().then(r=>{
+      this.$api.getACCategoryList().then(r=>{
         this.categoryList = r.data
       })
-      this.$api.getTagsList().then(r=>{
+      this.$api.getACTagsList().then(r=>{
         this.tagsList = r.data
         for(let i in this.tagsList.tags){
           this.tagsList.tags[i].style={
@@ -209,10 +209,10 @@ export default {
           }
         }
       })
-      this.$api.getArchiveList().then(r=>{
+      this.$api.getACArchiveList().then(r=>{
         this.archiveList = r.data
       })
-      this.$api.getWebInfo().then(r=>{
+      this.$api.getACWebInfo().then(r=>{
         this.webInfo = r.data
       })
     }

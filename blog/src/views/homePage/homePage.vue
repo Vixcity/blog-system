@@ -86,8 +86,9 @@ export default {
         title: 'Vixcity',
         typed: ['面朝大海，春暖花开', 'Never put off till tomorrow what you can do today', '今日事，今日毕'],
         noticeContent: '最是人间留不住，朱颜辞镜花辞树',
-        articleTypePost:[]
+        articleTypePost:[],
       },
+      userInfoMsg:{}
     }
   },
   methods: {
@@ -99,8 +100,27 @@ export default {
         //获取花括号里面的内容
         r = r.match(/(?<=\{)[^}]*(?=\})/)[0];
         r = JSON.parse('{'+r+'}')
-        console.log('cid:',r.cid,'\ncip:',r.cip,'\ncname',r.cname);
-        console.log(moment().format("YYYY/MM/DD 星期d HH:mm:ss"))
+        // console.log('cid:',r.cid,'\ncip:',r.cip,'\ncname',r.cname);
+        // console.log(moment().format("YYYY/MM/DD 星期d HH:mm:ss"))
+        this.userInfoMsg={
+          ip:r.cip,
+          date:moment().format("YYYY/MM/DD"),
+          weekday:moment().format("d"),
+          time:moment().format("HH:mm:ss")
+        }
+        this.$api.getUserIpInfo({
+          key:'406812c6829086a8777d43ef0bc896d9',
+          type:4,
+          ip:this.userInfoMsg.ip
+        }).then(r => {
+          this.userInfoMsg.city=r.city
+          this.userInfoMsg.country=r.country
+          this.userInfoMsg.district=r.district
+          this.userInfoMsg.isp=r.isp
+          this.userInfoMsg.location=r.location
+          this.userInfoMsg.province=r.province
+          this.$api.postIpAndTime(this.userInfoMsg).then(r => {})
+        })
       })
       this.$api.getTitle().then(r=>{
         this.contentInfo = r.data

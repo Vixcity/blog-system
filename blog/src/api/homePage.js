@@ -5,18 +5,30 @@ module.exports =[
         params: '',
         url: '/getIP'
     },
+    { //获取IP详细信息
+        name: 'getUserIpInfo',
+        method: 'get',
+        params: '',
+        url: '/getUserIpInfo'
+    },
     {
         name: 'getTitle',
         method: 'get',
         params: '',
         url: '/font/font/homePage/getTitle'
     },
+    { // 推送时间与IP
+        name: 'postIpAndTime',
+        method: 'post',
+        params: '',
+        url: '/font/font/homePage/IPAndTime'
+    },
     {
         //右边的侧边栏我的信息
-        name: 'getMyInfo',
+        name: 'getACMyInfo',
         method: 'get',
         params: '',
-        url: 'font/font/homePage/getMyInfo'
+        url: 'font/font/homePage/getACMyInfo'
     },
     {
         //右边的侧边栏公告
@@ -27,51 +39,51 @@ module.exports =[
     },
     {
         //右边的侧边栏文档
-        name: 'getDocList',
+        name: 'getACDocList',
         method: 'get',
         params: '',
-        url: 'font/font/homePage/getDocList'
+        url: 'font/font/homePage/getACDocList'
     },
     {
         //右边的侧边栏最新文章
-        name: 'getArticleList',
+        name: 'getACArticleList',
         method: 'get',
         params: '',
-        url: 'font/font/homePage/getArticleList'
+        url: 'font/font/homePage/getACArticleList'
     },
     {
         //右边的侧边栏最新评论
-        name: 'getComments',
+        name: 'getACComments',
         method: 'get',
         params: '',
-        url: 'font/font/homePage/getComments'
+        url: 'font/font/homePage/getACComments'
     },
     {
         //右边的侧边栏分类
-        name: 'getCategoryList',
+        name: 'getACCategoryList',
         method: 'get',
         params: '',
-        url: 'font/font/homePage/getCategoryList'
+        url: 'font/font/homePage/getACCategoryList'
     },
     {
         //右边的侧边栏标签
-        name: 'getTagsList',
+        name: 'getACTagsList',
         method: 'get',
         params: '',
-        url: 'font/font/homePage/getTagsList'
+        url: 'font/font/homePage/getACTagsList'
     },
     {
         //右边的侧边栏归档
-        name: 'getArchiveList',
+        name: 'getACArchiveList',
         method: 'get',
         params: '',
-        url: 'font/font/homePage/getArchiveList'
+        url: 'font/font/homePage/getACArchiveList'
     },
     {
         //右边的侧边栏网页信息
-        name: 'getWebInfo',
+        name: 'getACWebInfo',
         method: 'get',
         params: '',
-        url: 'font/font/homePage/getWebInfo'
+        url: 'font/font/homePage/getACWebInfo'
     }
 ]
