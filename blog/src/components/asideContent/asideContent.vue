@@ -191,7 +191,6 @@ export default {
     }
   },
   methods: {
-    
     getMyInfo(){
       this.$api.getACMyInfo().then(r=>{
         this.myInfo = r.data
