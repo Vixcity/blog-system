@@ -168,13 +168,12 @@ export default {
       this.isShowAside = isShowAside
     })
 
-     setTimeout(() => { 
-       this.$("#tagCloud").windstagball({
-          radius:70,
-          speed:1,
-          tagList:this.tagsList.tags
-        })
-     },500)
+    setTimeout(() => { 
+      this.$("#tagCloud").windstagball({
+        radius:68,
+        speed:10
+      })
+    },1000)
   },
   data(){
     return{
@@ -212,12 +211,12 @@ export default {
       })
       this.$api.getACTagsList().then(r=>{
         this.tagsList = r.data
-        // for(let i in this.tagsList.tags){
-        //   this.tagsList.tags[i].style={
-        //     color:this.$.randomColor(),
-        //     fontSize:this.$.random(20,12)+'px'
-        //   }
-        // }
+        for(let i in this.tagsList.tags){
+          this.tagsList.tags[i].style={
+            color:this.$.randomColor(),
+            // fontSize:this.$.random(20,12)+'px'
+          }
+        }
       })
       this.$api.getACArchiveList().then(r=>{
         this.archiveList = r.data
