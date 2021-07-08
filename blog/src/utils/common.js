@@ -10,6 +10,96 @@ $.random = function (max, min) {
     return parseInt(Math.random() * (max - min + 1) + min);
 }
 
+// 数组方法
+$.arrayFun = function (array, option) { 
+    if (Object.prototype.toString.call(array) !== '[object Array]'){
+        return '你传过来的参数不对,应该为数组'
+    }
+    if(option === 'min') {
+        // 数字数组求最小值
+        return array.reduce((a,b) => a<b?a:b);
+    } else if(option === 'max') {
+        // 数字数组求最大值
+        return array.reduce((a,b) => a>b?a:b);
+    } else if (option === 'sum') {
+        // 数字数组求和
+        return array.reduce((a,b) => a+b);
+    } else if (option === 'sort') {
+        // 数字数组排序 正序
+        return array.sort((a,b) => a-b);
+    } else if (option === 'reverseSort') {
+        // 数字数组排序 倒序
+        return array.sort((a,b) => b-a);
+    } else if (option === 'filter') {
+        // 过滤像 0, undefined, null, false, "", ''这样的假值
+        return array.filter(Boolean);
+    } else if (option === 'unique') {
+        // 数组去重
+        return array.filter((item,idx,arr) => arr.indexOf(item) === idx);
+    } else if (option === 'pinlv') {
+        // 统计特殊词出现的频率
+        const table={}; 
+        for(let char of array) {
+          table[char]=table[char]+1 || 1;
+        }
+        return table
+    } else if (option === 'random') {
+        // 打乱数组顺序
+        array.sort(() => {
+            return Math.random() - 0.5;
+        });
+        return array
+    } else {
+        return '你传过来的参数不对,没有找到此方法名'
+    }
+ }
+
+// 对象方法
+$.objectFun = function (obj,option) { 
+    // 如果是数组对象，进这里
+    if (Object.prototype.toString.call(obj) === '[object Array]'){
+        if (option === 'assign') {
+            // 合并对象(无重复属性)
+            let res = {}
+            for (let i = 0;i<=obj.length;i++) {
+                Object.assign(res, obj[i])
+            }
+            return res
+        } else {
+            return '你传过来的参数不对,没有找到此方法名'
+        }
+    } else if (Object.prototype.toString.call(obj) === '[object Object]') {
+        // 如果是普通对象，进这里
+        if (option === 'entries') {
+            // 取到值和属性的数组
+            return Object.entries(obj);
+        } else if (option === 'getKey') {
+            // 取到属性的数组
+            return Object.keys(obj);
+        } else if (option === 'getValue') {
+            // 取到值的数组
+            return Object.values(obj);
+        } else {
+            return '你传过来的参数不对,没有找到此方法名'
+        }
+    } else {
+        return '你传过来的参数不对'
+    }
+ }
+
+// 字符串方法
+$.stringFun = function (str,option) { 
+    if (typeof(str)!=='string'){
+        return '你传过来的参数不对,应该为字符串'
+    }
+    if (option === 'checkPalindrome') {
+        // 检测是否为回文字符串
+        return str == str.split('').reverse().join('');
+    } else {
+        return '你传过来的参数不对,没有找到此方法名'
+    }
+}
+
 // 标签球
 // 用法：
 // 在HTML里面加入标签
