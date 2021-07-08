@@ -5,7 +5,7 @@ module.exports =[
         params: '',
         url: '/font/font/tags/getTagsList'
     },
-    { //获取标题
+    { //获取标题图
         name: 'getTagsBannerSrc',
         method: 'get',
         params: '',

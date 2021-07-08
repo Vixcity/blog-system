@@ -214,7 +214,7 @@ export default {
         for(let i in this.tagsList.tags){
           this.tagsList.tags[i].style={
             color:this.$.randomColor(),
-            // fontSize:this.$.random(20,12)+'px'
+            fontSize:this.$.random(22,12)+'px'
           }
         }
       })

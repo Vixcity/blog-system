@@ -11,8 +11,7 @@
           <div>
             <ul class="category-list">
               <li v-for="(item,index) in categories" :key="index" class="category-list-item">
-                <a :href="item.href" class="category-list-link">{{ item.title }}</a>
-                <span class="category-list-count">({{ item.count }})</span>
+                <a :href="item.href" class="category-list-link">{{ item.title }}<span class="category-list-count">({{ item.count }})</span></a>
               </li>
             </ul>
           </div>

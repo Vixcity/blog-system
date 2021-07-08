@@ -1,31 +1,50 @@
 .docs{
-    width: 100%;
-    .container{
+  width: 100%;
+  .container{
       .page{
-        align-self: flex-start;
-        margin: .5rem auto 0;
-        width: 75%;
-        transition:all .5s;
-        box-sizing: border-box;
-        padding: .5rem .4rem;
-        border-radius: 8px;
-        background: $cardColor;
-        box-shadow: 0 4px 8px 6px rgba(7,17,27,.06);
-        .tag-cloud-title {
-          font-size: 2.57em;
-        }
-        .tag-cloud-list a {
-          display: inline-block;
-          padding: 0 .1rem;
+          align-self: flex-start;
+          padding: .5rem .4rem;
+          margin: .5rem auto 0;
+          width: 75%;
+          border-radius: 8px;
+          background: $cardColor;
+          box-shadow: 0 4px 8px 6px rgba(7,17,27,.06);
           transition: all .3s;
-        }
-        .tag-cloud-list a:hover{
-          color:#49B1f5!important;
-          transform: scale(1.1);
-        }
+          .docs-lists{
+              padding: .2rem 0 .3rem;
+          }
+          .docs-title{
+              font-size: 2em;
+          }
+          .docs-list{
+              margin-top: .08rem;
+              padding: 0 0 0 .2rem;
+              list-style: none;
+              counter-reset: li;
+              .docs-list-item{
+                position: relative;
+                margin: .06rem 0;
+                padding: .5em .0em .5em 0em;
+                transition: all .3s;
+                  a{
+                      display: inline-block;
+                      width: 100%;
+                      text-decoration: none;
+                      word-wrap: break-word;
+                      transition: all .2s;
+                      overflow-wrap: break-word;
+                      color: $fontColor;
+                      transition: all .25s;
+                  }
+              }
+              .docs-list-item:hover{
+                background-color: $cardDocColor;
+                padding-left:1em;
+              }
+          }
       }
       .page:hover{
           box-shadow: 0 4px 12px 12px rgba(7,17,27,.15);
       }
-    }
   }
+}

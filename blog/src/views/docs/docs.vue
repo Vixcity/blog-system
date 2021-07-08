@@ -3,13 +3,17 @@
     <contentBanner :imgSrc="bannerSrc" :title="title" />
     <div class="container">
       <div class="page">
-        <div class="category-lists">
-          <div class="tag-cloud-title is-center">
+        <div class="docs-lists">
+          <div class="docs-title is-center">
             {{ title }} -
-            <span class="tag-cloud-amount">{{ tags.length }}</span>
+            <span class="docs-amount">{{ docs.length }}</span>
           </div>
-          <div class="tag-cloud-list is-center">
-            <a v-for="(item,index) in tags" :key="index" :href="item.href" :style="item.style">{{item.tagName}}</a>
+          <div>
+            <ul class="docs-list">
+              <li v-for="(item,index) in docs" :key="index" class="docs-list-item">
+                <a :href="item.href" class="docs-list-link">{{ item.title }}</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -19,8 +23,8 @@
 </template>
 
 <script>
-import contentBanner from "../../components/contentBanner/contentBanner";
-import asideContent from "../../components/asideContent/asideContent";
+import contentBanner from "../../components/contentBanner/contentBanner"
+import asideContent from "../../components/asideContent/asideContent"
 
 export default {
   name: "docs",
@@ -33,26 +37,20 @@ export default {
   },
   data() {
     return{
-      title:'文档',
       bannerSrc:'',
-      tags:[]
+      title:'文档',
+      docs:[]
     }
   },
-  methods:{
+  methods: {
     ready() {
-      this.$api.getTagsList().then(r => {
-        this.tags = r.data
-        for(let i in this.tags){
-          this.tags[i].style={
-            color:this.$.randomColor(),
-            fontSize:this.$.random(24,12)+'px'
-          }
-        }
+      this.$api.getDocsList().then(r=>{
+        this.docs = r.data
       })
-      this.$api.getTagsBannerSrc().then(r => {
+      this.$api.getDocsBannerSrc().then(r=>{
         this.bannerSrc = r.data.url
       })
-    }
+    },
   },
 }
 </script>

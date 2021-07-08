@@ -24,7 +24,7 @@
                 .category-list-item{
                     position: relative;
                     margin: .06rem 0;
-                    padding: .12em .4em .12em 1.4em;
+                    padding: .12em 0em .5em 1.4em;
                     a{
                         text-decoration: none;
                         word-wrap: break-word;
@@ -32,9 +32,11 @@
                         overflow-wrap: break-word;
                         color: $fontColor;
                         transition: all .25s;
+                        display: inline-block;
+                        width: 100%;
                     }
                     a:hover{
-                        color:$cardDocColor
+                        color:$cardDocColor;
                     }
                     .category-list-count {
                         margin-left: .08rem;

@@ -5,7 +5,7 @@ module.exports =[
         params: '',
         url: '/font/font/categories/getCategoriesList'
     },
-    { //获取标题
+    { //获取标题图
         name: 'getCategoriesBannerSrc',
         method: 'get',
         params: '',

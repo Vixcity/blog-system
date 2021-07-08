@@ -12,7 +12,7 @@ module.exports =[
         params: '',
         url: '/font/font/archives/getTitle'
     },
-    // 获取banner图
+    // 获取标题图
     {
         name: 'getArchivesBannerSrc',
         method: 'get',
