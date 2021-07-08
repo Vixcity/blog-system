@@ -13,13 +13,6 @@ $.random = function (max, min) {
 // 标签球
 // 用法：
 // 在HTML里面加入标签
-// <div id="div1">
-//  <a href="#">标签云</a>
-//  <a href="#" class="red">PHP</a>
-//	<a href="#">瀑布流</a>
-//	<a href="#">Tab</a>
-//	<a href="#" class="blue">流体布局</a>
-// </div>
 // 在js里面使用this.$.windstagball
 // $("#div1").windstagball({
 // tagList:[{href:'',tag:''}]
@@ -48,8 +41,6 @@ $.fn.windstagball = function(option) {
             var color = colorRandom[Math.floor(Math.random() * 5)] + colorRandom[Math.floor(Math.random() * 5)] + colorRandom[Math.floor(Math.random() * 5)];
             return '#' + color;
         }
-        // console.log(option,1111111)
-    
         randomTags();
 
         // 生成随机标签
