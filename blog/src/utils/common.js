@@ -13,16 +13,6 @@ $.random = function (max, min) {
 // 标签球
 // 用法：
 // 在HTML里面加入标签
-// #div1 {position:relative; width:350px; height:350px; border:1px solid #000; margin: 20px auto 0; }
-// #div1 a {position:absolute; top:0px; left:0px; font-family: Microsoft YaHei; color:#000; font-weight:bold; text-decoration:none; padding: 3px 6px; }
-// #div1 a:hover {border: 1px solid #eee; background: #FFF; }
-// #div1 .blue {color:blue;}
-// #div1 .red {color:red;}
-// #div1 .green {color:green;}
-
-// p { font: 16px Microsoft YaHei; text-align: center; color: #ba0c0c; }
-// p a { font-size: 14px; color: #ba0c0c; }
-// p a:hover { color: red; }
 // <div id="div1">
 //  <a href="#">标签云</a>
 //  <a href="#" class="red">PHP</a>
@@ -39,7 +29,7 @@ $.random = function (max, min) {
 $.fn.windstagball = function(option) {
     let idName
     let _this =$(this)
-    
+
     try {
         idName = _this[0].id
         windstagball()
