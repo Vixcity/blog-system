@@ -4,18 +4,26 @@
     --    title
   -->
   <div class="contentBanner" :style="styles">
-    <div class="page-site-info">
-      <h1 id="site-title">{{ title }}</h1>
+    <div id="contentBannerTitle" class="page-site-info">
+      <h1 data-depth="0.2" id="site-title">{{ title }}</h1>
     </div>
   </div>
 </template>
 
 <script>
+// 视差引擎
+import Parallax from 'parallax-js'
+
 export default {
   name: "contentBanner",
   props:['imgSrc','title'],
   mounted() {
     this.styles['background-image'] = 'url(' + this.imgSrc || this.styles['background-image'] + ')'
+    let scene = document.getElementById('contentBannerTitle')
+    let parallaxInstance = new Parallax(scene)
+    parallaxInstance.friction(0.2, 0.99);
+    parallaxInstance.scalar(10, 100);
+    // console.log(parallaxInstance)
   },
   data(){
     return{
