@@ -62,6 +62,9 @@
             <div v-if="showDemo==3" class="hoverLightButton">
               <hoverLightButton text="loading效果1" @click.native="showLoading(1,3000)"/>
             </div>
+            <div v-if="showDemo==4">
+              <colorful/>
+            </div>
           </div>
         </div>
       </div>
@@ -75,7 +78,8 @@ import asideContent from "../../components/asideContent/asideContent";
 import contentBanner from "../../components/contentBanner/contentBanner";
 import lightButton from "../../components/lightButton/lightButton";
 import hoverButton from "../../components/hoverButton/hoverButton";
-import hoverLightButton from "../../components/hoverLightButton/hoverLightButton"
+import hoverLightButton from "../../components/hoverLightButton/hoverLightButton";
+import colorful from "../../components/colorful/colorful";
 
 export default {
   name: "moreDemo",
@@ -84,7 +88,8 @@ export default {
     contentBanner,
     asideContent,
     lightButton,
-    hoverLightButton
+    hoverLightButton,
+    colorful,
   },
   created() {
     for(let i in this.moreDemoList){
@@ -111,6 +116,9 @@ export default {
         },
         {
           title:'流光按钮',
+        },
+        {
+          title:'移入移出效果'
         },
         {
           title:'关闭所有显示效果',
