@@ -213,7 +213,7 @@
           overflow: hidden;
         }
         a:hover{
-          color: #49b1f5;
+          color: $cardDocColor;
         }
         time,.name {
           display: inline-block;
@@ -236,7 +236,7 @@
       transition: all .25s;
     }
     a:hover{
-      color:#49B1f5!important;
+      color:$fontColor!important;
     }
   }
   .webinfo{

@@ -20,7 +20,7 @@
         transition: all .3s;
       }
       .tag-cloud-list a:hover{
-        color:#49B1f5!important;
+        color:$fontColor!important;
         transform: scale(1.1);
       }
     }
