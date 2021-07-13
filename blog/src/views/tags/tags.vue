@@ -29,7 +29,7 @@ export default {
     asideContent
   },
   mounted() {
-    console.log('%c银鞍照白马，\n飒沓如流星。\n十步杀一人，\n千里不留行。\n事了拂衣去，\n深藏身与名。\n闲过信陵饮，\n脱剑膝前横。',"line-height:30px;font-family:演示夏行楷,缘缘体行书,华文行楷;color: #FFB11B;font-wight:700;font-size:35px");
+    console.log('%c银鞍照白马，\n飒沓如流星。\n十步杀一人，\n千里不留行。\n事了拂衣去，\n深藏身与名。\n闲过信陵饮，\n脱剑膝前横。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: #FFB11B;font-wight:700;font-size:35px");
     this.ready()
   },
   data() {

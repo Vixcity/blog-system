@@ -75,7 +75,7 @@ export default {
       }
     },
     ready() {
-      console.log('%c惊风飘白日,\n光景西驰流。',"line-height:30px;font-family:演示夏行楷,缘缘体行书,华文行楷;color: red;font-wight:700;font-size:35px");
+      console.log('%c惊风飘白日,\n光景西驰流。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: red;font-wight:700;font-size:35px");
       this.$api.getTimeDate().then(r=>{
         this.timeData = r.data
       })

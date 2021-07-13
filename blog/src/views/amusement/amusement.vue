@@ -33,7 +33,7 @@ export default {
     asideContent
   },
   mounted() {
-    console.log('%c浮云一别后，\n流水十年间。',"line-height:30px;font-family:演示夏行楷,缘缘体行书,华文行楷;color: #B5495B;font-wight:700;font-size:35px");
+    console.log('%c浮云一别后，\n流水十年间。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: #B5495B;font-wight:700;font-size:35px");
     this.ready()
     setTimeout(() => {
       const el = document.getElementById('lightgallery')

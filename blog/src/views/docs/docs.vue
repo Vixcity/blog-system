@@ -33,7 +33,7 @@ export default {
     asideContent
   },
   mounted() {
-    console.log('%c台隍枕夷夏之交，\n宾主尽东南之美。',"line-height:30px;font-family:演示夏行楷,缘缘体行书,华文行楷;color: #3d6167;font-wight:700;font-size:35px");
+    console.log('%c台隍枕夷夏之交，\n宾主尽东南之美。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: #3d6167;font-wight:700;font-size:35px");
     this.ready()
   },
   data() {

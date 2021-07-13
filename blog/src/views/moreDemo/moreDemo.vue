@@ -99,6 +99,14 @@ export default {
       }
     }
   },
+  mounted() {
+    console.log('%c青山看不厌，\n流水趣何长。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: #005CAF;font-wight:700;font-size:35px");
+    if(localStorage.getItem('browser')==='Chrome') {
+      console.log("%c ", "background: url("+ this.bannerSrc +") no-repeat center center;padding-left:480px;padding-bottom: 400px;")
+    } else if (localStorage.getItem('browser')==='Firefox') {
+      console.log("%c火狐浏览器暂不支持在控制台查看图片，请于谷歌查看", "font-size:20px")
+    }
+  },
   data() {
     return{
       showDemo:null,
