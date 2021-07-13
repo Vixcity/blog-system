@@ -48,6 +48,9 @@ export default {
       this.$api.getCategoriesList().then(r=>{
         this.categories = r.data
       })
+      this.$api.getCategoriesTitle().then(r=>{
+        this.title = r.data.title
+      })
       this.$api.getCategoriesBannerSrc().then(r=>{
         this.bannerSrc = r.data.url
         if(localStorage.getItem('browser')==='Chrome') {

@@ -45,6 +45,9 @@ export default {
   },
   methods: {
     ready() {
+      this.$api.getDocsTitle().then(r=>{
+        this.title = r.data.title
+      })
       this.$api.getDocsList().then(r=>{
         this.docs = r.data
       })

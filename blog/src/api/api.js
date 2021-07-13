@@ -7,6 +7,7 @@ let list = [].concat(require('./homePage.js'))
     .concat(require('./tags.js'))
     .concat(require('./siderBar.js'))
     .concat(require('./docs.js'))
+    .concat(require('./amusement.js'))
 
 let api = {}
 for (let k in list) {

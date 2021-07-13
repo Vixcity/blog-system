@@ -11,4 +11,10 @@ module.exports =[
         params: '',
         url: '/font/font/categories/getBannerSrc'
     },
+    { //获取标题
+        name: 'getCategoriesTitle',
+        method: 'get',
+        params: '',
+        url: '/font/font/categories/getTitle'
+    },
 ]

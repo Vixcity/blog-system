@@ -11,4 +11,10 @@ module.exports =[
         params: '',
         url: '/font/font/docs/getBannerSrc'
     },
+    { //获取标题
+        name: 'getDocsTitle',
+        method: 'get',
+        params: '',
+        url: '/font/font/docs/getTitle'
+    },
 ]

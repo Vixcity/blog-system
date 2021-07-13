@@ -39,4 +39,8 @@ router.get('/getBannerSrc',function (req,res){
     new Result({url:'https://img.zcool.cn/community/01efa1594a2999a8012193a33c886f.jpg@1280w_1l_2o_100sh.jpg'},'欢迎使用小温博客管理系统，查询文档banner图信息成功').success(res)
 })
 
+router.get('/getTitle',function (req,res){
+  new Result({title:'文档'},'欢迎使用小温博客管理系统，查询文档标题信息成功').success(res)
+})
+
 module.exports = router

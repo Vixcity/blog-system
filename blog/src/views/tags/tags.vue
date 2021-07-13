@@ -41,6 +41,9 @@ export default {
   },
   methods:{
     ready() {
+      this.$api.getTagsTitle().then(r=>{
+        this.title = r.data.title
+      })
       this.$api.getTagsList().then(r => {
         this.tags = r.data
         for(let i in this.tags){

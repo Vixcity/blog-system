@@ -11,4 +11,10 @@ module.exports =[
         params: '',
         url: '/font/font/tags/getBannerSrc'
     },
+    { //获取标题
+        name: 'getTagsTitle',
+        method: 'get',
+        params: '',
+        url: '/font/font/tags/getTitle'
+    },
 ]

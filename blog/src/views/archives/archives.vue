@@ -48,7 +48,7 @@ export default {
     return{
       timeData:[],
       bannerSrc:'',
-      title:'',
+      title:'归档',
       subTitle:{},
     }
   },
