@@ -29,6 +29,7 @@ export default {
     asideContent
   },
   mounted() {
+    console.log('%c银鞍照白马，\n飒沓如流星。\n十步杀一人，\n千里不留行。\n事了拂衣去，\n深藏身与名。\n闲过信陵饮，\n脱剑膝前横。',"line-height:30px;font-family:演示夏行楷,缘缘体行书,华文行楷;color: #FFB11B;font-wight:700;font-size:35px");
     this.ready()
   },
   data() {
@@ -51,6 +52,11 @@ export default {
       })
       this.$api.getTagsBannerSrc().then(r => {
         this.bannerSrc = r.data.url
+        if(localStorage.getItem('browser')==='Chrome') {
+          console.log("%c ", "background: url("+ r.data.url +") no-repeat 40% 70%;padding-left:480px;padding-bottom: 400px;")
+        } else if (localStorage.getItem('browser')==='Firefox') {
+          console.log("%c火狐浏览器暂不支持在控制台查看图片，请于谷歌查看", "font-size:20px")
+        }
       })
     }
   },

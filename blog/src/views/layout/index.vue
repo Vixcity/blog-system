@@ -92,4 +92,14 @@ export default {
 		font-family :'TitilliumWeb';
 		src: url('../../assets/font/TitilliumWeb-Regular.ttf');
 	}
+
+  @font-face {
+    font-family: 'yyxs';
+    src: url('../../assets/font/缘缘体行书.ttf');
+	}
+
+  @font-face {
+    font-family: 'ysxxk';
+    src: url('../../assets/font/演示夏行楷.ttf');
+	}
 </style>

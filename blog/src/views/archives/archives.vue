@@ -75,6 +75,7 @@ export default {
       }
     },
     ready() {
+      console.log('%c惊风飘白日,\n光景西驰流。',"line-height:30px;font-family:演示夏行楷,缘缘体行书,华文行楷;color: red;font-wight:700;font-size:35px");
       this.$api.getTimeDate().then(r=>{
         this.timeData = r.data
       })
@@ -83,6 +84,11 @@ export default {
       })
       this.$api.getArchivesBannerSrc().then(r=>{
         this.bannerSrc = r.data.url
+        if(localStorage.getItem('browser')==='Chrome') {
+          console.log("%c ", "background: url("+ r.data.url +") no-repeat 60% center;padding-left:400px;padding-bottom: 400px;")
+        } else if (localStorage.getItem('browser')==='Firefox') {
+          console.log("%c火狐浏览器暂不支持在控制台查看图片，请于谷歌查看", "font-size:20px")
+        }
       })
       this.$api.getArchivesSubTitle().then(r=>{
         this.subTitle = r.data

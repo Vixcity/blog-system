@@ -96,6 +96,13 @@ export default {
       document.getElementsByClassName('container')[0].scrollIntoView({behavior:'smooth'});
     },
     ready(){
+      if(localStorage.getItem('browser')==='Chrome') {
+        console.log("%c%c就知道阻挡不住你观看源码的冲动，但你至少要记住我！--Vixcity", "line-height:28px;", "line-height:28px;padding:4px 0px;color:#fff;font-size:16px;background-image:-webkit-gradient(linear,left top,right top,color-stop(0,#ff22ff),color-stop(1,#5500ff));color:#fff;-webkit-background-clip:text;");
+      } else if (localStorage.getItem('browser')==='Firefox') {
+        console.log("%c%c就知道阻挡不住你观看源码的冲动，但你至少要记住我！--Vixcity", "line-height:28px;", "line-height:28px;padding:4px 0px;color:#fff;font-size:16px;background-image:-webkit-gradient(linear,left top,right top,color-stop(0,#ff22ff),color-stop(1,#5500ff));color:transparent;-webkit-background-clip:text;");
+      }
+      console.log('%c鸟随鸾凤飞腾远,\n人伴贤良品自高。',"line-height:30px;font-family:演示夏行楷,缘缘体行书,华文行楷;color: blue;font-wight:700;font-size:35px");
+      console.log('%c最是人间留不住,\n朱颜辞镜花辞树。',"line-height:30px;font-family:演示夏行楷,缘缘体行书,华文行楷;color: #F05E1C;font-wight:700;font-size:35px");
       this.$api.getIp().then(r=>{
         //获取花括号里面的内容
         r = r.match(/(?<=\{)[^}]*(?=\})/)[0];

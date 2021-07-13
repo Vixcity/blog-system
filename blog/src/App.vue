@@ -27,6 +27,27 @@ export default {
   mounted () {
     window.vue = this
     window.$ = this.$
+    let explorer = navigator.userAgent;
+    //ie 
+    if (explorer.indexOf("MSIE") >= 0) {
+      alert('本页面暂不支持IEi浏览器，请下载谷歌或者火狐浏览器')
+    }
+    //firefox 
+    else if (explorer.indexOf("Firefox") >= 0) {
+      console.log('%c恭喜你发现彩蛋', 'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #50D5B7), color-stop(1, #067D68) );color:transparent;background-clip: text;font-size:3em;');
+      console.log('%c用谷歌看有不一样的发现哦','font-size:20px')
+      localStorage.browser = 'Firefox'
+    }
+    //Chrome
+    else if(explorer.indexOf("Chrome") >= 0){
+      console.log('%c恭喜你发现彩蛋', 'background-image:-webkit-gradient( linear, left top, right top, color-stop(0, #50D5B7), color-stop(1, #067D68) );color:white;font-size:3em;');
+      console.log('%c用火狐看有不一样的发现哦','font-size:20px')
+      localStorage.browser = 'Chrome'
+    }
+    //Safari
+    else if(explorer.indexOf("Safari") >= 0){
+      alert('本页面暂不支持Safari浏览器，请下载谷歌或者火狐浏览器')
+    }
   },
   data () {
     return {
