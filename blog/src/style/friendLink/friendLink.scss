@@ -1,0 +1,108 @@
+.friendLink{
+    width: 100%;
+    .container{
+        .page{
+            align-self: flex-start;
+            padding: .5rem .4rem;
+            margin: .5rem auto 0;
+            width: 75%;
+            border-radius: 8px;
+            background: $cardColor;
+            box-shadow: 0 4px 8px 6px rgba(7,17,27,.06);
+            transition: all .3s;
+            hr{
+                margin: .35rem 0 .2rem;
+            }
+            .fengexian{
+                margin-top: .2rem;
+                margin-bottom: 0;
+            }
+            .friendLinkGetInfo{
+                padding: .2rem;
+                font-size: .2rem;
+                h1{
+                    margin-bottom: 0.14rem;
+                    padding-left: 0.14rem;
+                    border-left: .05rem solid #2D6D4B;
+                    font-weight: 700;
+                    font-size: 0.21rem;
+                    line-height: 0.21rem;
+                }
+                .needLink{
+                    display: flex;
+                    justify-content: space-between;
+                }
+                p{
+                    font-size: .14rem;
+                    margin: .25rem 0;
+                    padding-left: .19rem;
+                    line-height: 0.18rem;
+                }
+                p:last-child{
+                    margin-bottom: 0;
+                }
+                .iconfont{
+                    margin-right: .1rem;
+                }
+                .icon-cha1{
+                    color: #E83015;
+                }
+                .icon-gou{
+                    color: #008947;
+                }
+            }
+            .linkList-lists{
+                padding: .2rem 0 .3rem;
+            }
+            .linkList-title{
+                font-size: 2em;
+            }
+            .link-list{
+                padding: 0 0 0 .2rem;
+                list-style: none;
+                counter-reset: li;
+                .link-list-item{
+                  position: relative;
+                  padding: .27rem .0em .3rem 0em;
+                  transition: all .3s;
+                  border-bottom: 1px solid rgb(182, 182, 182);
+                  margin-top: 3px;
+                    img{
+                        border-radius: 100%;
+                        overflow: hidden;
+                        width: .6rem;
+                        height: .6rem;
+                        transition: all .5s;
+                        vertical-align: middle;
+                    } 
+                    a{
+                        display: inline-block;
+                        width: 100%;
+                        word-wrap: break-word;
+                        transition: all .2s;
+                        overflow-wrap: break-word;
+                        color: $fontColor;
+                        transition: all .5s;
+                        span{
+                            display: inline-block;
+                            padding-top:.1rem ;
+                        }
+                    }
+                }
+                .link-list-item:hover{
+                  img{
+                      transform: rotate(
+                        360deg
+                      );
+                  }
+                  a{
+                      color:#777
+                  }
+                }
+            }
+        }
+        .page:hover{
+            box-shadow: 0 4px 12px 12px rgba(7,17,27,.15);
+        }
+    }
+  }

@@ -9,6 +9,7 @@
             <span class="tag-cloud-amount">{{ tags.length }}</span>
           </div>
           <div class="tag-cloud-list is-center">
+            <hr>
             <a v-for="(item,index) in tags" :key="index" :href="item.href" :style="item.style">{{item.tagName}}</a>
           </div>
         </div>

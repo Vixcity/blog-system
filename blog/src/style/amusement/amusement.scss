@@ -10,6 +10,9 @@
             background: $cardColor;
             box-shadow: 0 4px 8px 6px rgba(7,17,27,.06);
             transition: all .3s;
+            hr{
+                margin: .35rem 0 .2rem;
+            }
             .amusement-lists{
                 padding: .2rem 0 .3rem;
             }

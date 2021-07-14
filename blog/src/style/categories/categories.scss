@@ -10,6 +10,9 @@
             background: $cardColor;
             box-shadow: 0 4px 8px 6px rgba(7,17,27,.06);
             transition: all .3s;
+            hr{
+                margin: .35rem 0 .2rem;
+            }
             .category-lists{
                 padding: .2rem 0 .3rem;
             }
@@ -26,7 +29,6 @@
                     margin: .06rem 0;
                     padding: .12em 0em .5em 1.4em;
                     a{
-                        text-decoration: none;
                         word-wrap: break-word;
                         transition: all .2s;
                         overflow-wrap: break-word;

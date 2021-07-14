@@ -9,6 +9,7 @@
             <span class="amusement-amount">{{ imageList.length }}</span>
           </div>
           <div>
+            <hr>
             <div id="lightgallery">
               <a v-for="(item,index) in imageList" :href="item" :key="index">
                 <img :src="item" >

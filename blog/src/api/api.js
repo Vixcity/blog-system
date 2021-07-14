@@ -2,12 +2,14 @@ import axios from './axios'
 
 // params：参数(备注用)
 let list = [].concat(require('./homePage.js'))
-    .concat(require('./archives.js'))
-    .concat(require('./categories.js'))
     .concat(require('./tags.js'))
-    .concat(require('./siderBar.js'))
     .concat(require('./docs.js'))
+    .concat(require('./archives.js'))
+    .concat(require('./siderBar.js'))
+    .concat(require('./moreDemo.js'))
     .concat(require('./amusement.js'))
+    .concat(require('./categories.js'))
+    .concat(require('./friendLink.js'))
 
 let api = {}
 for (let k in list) {

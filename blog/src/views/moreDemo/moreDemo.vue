@@ -100,12 +100,8 @@ export default {
     }
   },
   mounted() {
+    this.ready()
     console.log('%c青山看不厌，\n流水趣何长。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: #005CAF;font-wight:700;font-size:35px");
-    if(localStorage.getItem('browser')==='Chrome') {
-      console.log("%c ", "background: url("+ this.bannerSrc +") no-repeat center center;padding-left:480px;padding-bottom: 400px;")
-    } else if (localStorage.getItem('browser')==='Firefox') {
-      console.log("%c火狐浏览器暂不支持在控制台查看图片，请于谷歌查看", "font-size:20px")
-    }
   },
   data() {
     return{
@@ -135,6 +131,19 @@ export default {
     }
   },
   methods:{
+     ready() {
+      this.$api.getMoreDemoTitle().then(r=>{
+        this.title = r.data.title
+      })
+      this.$api.getMoreDemoBannerSrc().then(r=>{
+        this.bannerSrc = r.data.url
+        if(localStorage.getItem('browser')==='Chrome') {
+          console.log("%c ", "background: url("+ this.bannerSrc +") no-repeat center center;padding-left:480px;padding-bottom: 400px;")
+        } else if (localStorage.getItem('browser')==='Firefox') {
+          console.log("%c火狐浏览器暂不支持在控制台查看图片，请于谷歌查看", "font-size:20px")
+        }
+      })
+    },
     clickDemo(index,item){
       if(item.title=='关闭显示效果'){
         this.showDemo = null

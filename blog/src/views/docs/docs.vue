@@ -9,6 +9,7 @@
             <span class="docs-amount">{{ docs.length }}</span>
           </div>
           <div>
+            <hr>
             <ul class="docs-list">
               <li v-for="(item,index) in docs" :key="index" class="docs-list-item">
                 <a :href="item.href" class="docs-list-link">{{ item.title }}</a>
