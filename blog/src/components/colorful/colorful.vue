@@ -19,9 +19,6 @@
   export default {
     name: "colorful",
     props:['icon','color','type'],
-    created() {
-      console.log(1)
-    },
     mounted() {
         const that = this
         const a = Array(12)
