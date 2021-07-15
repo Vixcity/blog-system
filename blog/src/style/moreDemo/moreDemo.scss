@@ -48,6 +48,11 @@
       box-shadow: 0 4px 12px 12px rgba(7,17,27,.15);
     }
   }
+  .lightHr{
+    background-image: linear-gradient(to right,#03a9f4,#f441a5,#ffeb3b,#09a8f4);
+    height: .02rem;
+    border: none;
+  }
 }
 
 @media (max-width:530px) {

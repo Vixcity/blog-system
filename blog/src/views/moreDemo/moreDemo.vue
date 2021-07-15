@@ -8,12 +8,12 @@
             {{ title }} -
             <span class="category-amount">{{ moreDemoList.length-1 }}</span>
           </div>
-          <div>
+          <div style="margin-top:.3rem">
             <ul class="moreDemo-list">
               <li v-for="(item,index) in moreDemoList" :key="index" @click="clickDemo(index,item)"><a href="javascript:void(0);" :style="item.style">{{ item.title }}</a></li>
             </ul>
           </div>
-          <hr>
+          <hr :class="{'cyberpunkLine':( showDemo === 6 || showDemo === 5 ), 'lightHr':( showDemo === 3 || showDemo === 4 )}">
           <div class="showDemos">
             <div v-if="showDemo==0">
               <lightButton text="黑夜模式下" :color="{'--i': 1}"/>
@@ -65,6 +65,15 @@
             <div v-if="showDemo==4">
               <colorful/>
             </div>
+            <div v-if="showDemo==5">
+              <saibopengke/>
+            </div>
+            <div v-if="showDemo==6">
+              <cyberpunkTitle/>
+            </div>
+            <div v-if="showDemo==7">
+              <caizhi/>
+            </div>
           </div>
         </div>
       </div>
@@ -80,6 +89,9 @@ import lightButton from "../../components/lightButton/lightButton";
 import hoverButton from "../../components/hoverButton/hoverButton";
 import hoverLightButton from "../../components/hoverLightButton/hoverLightButton";
 import colorful from "../../components/colorful/colorful";
+import saibopengke from "../../components/saibopengke/saibopengke";
+import cyberpunkTitle from "../../components/cyberpunkTitle/cyberpunkTitle";
+import caizhi from "../../components/caizhi/caizhi";
 
 export default {
   name: "moreDemo",
@@ -90,6 +102,9 @@ export default {
     lightButton,
     hoverLightButton,
     colorful,
+    saibopengke,
+    cyberpunkTitle,
+    caizhi,
   },
   created() {
     for(let i in this.moreDemoList){
@@ -125,8 +140,17 @@ export default {
           title:'移入移出效果'
         },
         {
+          title:'赛博朋克效果',
+        },
+        {
+          title:'赛博朋克标题效果',
+        },
+        {
+          title:'材质效果',
+        },
+        {
           title:'关闭所有显示效果',
-        }
+        },
       ]
     }
   },
