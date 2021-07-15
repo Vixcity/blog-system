@@ -5,6 +5,11 @@ Vue.use(VueRouter)
 
 const routes = [
   {
+    name: '404',
+    path: '/404',
+    component: () => import('@/components/404/404')
+  },
+  {
     path: '/',
     name: 'layout',
     redirect: '/homePage',
@@ -100,6 +105,10 @@ const routes = [
       }
     ]
   },
+  {
+    path: '*',
+    redirect: '/404'
+  }
 ]
 
 const router = new VueRouter({
