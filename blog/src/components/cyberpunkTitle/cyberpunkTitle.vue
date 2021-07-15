@@ -17,5 +17,5 @@
 </script>
 
 <style scoped>
-@import url('./cyberpunkTitle.scss');
+
 </style>

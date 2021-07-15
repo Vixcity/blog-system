@@ -102,4 +102,9 @@ export default {
     font-family: 'ysxxk';
     src: url('../../assets/font/演示夏行楷.ttf');
 	}
+
+@font-face {
+    font-family: 'neon';
+    src: url('../../assets/font/neon.ttf');
+	}
 </style>

@@ -74,6 +74,10 @@
             <div v-if="showDemo==7">
               <caizhi/>
             </div>
+            <div v-if="showDemo==8">
+              <nihongText text="霓虹文字效果1,请在黑夜模式下观看" className="neon"/>
+              <nihongText text="霓虹文字效果2,请在黑夜模式下观看" style="margin-top:.2rem;" className="flux"/>
+            </div>
           </div>
         </div>
       </div>
@@ -92,6 +96,7 @@ import colorful from "../../components/colorful/colorful";
 import saibopengke from "../../components/saibopengke/saibopengke";
 import cyberpunkTitle from "../../components/cyberpunkTitle/cyberpunkTitle";
 import caizhi from "../../components/caizhi/caizhi";
+import nihongText from "../../components/nihongText/nihongText";
 
 export default {
   name: "moreDemo",
@@ -105,6 +110,7 @@ export default {
     saibopengke,
     cyberpunkTitle,
     caizhi,
+    nihongText,
   },
   created() {
     for(let i in this.moreDemoList){
@@ -147,6 +153,9 @@ export default {
         },
         {
           title:'材质效果',
+        },
+        {
+          title:'霓虹文字效果',
         },
         {
           title:'关闭所有显示效果',

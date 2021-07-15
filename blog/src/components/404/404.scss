@@ -208,8 +208,8 @@
       line-height: 0.2em;
       transform: translate(-55%, 0.03em);
     }
-  }
-  @keyframe pulse {
+  } 
+  @keyframes pulse {
     from {
       text-shadow: 0 0 0 #afd33d, 0 0 0 rgba(175, 211, 61, 0.3), 0 0 0 rgba(175, 211, 61, 0.3);
     }
