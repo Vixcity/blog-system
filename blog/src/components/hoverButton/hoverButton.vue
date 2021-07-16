@@ -8,7 +8,7 @@
       </div>
     </div>
     <div v-if="type==2">
-      <div class="btn">hover me</div>
+      <div class="btn" :style="styles">{{ text || 'HOVER ME'}}</div>
     </div>
   </div>
 </template>
@@ -16,7 +16,7 @@
 <script>
   export default {
     name: "hoverButton",
-    props:['icon','color','type'],
+    props:['icon','color','type','text','styles'],
     created() {
       if(this.type==1){
         var style = document.createElement("style");
@@ -27,7 +27,7 @@
           sheet.addRule('.hoverButton:nth-child('+(a+1)+') a::before','background-color:'+this.color[i]);
         }
       }
-    }
+    },
   }
 </script>
 

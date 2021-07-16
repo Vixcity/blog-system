@@ -45,16 +45,6 @@
               </div>
               <div style="display: flex;justify-content: center;align-items: center;margin-top: .4rem">
                 <hoverButton
-                    :icon="['iconfont icon-logo_gitee_icon',
-                        'iconfont icon-github',
-                        'iconfont icon-INS',
-                        'iconfont icon-ttww',
-                        'iconfont icon-weixin']"
-                    :color="['#cd4a38',
-                      'rgb(0, 0, 0)',
-                      '#bf00ff',
-                      '#00a4ee',
-                      '#04BE02']"
                     :type="2"
                 />
               </div>

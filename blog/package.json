@@ -17,8 +17,10 @@
     "lightgallery.js": "^1.4.0",
     "moment": "^2.29.1",
     "parallax-js": "^3.1.0",
+    "quill-emoji": "^0.2.0",
     "typed.js": "^2.0.12",
     "vue": "^2.6.11",
+    "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.2.0",
     "vuescroll": "^4.17.3",
     "vuex": "^3.4.0"
@@ -34,6 +36,7 @@
     "eslint-plugin-vue": "^6.2.2",
     "lint-staged": "^9.5.0",
     "node-sass": "^4.12.0",
+    "quill-image-extend-module": "^1.1.2",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
   },

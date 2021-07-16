@@ -8,6 +8,7 @@ const moreDemo = require('./moreDemo')
 const amusement = require('./amusement')
 const categories = require('./categories')
 const friendLink = require('./friendLink')
+const messageBoard = require('./messageBoard')
 
 const router = express.Router()
 router.use('/tags',tags)
@@ -19,5 +20,6 @@ router.use('/moreDemo',moreDemo)
 router.use('/amusement',amusement)
 router.use('/categories',categories)
 router.use('/friendLink',friendLink)
+router.use('/messageBoard',messageBoard)
 
 module.exports = router
