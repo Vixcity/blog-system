@@ -47,7 +47,7 @@ router.get('/getMsgList',function (req,res){
 })
 
 router.get('/getBannerSrc',function (req,res){
-    new Result({url:'http://img2.cache.hxsd.com/hxsdmy/gallery/2013/00/84/52/54/04/16/134039732/134039732_9.jpg'},'欢迎使用小温博客管理系统，查询友链banner图信息成功').success(res)
+    new Result({url:'http://pic3.178.com/699/6990004/month_1208/1346034125-8816.jpg'},'欢迎使用小温博客管理系统，查询友链banner图信息成功').success(res)
 })
 
 module.exports = router
