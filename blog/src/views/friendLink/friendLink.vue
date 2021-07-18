@@ -65,7 +65,7 @@ export default {
     asideContent
   },
   mounted() {
-    console.log('%c虚空落泉千仞直，\n雷奔入江不暂息。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: ##3d6167;font-wight:700;font-size:35px");
+    console.log('%c虚空落泉千仞直，\n雷奔入江不暂息。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: #3d6167;font-wight:700;font-size:35px");
     this.ready()
   },
   data() {
