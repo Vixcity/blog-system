@@ -15,6 +15,7 @@
                 :options="editorOption"
                 @change="onEditorChange($event)"
             />
+            <span class="SizeTiShi">{{ TiLength }}/300</span>
             <hoverButton
                 :styles="{'margin-top': '.2rem','width': '1rem','height': '.3rem','line-height':'.3rem','font-size':'.15rem'}"
                 :type="2"
@@ -64,6 +65,7 @@ export default {
     return{
       title:'留言板',
       content: '',
+      TiLength: 0,
       bannerSrc:'',
       editorOption: {
         theme: 'snow',
@@ -114,6 +116,12 @@ export default {
     },
     onEditorChange({ quill, html, text }) {
       console.log('editor change!', quill, html, text)
+      quill.deleteText(300,4)
+      if(this.content===""){
+        this.TiLength = 0
+      } else {
+        this.TiLength = quill.getLength() - 1 
+      }
       this.content = html
     },
     btnClick() {
