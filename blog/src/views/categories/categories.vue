@@ -18,7 +18,7 @@
           </div>
         </div>
       </div>
-      <asideContent />
+      <asideContent url='categories'/>
     </div>
   </div>
 </template>

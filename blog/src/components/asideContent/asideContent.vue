@@ -81,9 +81,9 @@
         </div>
         <div class="aside-list">
           <div v-for="(item,index) in comments.commentsList" :key="index" class="aside-list-item">
-            <a href="/messageboard/" class="thumbnail"><img :src="item.gravatarSrc" alt=""></a>
+            <a :href="item.src" class="thumbnail"><img :src="item.gravatarSrc" alt=""></a>
             <div class="content">
-              <a href="/messageboard/" :title="item.comment" class="title">{{item.comment}}</a>
+              <a :href="item.src" :title="item.comment" class="title">{{item.comment}}</a>
               <div class="name">
                 <span>{{item.userName}}</span>
                 <time style="margin-left:.04rem">/ {{item.reTime}}</time>
@@ -160,6 +160,7 @@ import bus from '@/assets/js/eventBus'
 
 export default {
   name: "asideContent",
+  props:['url'],
   created() {
     this.getMyInfo()
   },
@@ -197,7 +198,7 @@ export default {
       this.$api.announcement().then(r=>{
         this.announcement = r.data
       })
-      this.$api.getACDocList().then(r=>{
+      this.$api.getACDocList({url:this.url}).then(r=>{
         this.docList = r.data
       })
       this.$api.getACArticleList().then(r=>{
@@ -206,10 +207,10 @@ export default {
       this.$api.getACComments().then(r=>{
         this.comments = r.data
       })
-      this.$api.getACCategoryList().then(r=>{
+      this.$api.getACCategoryList({url:this.url}).then(r=>{
         this.categoryList = r.data
       })
-      this.$api.getACTagsList().then(r=>{
+      this.$api.getACTagsList({url:this.url}).then(r=>{
         this.tagsList = r.data
         for(let i in this.tagsList.tags){
           this.tagsList.tags[i].style={
@@ -218,7 +219,7 @@ export default {
           }
         }
       })
-      this.$api.getACArchiveList().then(r=>{
+      this.$api.getACArchiveList({url:this.url}).then(r=>{
         this.archiveList = r.data
       })
       this.$api.getACWebInfo().then(r=>{

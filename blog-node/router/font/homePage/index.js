@@ -76,37 +76,38 @@ router.get('/announcement',function (req,res){
       },'欢迎使用小温博客管理系统，查询公告板成功').success(res)
 })
 
-router.get('/getACDocList',function (req,res){
+router.post('/getACDocList',function (req,res){
+    console.log(req.body)
     new Result({
-        isShowDoc:true,
+        isShowDoc:req.body.url==='docs'?false:true,
         docs:[
           {
             title:'🚀 快速开始',
-            href:'www.vip.com'
+            href:'/docs'
           },
           {
             title:'📑 主题页面',
-            href:'www.vip.com'
+            href:'/docs'
           },
           {
             title:'🛠 主题配置-1',
-            href:'www.vip.com'
+            href:'/docs'
           },
           {
             title:'⚔️ 主题配置-2',
-            href:'www.vip.com'
+            href:'/docs'
           },
           {
             title:'❓ 主题问答',
-            href:'www.vip.com'
+            href:'/docs'
           },
           {
             title:'⚡️ 进阶教程',
-            href:'www.vip.com'
+            href:'/docs'
           },
           {
             title:'✨ 更新日誌',
-            href:'www.vip.com'
+            href:'/docs'
           },
         ]
       },'欢迎使用小温博客管理系统，查询文档成功').success(res)
@@ -155,36 +156,42 @@ router.get('/getACComments',function (req,res){
         commentsList:[
           {
             gravatarSrc:'https://gravatar.loli.net/avatar/f8496f42e482f457a85613e8bbb2b711?d=robohash',
+            src:'/messageBoard',
             userName:'火星飞鸟',
             comment:'嘻嘻嘻',
             reTime:'22小时前'
           },
           {
             gravatarSrc:'https://gravatar.loli.net/avatar/f8496f42e482f457a85613e8bbb2b711?d=robohash',
+            src:'/messageBoard',
             userName:'火星飞鸟',
             comment:'嘻嘻嘻火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟',
             reTime:'22小时前'
           },
           {
             gravatarSrc:'https://gravatar.loli.net/avatar/f8496f42e482f457a85613e8bbb2b711?d=robohash',
+            src:'/messageBoard',
             userName:'火星飞鸟',
             comment:'嘻嘻嘻',
             reTime:'22小时前'
           },
           {
             gravatarSrc:'https://gravatar.loli.net/avatar/f8496f42e482f457a85613e8bbb2b711?d=robohash',
+            src:'/messageBoard',
             userName:'火星飞鸟',
             comment:'嘻嘻嘻火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟',
             reTime:'22小时前'
           },
           {
             gravatarSrc:'https://gravatar.loli.net/avatar/f8496f42e482f457a85613e8bbb2b711?d=robohash',
+            src:'/messageBoard',
             userName:'火星飞鸟',
             comment:'嘻嘻嘻',
             reTime:'22小时前'
           },
           {
             gravatarSrc:'https://gravatar.loli.net/avatar/f8496f42e482f457a85613e8bbb2b711?d=robohash',
+            src:'/messageBoard',
             userName:'火星飞鸟',
             comment:'嘻嘻嘻火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟火星飞鸟',
             reTime:'22小时前'
@@ -192,9 +199,10 @@ router.get('/getACComments',function (req,res){
         ]},'欢迎使用小温博客管理系统，查询最新留言成功').success(res)
 })
 
-router.get('/getACCategoryList',function (req,res){
+router.post('/getACCategoryList',function (req,res){
+    // console.log(req.body)
     new Result({
-        isShowCategory:true,
+        isShowCategory:req.body.url==='categories'?false:true,
         categorys:[
           {
             href:'www.baidu.com',
@@ -224,9 +232,10 @@ router.get('/getACCategoryList',function (req,res){
         ]},'欢迎使用小温博客管理系统，查询分类成功').success(res)
 })
 
-router.get('/getACTagsList',function (req,res){
+router.post('/getACTagsList',function (req,res){
+    // console.log(req.body)
     new Result({
-        isShowTag:true,
+        isShowTag:req.body.url==='tags'?false:true,
         tags:[
           {
             tag:'教程',
@@ -275,32 +284,33 @@ router.get('/getACTagsList',function (req,res){
         ]},'欢迎使用小温博客管理系统，查询标签成功').success(res)
 })
 
-router.get('/getACArchiveList',function (req,res){
+router.post('/getACArchiveList',function (req,res){
+    // console.log(req.body.url==='archives')
     new Result({
-        isShowArchiveList:true,
+        isShowArchiveList:req.body.url==='archives'?false:true,
         archives:[
         {
-          href:'www.baidu.com',
+          href:'/archives',
           archiveData:'2020年10月',
           archiveCount:3
         },
         {
-          href:'www.baidu.com',
+          href:'/archives',
           archiveData:'2020年10月',
           archiveCount:3
         },
         {
-          href:'www.baidu.com',
+          href:'/archives',
           archiveData:'2020年10月',
           archiveCount:3
         },
         {
-          href:'www.baidu.com',
+          href:'/archives',
           archiveData:'2020年10月',
           archiveCount:3
         },
         {
-          href:'www.baidu.com',
+          href:'/archives',
           archiveData:'2020年10月',
           archiveCount:3
         },

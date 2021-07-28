@@ -40,7 +40,7 @@ module.exports =[
     {
         //右边的侧边栏文档
         name: 'getACDocList',
-        method: 'get',
+        method: 'post',
         params: '',
         url: 'font/font/homePage/getACDocList'
     },
@@ -61,21 +61,21 @@ module.exports =[
     {
         //右边的侧边栏分类
         name: 'getACCategoryList',
-        method: 'get',
+        method: 'post',
         params: '',
         url: 'font/font/homePage/getACCategoryList'
     },
     {
         //右边的侧边栏标签
         name: 'getACTagsList',
-        method: 'get',
+        method: 'post',
         params: '',
         url: 'font/font/homePage/getACTagsList'
     },
     {
         //右边的侧边栏归档
         name: 'getACArchiveList',
-        method: 'get',
+        method: 'post',
         params: '',
         url: 'font/font/homePage/getACArchiveList'
     },

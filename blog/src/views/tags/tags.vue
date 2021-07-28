@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-      <asideContent />
+      <asideContent url='tags'/>
     </div>
   </div>
 </template>

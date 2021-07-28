@@ -29,7 +29,7 @@
           </div>
         </div>
       </div>
-      <asideContent />
+      <asideContent url='archives' />
     </div>
   </div>
 </template>
