@@ -1,41 +1,45 @@
 <template>
-  <div class="amusement">
-    <contentBanner :imgSrc="bannerSrc" :title="title" />
-    <div class="container">
-      <div class="page">
-        <div class="amusement-lists">
-          <div class="amusement-title is-center">
-            {{ title }} -
-            <span class="amusement-amount">{{ imageList.length }}</span>
-          </div>
-          <div>
-            <hr>
-            <div id="lightgallery">
-              <a v-for="(item,index) in imageList" :href="item" :key="index">
-                <img :src="item" >
-              </a>
+  <vuescroll>
+    <div class="amusement">
+      <contentBanner :imgSrc="bannerSrc" :title="title" />
+      <div class="container">
+        <div class="page">
+          <div class="amusement-lists">
+            <div class="amusement-title is-center">
+              {{ title }} -
+              <span class="amusement-amount">{{ imageList.length }}</span>
+            </div>
+            <div>
+              <hr>
+              <div id="lightgallery">
+                <a v-for="(item,index) in imageList" :href="item" :key="index">
+                  <img :src="item" >
+                </a>
+              </div>
             </div>
           </div>
         </div>
+        <asideContent />
       </div>
-      <asideContent />
     </div>
-  </div>
+  </vuescroll>
 </template>
 
 <script>
 import contentBanner from "../../components/contentBanner/contentBanner"
 import asideContent from "../../components/asideContent/asideContent"
+import vuescroll from 'vuescroll'
 
 export default {
   name: 'amusement',
   components:{
     contentBanner,
-    asideContent
+    asideContent,
+    vuescroll
   },
   mounted() {
-    console.log('%c浮云一别后，\n流水十年间。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: #B5495B;font-wight:700;font-size:35px");
     this.ready()
+    this.$('.__vuescroll').css('height','100vh')
     setTimeout(() => {
       const el = document.getElementById('lightgallery')
       window.lightGallery(el,{download:true})
@@ -51,6 +55,7 @@ export default {
   },
    methods: {
     ready() {
+      console.log('%c浮云一别后，\n流水十年间。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: #B5495B;font-wight:700;font-size:35px");
       this.$api.getAmusementImageListList().then(r=>{
         this.imageList = r.data
       })

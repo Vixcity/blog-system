@@ -1,5 +1,6 @@
 <template>
-  <div class="home">
+  <vuescroll>
+    <div class="home">
     <div class="banner">
       <div class="site-info">
         <h1 class="site-title">
@@ -65,20 +66,24 @@
      <AsideContent></AsideContent>
     </div>
   </div>
+  </vuescroll>
 </template>
 <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
 <script>
 import AsideContent from "../../components/asideContent/asideContent"
 import Typed from  'typed.js'
 import moment from 'moment'
+import vuescroll from 'vuescroll'
 
 export default {
   name: "homePage",
   components: {
-    AsideContent
+    AsideContent,
+    vuescroll
   },
   mounted() {
     this.ready()
+    this.$('.__vuescroll').css('height','100vh')
   },
   data() {
     return {

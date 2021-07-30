@@ -1,5 +1,6 @@
 <template>
-  <div class="archives">
+  <vuescroll>
+    <div class="archives">
     <contentBanner :imgSrc="bannerSrc" :title="title" />
     <div class="container">
       <div class="containers">
@@ -32,17 +33,20 @@
       <asideContent url='archives' />
     </div>
   </div>
+  </vuescroll>
 </template>
 
 <script>
 import contentBanner from "../../components/contentBanner/contentBanner"
 import asideContent from "../../components/asideContent/asideContent"
+import vuescroll from 'vuescroll'
 
 export default {
   name: "archives",
   components:{
     contentBanner,
-    asideContent
+    asideContent,
+    vuescroll
   },
   data(){
     return{
@@ -62,7 +66,8 @@ export default {
     })
   },
   mounted() {
-    this.ready()
+    this.ready(),
+    this.$('.__vuescroll').css('height','100vh')
   },
   methods: {
     changeHeight(e){

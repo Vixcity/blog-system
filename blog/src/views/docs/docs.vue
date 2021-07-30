@@ -1,41 +1,45 @@
 <template>
-  <div class="docs">
-    <contentBanner :imgSrc="bannerSrc" :title="title" />
-    <div class="container">
-      <div class="page">
-        <div class="docs-lists">
-          <div class="docs-title is-center">
-            {{ title }} -
-            <span class="docs-amount">{{ docs.length }}</span>
-          </div>
-          <div>
-            <hr>
-            <ul class="docs-list">
-              <li v-for="(item,index) in docs" :key="index" class="docs-list-item">
-                <a :href="item.href" class="docs-list-link">{{ item.title }}</a>
-              </li>
-            </ul>
+  <vuescroll>
+    <div class="docs">
+      <contentBanner :imgSrc="bannerSrc" :title="title" />
+      <div class="container">
+        <div class="page">
+          <div class="docs-lists">
+            <div class="docs-title is-center">
+              {{ title }} -
+              <span class="docs-amount">{{ docs.length }}</span>
+            </div>
+            <div>
+              <hr>
+              <ul class="docs-list">
+                <li v-for="(item,index) in docs" :key="index" class="docs-list-item">
+                  <a :href="item.href" class="docs-list-link">{{ item.title }}</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
+        <asideContent url='docs'/>
       </div>
-      <asideContent url='docs'/>
     </div>
-  </div>
+  </vuescroll>
 </template>
 
 <script>
 import contentBanner from "../../components/contentBanner/contentBanner"
 import asideContent from "../../components/asideContent/asideContent"
+import vuescroll from 'vuescroll'
 
 export default {
   name: "docs",
   components:{
     contentBanner,
-    asideContent
+    asideContent,
+    vuescroll
   },
   mounted() {
-    console.log('%c台隍枕夷夏之交，\n宾主尽东南之美。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: #3d6167;font-wight:700;font-size:35px");
-    this.ready()
+    this.ready(),
+    this.$('.__vuescroll').css('height','100vh')
   },
   data() {
     return{
@@ -46,6 +50,7 @@ export default {
   },
   methods: {
     ready() {
+      console.log('%c台隍枕夷夏之交，\n宾主尽东南之美。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: #3d6167;font-wight:700;font-size:35px");
       this.$api.getDocsTitle().then(r=>{
         this.title = r.data.title
       })

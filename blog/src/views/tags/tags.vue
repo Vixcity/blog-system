@@ -1,37 +1,41 @@
 <template>
-  <div class="tags">
-    <contentBanner :imgSrc="bannerSrc" :title="title" />
-    <div class="container">
-      <div class="page">
-        <div class="category-lists">
-          <div class="tag-cloud-title is-center">
-            {{ title }} -
-            <span class="tag-cloud-amount">{{ tags.length }}</span>
-          </div>
-          <div class="tag-cloud-list is-center">
-            <hr>
-            <a v-for="(item,index) in tags" :key="index" :href="item.href" :style="item.style">{{item.tagName}}</a>
+  <vuescroll>
+    <div class="tags">
+      <contentBanner :imgSrc="bannerSrc" :title="title" />
+      <div class="container">
+        <div class="page">
+          <div class="category-lists">
+            <div class="tag-cloud-title is-center">
+              {{ title }} -
+              <span class="tag-cloud-amount">{{ tags.length }}</span>
+            </div>
+            <div class="tag-cloud-list is-center">
+              <hr>
+              <a v-for="(item,index) in tags" :key="index" :href="item.href" :style="item.style">{{item.tagName}}</a>
+            </div>
           </div>
         </div>
+        <asideContent url='tags'/>
       </div>
-      <asideContent url='tags'/>
     </div>
-  </div>
+  </vuescroll>
 </template>
 
 <script>
 import contentBanner from "../../components/contentBanner/contentBanner";
 import asideContent from "../../components/asideContent/asideContent";
+import vuescroll from 'vuescroll'
 
 export default {
   name: "tags",
   components:{
     contentBanner,
-    asideContent
+    asideContent,
+    vuescroll
   },
   mounted() {
-    console.log('%c银鞍照白马，\n飒沓如流星。\n十步杀一人，\n千里不留行。\n事了拂衣去，\n深藏身与名。\n闲过信陵饮，\n脱剑膝前横。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: #FFB11B;font-wight:700;font-size:35px");
-    this.ready()
+    this.ready(),
+    this.$('.__vuescroll').css('height','100vh')
   },
   data() {
     return{
@@ -42,6 +46,7 @@ export default {
   },
   methods:{
     ready() {
+      console.log('%c银鞍照白马，\n飒沓如流星。\n十步杀一人，\n千里不留行。\n事了拂衣去，\n深藏身与名。\n闲过信陵饮，\n脱剑膝前横。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: #FFB11B;font-wight:700;font-size:35px");
       this.$api.getTagsTitle().then(r=>{
         this.title = r.data.title
       })

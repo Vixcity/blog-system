@@ -1,5 +1,5 @@
 <template>
-  <vuescroll>
+<!--  <vuescroll>-->
     <div class="main">
       <headerTop />
       <div class="flex">
@@ -14,11 +14,11 @@
         <i v-else class="iconfont icon-tubiaozhengli-33" @click="changeBOS"></i>
       </div>
     </div>
-  </vuescroll>
+<!--  </vuescroll>-->
 </template>
 
 <script>
-import vuescroll from 'vuescroll'
+// import vuescroll from 'vuescroll'
 import siderBar from '@/views/layout/siderBar'
 import headerTop from '@/views/layout/headerTop'
 import bus from '@/assets/js/eventBus'
@@ -26,7 +26,7 @@ import bus from '@/assets/js/eventBus'
 export default {
   name: 'mainWindow',
   components: {
-    vuescroll,
+    // vuescroll,
     siderBar,
     headerTop
   },
@@ -41,7 +41,7 @@ export default {
     this.getModel(this.isLight)
   },
   mounted() {
-    this.$('.__vuescroll').css('height','100vh')
+    // this.$('.__vuescroll').css('height','100vh')
   },
   methods: {
     changeBOS(){

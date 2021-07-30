@@ -1,41 +1,45 @@
 <template>
-  <div class="categories">
-    <contentBanner :imgSrc="bannerSrc" :title="title" />
-    <div class="container">
-      <div class="page">
-        <div class="category-lists">
-          <div class="category-title is-center">
-            {{ title }} -
-            <span class="category-amount">{{ categories.length }}</span>
-          </div>
-          <div>
-            <hr>
-            <ul class="category-list">
-              <li v-for="(item,index) in categories" :key="index" class="category-list-item">
-                <a :href="item.href" class="category-list-link">{{ item.title }}<span class="category-list-count">({{ item.count }})</span></a>
-              </li>
-            </ul>
+  <vuescroll>
+    <div class="categories">
+      <contentBanner :imgSrc="bannerSrc" :title="title" />
+      <div class="container">
+        <div class="page">
+          <div class="category-lists">
+            <div class="category-title is-center">
+              {{ title }} -
+              <span class="category-amount">{{ categories.length }}</span>
+            </div>
+            <div>
+              <hr>
+              <ul class="category-list">
+                <li v-for="(item,index) in categories" :key="index" class="category-list-item">
+                  <a :href="item.href" class="category-list-link">{{ item.title }}<span class="category-list-count">({{ item.count }})</span></a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
+        <asideContent url='categories'/>
       </div>
-      <asideContent url='categories'/>
     </div>
-  </div>
+  </vuescroll>
 </template>
 
 <script>
 import contentBanner from "../../components/contentBanner/contentBanner"
 import asideContent from "../../components/asideContent/asideContent"
+import vuescroll from 'vuescroll'
 
 export default {
   name: "categories",
   components:{
     contentBanner,
-    asideContent
+    asideContent,
+    vuescroll
   },
   mounted() {
-    console.log('%c关山难越，\n谁悲失路之人？\n\n萍水相逢，\n尽是他乡之客。','font-family:演示夏行楷,缘缘体行书,华文行楷;color: #B5495B;font-wight:700;font-size:35px')
-    this.ready()
+    this.ready(),
+    this.$('.__vuescroll').css('height','100vh')
   },
   data() {
     return{
@@ -46,6 +50,7 @@ export default {
   },
   methods: {
     ready() {
+      console.log('%c关山难越，\n谁悲失路之人？\n\n萍水相逢，\n尽是他乡之客。','font-family:演示夏行楷,缘缘体行书,华文行楷;color: #B5495B;font-wight:700;font-size:35px')
       this.$api.getCategoriesList().then(r=>{
         this.categories = r.data
       })

@@ -77,7 +77,7 @@ router.get('/announcement',function (req,res){
 })
 
 router.post('/getACDocList',function (req,res){
-    console.log(req.body)
+    // console.log(req.body)
     new Result({
         isShowDoc:req.body.url==='docs'?false:true,
         docs:[

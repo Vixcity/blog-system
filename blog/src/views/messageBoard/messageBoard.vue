@@ -1,50 +1,53 @@
 <template>
-  <div class="messageBoard">
-    <contentBanner :imgSrc="bannerSrc" :title="title" />
-    <div class="container">
-      <div class="page">
-        <div class="category-lists">
-          <div class="msg-cloud-title is-center">
-            {{ title }} -
-            <span class="msg-cloud-amount">{{ msgs.length }}</span>
-          </div>
-          <div class="msg-cloud-list">
-            <hr>
-            <quill-editor
-                :content="content"
-                :options="editorOption"
-                @change="onEditorChange($event)"
-            />
-            <span class="SizeTiShi">{{ TiLength }}/300</span>
-            <hoverButton
-                :styles="{'margin-top': '.2rem','width': '1rem','height': '.3rem','line-height':'.3rem','font-size':'.15rem'}"
-                :type="2"
-                text="提交留言"
-                @click.native="btnClick"
-            />
-            <hr class="cyberpunkLine"/>
-            <div v-for="(item,index) in msgs" :key="index" class="msgInfo flex">
-              <img :src="item.gravatarSrc" alt="">
-              <div>
-                <div class="name">
-                  <span>{{ item.userName }}</span>
-                  <time>/ {{ item.reTime }}</time>
+  <vuescroll>
+    <div class="messageBoard">
+      <contentBanner :imgSrc="bannerSrc" :title="title" />
+      <div class="container">
+        <div class="page">
+          <div class="category-lists">
+            <div class="msg-cloud-title is-center">
+              {{ title }} -
+              <span class="msg-cloud-amount">{{ msgs.length }}</span>
+            </div>
+            <div class="msg-cloud-list">
+              <hr>
+              <quill-editor
+                  :content="content"
+                  :options="editorOption"
+                  @change="onEditorChange($event)"
+              />
+              <span class="SizeTiShi">{{ TiLength }}/300</span>
+              <hoverButton
+                  :styles="{'margin-top': '.2rem','width': '1rem','height': '.3rem','line-height':'.3rem','font-size':'.15rem'}"
+                  :type="2"
+                  text="提交留言"
+                  @click.native="btnClick"
+              />
+              <hr class="cyberpunkLine"/>
+              <div v-for="(item,index) in msgs" :key="index" class="msgInfo flex">
+                <img :src="item.gravatarSrc" alt="">
+                <div>
+                  <div class="name">
+                    <span>{{ item.userName }}</span>
+                    <time>/ {{ item.reTime }}</time>
+                  </div>
+                  <div class="output" v-html="item.content"></div>
                 </div>
-                <div class="output" v-html="item.content"></div>
               </div>
             </div>
           </div>
         </div>
+        <asideContent />
       </div>
-      <asideContent />
     </div>
-  </div>
+  </vuescroll>
 </template>
 
 <script>
 import contentBanner from "../../components/contentBanner/contentBanner";
 import asideContent from "../../components/asideContent/asideContent";
 import hoverButton from "../../components/hoverButton/hoverButton";
+import vuescroll from 'vuescroll'
 import { Quill } from 'vue-quill-editor'
 import { ImageExtend, QuillWatch } from 'quill-image-extend-module'
 
@@ -56,10 +59,11 @@ export default {
     contentBanner,
     asideContent,
     hoverButton,
+    vuescroll
   },
   mounted() {
-    console.log('%c笔落惊风雨，\n诗成泣鬼神。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: #005CAF;font-wight:700;font-size:35px");
     this.ready()
+    this.$('.__vuescroll').css('height','100vh')
   },
   data() {
     return{
@@ -101,6 +105,7 @@ export default {
   },
   methods:{
     ready() {
+      console.log('%c笔落惊风雨，\n诗成泣鬼神。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: #005CAF;font-wight:700;font-size:35px");
       this.$api.getMsgsInfoList().then(r=>{
         this.title = r.data.title
         this.msgs = r.data.msgs
