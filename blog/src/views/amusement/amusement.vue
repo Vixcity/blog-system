@@ -18,6 +18,7 @@
               </div>
             </div>
           </div>
+          <div @click="clickLayUI" class="layui-btn layui-btn-lg layui-btn-normal">layui测试</div>
         </div>
         <asideContent />
       </div>
@@ -54,6 +55,13 @@ export default {
     }
   },
    methods: {
+    clickLayUI(){
+      this.$layui.layer.open({
+        title: '在线调试'
+        ,content: 'layui测试'
+        ,offset:'t'
+      });
+    },
     ready() {
       console.log('%c浮云一别后，\n流水十年间。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: #B5495B;font-wight:700;font-size:35px");
       this.$api.getAmusementImageListList().then(r=>{

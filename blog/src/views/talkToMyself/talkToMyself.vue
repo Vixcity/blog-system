@@ -33,6 +33,7 @@ export default {
       navigation:true,
       navigationTooltips: ['fullPage', 'Open', 'Easy', 'Touch'],
       slidesNavigation:true,
+      loopBottom: true,
       afterLoad:function(anchorLink,index){
         console.log("afterLoad:anchorLink"+anchorLink+";index="+index);
       },

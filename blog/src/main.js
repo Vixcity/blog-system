@@ -56,6 +56,9 @@ Vue.prototype.$vuescrollConfig = {
 Vue.prototype.$api = api
 Vue.prototype.$ = $
 
+// 引入layui
+Vue.prototype.$layui = window.layui
+
 new Vue({
   router,
   store,
