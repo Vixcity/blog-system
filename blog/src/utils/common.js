@@ -253,3 +253,270 @@ $.fn.windstagball = function(options) {
         });
     }
 }
+
+$.whatType = function (para) {
+    return Object.prototype.toString.call(para)
+}
+
+//去除连续的字符串 
+$.strUniq = function (str) {
+    return str.replace(/(\w)\1+/g, '$1')
+}
+
+// 返回去完重复之后的字符串
+String.prototype.unique = function () {
+    var obj = {},
+        str = '',
+        len = this.length;
+    for (var i = 0; i < len; i++) {
+        if (!obj[this[i]]) {
+            str += this[i];
+            obj[this[i]] = true;
+        }
+    }
+    return str;
+}
+
+// 找出字符串中第一次只出现一次的字母
+String.prototype.firstAppear = function () {
+    var obj = {},
+        len = this.length;
+    for (var i = 0; i < len; i++) {
+        if (obj[this[i]]) {
+            obj[this[i]]++;
+        } else {
+            obj[this[i]] = 1;
+        }
+    }
+    for (var prop in obj) {
+       if (obj[prop] == 1) {
+         return prop;
+       }
+    }
+}
+
+// 找元素的第n级父元素
+$.parents = function (ele, n) {
+    while (ele && n) {
+        ele = ele.parentElement ? ele.parentElement : ele.parentNode;
+        n--;
+    }
+    return ele;
+}
+
+// 返回元素的第n个兄弟节点
+$.retSibling = function (e, n) {
+    while (e && n) {
+        if (n > 0) {
+            if (e.nextElementSibling) {
+                e = e.nextElementSibling;
+            } else {
+                for (e = e.nextSibling; e && e.nodeType !== 1; e = e.nextSibling);
+            }
+            n--;
+        } else {
+            if (e.previousElementSibling) {
+                e = e.previousElementSibling;
+            } else {
+                for (e = e.previousElementSibling; e && e.nodeType !== 1; e = e.previousElementSibling);
+            }
+            n++;
+        }
+    }
+    return e;
+}
+
+// 封装mychildren，解决浏览器的兼容问题
+$.myChildren = function (e) {
+    var children = e.childNodes,
+        arr = [],
+        len = children.length;
+    for (var i = 0; i < len; i++) {
+        if (children[i].nodeType === 1) {
+            arr.push(children[i])
+        }
+    }
+    return arr;
+}
+
+// 判断元素有没有子元素
+$.hasChildren = function (e) {
+    var children = e.childNodes,
+        len = children.length;
+    for (var i = 0; i < len; i++) {
+        if (children[i].nodeType === 1) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// 返回当前的时间（年月日时分秒）
+$.getDateTime = function () {
+    var date = new Date(),
+        year = date.getFullYear(),
+        month = date.getMonth() + 1,
+        day = date.getDate(),
+        hour = date.getHours() + 1,
+        minute = date.getMinutes(),
+        second = date.getSeconds();
+        month = checkTime(month);
+        day = checkTime(day);
+        hour = checkTime(hour);
+        minute = checkTime(minute);
+        second = checkTime(second);
+     function checkTime(i) {
+        if (i < 10) {
+                i = "0" + i;
+       }
+      return i;
+    }
+    return "" + year + "年" + month + "月" + day + "日" + hour + "时" + minute + "分" + second + "秒"
+}
+
+// 获得滚动条的滚动距离
+$.getScrollOffset = function () {
+    if (window.pageXOffset) {
+        return {
+            x: window.pageXOffset,
+            y: window.pageYOffset
+        }
+    } else {
+        return {
+            x: document.body.scrollLeft + document.documentElement.scrollLeft,
+            y: document.body.scrollTop + document.documentElement.scrollTop
+        }
+    }
+}
+
+$.getViewportOffset = function () {
+    if (window.innerWidth) {
+        return {
+            w: window.innerWidth,
+            h: window.innerHeight
+        }
+    } else {
+        // ie8及其以下
+        if (document.compatMode === "BackCompat") {
+            // 怪异模式
+            return {
+                w: document.body.clientWidth,
+                h: document.body.clientHeight
+            }
+        } else {
+            // 标准模式
+            return {
+                w: document.documentElement.clientWidth,
+                h: document.documentElement.clientHeight
+            }
+        }
+    }
+}
+
+// 获取任一元素的任意属性
+$.getStyle = function (elem, prop) {
+    return window.getComputedStyle ? window.getComputedStyle(elem, null)[prop] : elem.currentStyle[prop]
+}
+
+// 防抖
+$.debounce = function (handle, delay) {
+    var timer = null;
+    return function () {
+        var _self = this,
+            _args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+            handle.apply(_self, _args)
+        }, delay)
+    }
+}
+
+// 获取url上的参数
+$.getUrlParam = function (sUrl, sKey) {
+    var result = {};
+    sUrl.replace(/(\w+)=(\w+)(?=[&|#])/g, function (ele, key, val) {
+        if (!result[key]) {
+            result[key] = val;
+        } else {
+            var temp = result[key];
+            result[key] = [].concat(temp, val);
+        }
+    })
+    if (!sKey) {
+        return result;
+    } else {
+        return result[sKey] || '';
+    }
+}
+
+// 格式化时间
+// 用法 $.formatDate(new Date,'yy-MM-dd HH:mm:ss')
+$.formatDate = function (t, str) {
+    var obj = {
+        yyyy: t.getFullYear(),
+        yy: ("" + t.getFullYear()).slice(-2),
+        M: t.getMonth() + 1,
+        MM: ("0" + (t.getMonth() + 1)).slice(-2),
+        d: t.getDate(),
+        dd: ("0" + t.getDate()).slice(-2),
+        H: t.getHours(),
+        HH: ("0" + t.getHours()).slice(-2),
+        h: t.getHours() % 12,
+        hh: ("0" + t.getHours() % 12).slice(-2),
+        m: t.getMinutes(),
+        mm: ("0" + t.getMinutes()).slice(-2),
+        s: t.getSeconds(),
+        ss: ("0" + t.getSeconds()).slice(-2),
+        w: ['日', '一', '二', '三', '四', '五', '六'][t.getDay()]
+    };
+    return str.replace(/([a-z]+)/ig, function ($1) {
+        return obj[$1]
+    });
+}
+
+// 邮箱验证
+$.isAvailableEmail = function (sEmail) {
+    var reg = /^([\w+\.])+@\w+([.]\w+)+$/
+    return reg.test(sEmail)
+}
+
+// 函数柯里化
+// 是把接受多个参数的函数变换成接受一个单一参数(最初函数的第一个参数)的函数，并且返回接受余下的参数且返回结果的新函数的技术
+$.curryIt = function (fn) {
+    var length = fn.length,
+        args = [];
+    var result = function (arg) {
+        args.push(arg);
+        length--;
+        if (length <= 0) {
+            return fn.apply(this, args);
+        } else {
+            return result;
+        }
+    }
+    return result;
+}
+
+// 单例模式
+$.getSingle = function (func) {
+    var result;
+    return function () {
+        if (!result) {
+            result = new func(arguments);
+        }
+        return result;
+    }
+}
+
+// 数据类型判断
+$.typeof = function (obj) {
+    return Object.prototype.toString.call(obj).replace(/\[object (\w+)\]/, '$1').toLowerCase()
+}
+
+// 数组扁平化
+$.flatten = function (arr) {
+    while (arr.some(item => Array.isArray(item))) {
+        arr = [].concat(...arr);
+    }
+    return arr;
+}
