@@ -69,6 +69,9 @@
                 <nihongText text="霓虹文字效果1,请在黑夜模式下观看" className="neon"/>
                 <nihongText text="霓虹文字效果2,请在黑夜模式下观看" style="margin-top:.2rem;" className="flux"/>
               </div>
+              <div v-if="showDemo==9">
+                <codeRain/>
+              </div>
             </div>
           </div>
         </div>
@@ -89,6 +92,7 @@ import saibopengke from "../../components/saibopengke/saibopengke";
 import cyberpunkTitle from "../../components/cyberpunkTitle/cyberpunkTitle";
 import caizhi from "../../components/caizhi/caizhi";
 import nihongText from "../../components/nihongText/nihongText";
+import codeRain from "../../components/codeRain/codeRain";
 import vuescroll from 'vuescroll'
 
 export default {
@@ -104,6 +108,7 @@ export default {
     cyberpunkTitle,
     caizhi,
     nihongText,
+    codeRain,
     vuescroll,
   },
   created() {
@@ -150,6 +155,9 @@ export default {
         },
         {
           title:'霓虹文字效果',
+        },
+        {
+          title:'代码雨效果',
         },
         {
           title:'关闭所有显示效果',

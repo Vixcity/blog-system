@@ -254,10 +254,6 @@ $.fn.windstagball = function(options) {
     }
 }
 
-$.whatType = function (para) {
-    return Object.prototype.toString.call(para)
-}
-
 //去除连续的字符串 
 $.strUniq = function (str) {
     return str.replace(/(\w)\1+/g, '$1')
@@ -476,7 +472,7 @@ $.formatDate = function (t, str) {
 
 // 邮箱验证
 $.isAvailableEmail = function (sEmail) {
-    var reg = /^([\w+\.])+@\w+([.]\w+)+$/
+    var reg = /^([\w+.])+@\w+([.]\w+)+$/
     return reg.test(sEmail)
 }
 
