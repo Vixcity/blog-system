@@ -2,6 +2,11 @@ html{
 	font-size: 100px
 }
 
+::selection{
+	background-color: $btnHoverColor;
+	color:white
+}
+
 h2{
 	font-size: .28rem;
 }

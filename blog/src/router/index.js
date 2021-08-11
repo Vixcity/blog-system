@@ -102,7 +102,15 @@ const routes = [
           breadList: [{path: '/moreDemo', name: '更多示例'}]
         },
         component: () => import('@/views/moreDemo/moreDemo')
-      }
+      },
+      {
+        path: 'article/:id',
+        name: 'myArticle',
+        meta: {
+          breadList: [{path: '/articles/:id', name: '文章'}]
+        },
+        component: () => import('@/views/article/article')
+      },
     ]
   },
   {

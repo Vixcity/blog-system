@@ -11,6 +11,7 @@ let list = [].concat(require('./homePage.js'))
     .concat(require('./categories.js'))
     .concat(require('./friendLink.js'))
     .concat(require('./messageBoard.js'))
+    .concat(require('./article.js'))
 
 let api = {}
 for (let k in list) {

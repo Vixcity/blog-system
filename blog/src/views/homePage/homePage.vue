@@ -40,9 +40,9 @@
               </a>
               <div class="article-category">
                 <i class="iconfont icon-leibie"></i>
-                <span v-for="(o,i) in item.tags" :key="i">
-                  <a :href="o.href" class="article-category-link">{{o.tag}}</a>
-                  <span v-if="item.tags.length!=1 && i!=item.tags.length-1"> / </span>
+                <span v-for="(o,i) in item.categories" :key="i">
+                  <a :href="o.categoryHref" class="article-category-link">{{o.category}}</a>
+                  <span v-if="item.categories.length!=1 && i!=item.categories.length-1"> / </span>
                 </span>
               </div>
             </div>

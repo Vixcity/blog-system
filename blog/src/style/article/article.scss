@@ -1,0 +1,52 @@
+.article{
+    width: 100%;
+    .container{
+        .page{
+            align-self: flex-start;
+            padding: .5rem .4rem;
+            margin: .5rem auto 0;
+            width: 75%;
+            border-radius: 8px;
+            background: $cardColor;
+            box-shadow: 0 4px 8px 6px rgba(7,17,27,.06);
+            transition: all .3s;
+            hr{
+              margin: .2rem 0 .2rem;
+            }
+            .article-lists{
+                padding: .2rem 0 .3rem;
+            }
+            .article-title{
+                font-size: 2em;
+                .article-meta{
+                    font-size: .14rem;
+                    color: #999;
+                    margin-right: .2rem;
+                    a{
+                        transition: all .3s;
+                        color:#666;
+                        margin-left:.1rem;
+                        border-bottom:1px solid rgba(0,0,0,0);
+                        padding-bottom: .03rem;
+                    }
+                    a:hover{
+                        color: $btnHoverColor;
+                        border-bottom:1px solid $btnHoverColor;
+                    }
+                }
+            }
+            .article-update-tips {
+                background-color: #FFFBE5;
+                border: 1px solid #f5e295;
+                color: #de9e0e;
+                border-radius: 2px;
+                font-size: 14px;
+                margin-bottom: 20px;
+                padding: 10px 20px;
+            }
+        }
+        .page:hover{
+            box-shadow: 0 4px 12px 12px rgba(7,17,27,.15);
+        }
+    }
+  }

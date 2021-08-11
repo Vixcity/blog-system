@@ -28,62 +28,62 @@ module.exports =[
         name: 'getACMyInfo',
         method: 'get',
         params: '',
-        url: 'font/font/homePage/getACMyInfo'
+        url: '/font/font/homePage/getACMyInfo'
     },
     {
         //右边的侧边栏公告
         name: 'announcement',
         method: 'get',
         params: '',
-        url: 'font/font/homePage/announcement'
+        url: '/font/font/homePage/announcement'
     },
     {
         //右边的侧边栏文档
         name: 'getACDocList',
         method: 'post',
         params: '',
-        url: 'font/font/homePage/getACDocList'
+        url: '/font/font/homePage/getACDocList'
     },
     {
         //右边的侧边栏最新文章
         name: 'getACArticleList',
         method: 'get',
         params: '',
-        url: 'font/font/homePage/getACArticleList'
+        url: '/font/font/homePage/getACArticleList'
     },
     {
         //右边的侧边栏最新评论
         name: 'getACComments',
         method: 'get',
         params: '',
-        url: 'font/font/homePage/getACComments'
+        url: '/font/font/homePage/getACComments'
     },
     {
         //右边的侧边栏分类
         name: 'getACCategoryList',
         method: 'post',
         params: '',
-        url: 'font/font/homePage/getACCategoryList'
+        url: '/font/font/homePage/getACCategoryList'
     },
     {
         //右边的侧边栏标签
         name: 'getACTagsList',
         method: 'post',
         params: '',
-        url: 'font/font/homePage/getACTagsList'
+        url: '/font/font/homePage/getACTagsList'
     },
     {
         //右边的侧边栏归档
         name: 'getACArchiveList',
         method: 'post',
         params: '',
-        url: 'font/font/homePage/getACArchiveList'
+        url: '/font/font/homePage/getACArchiveList'
     },
     {
         //右边的侧边栏网页信息
         name: 'getACWebInfo',
         method: 'get',
         params: '',
-        url: 'font/font/homePage/getACWebInfo'
+        url: '/font/font/homePage/getACWebInfo'
     }
 ]

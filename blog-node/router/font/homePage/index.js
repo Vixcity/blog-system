@@ -11,24 +11,31 @@ router.get('/getTitle',function (req,res){
         articleTypePost:[
             {
                 title: '中文说明',
-                href: 'www.baidu.com',
+                href: '/article/foo',
                 createData: '2020-01-02',
                 isTopping: true,
                 content: `<blockquote><p>12313465464161231346546416123134654641612313465464161231346546416123134654641612313465464161231346546416 <a href="">123123</a></p></blockquote>
               <p><img src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/picgo/ayer.jpg" alt=""></p>`,
                 tags: [
                     {tag:'技术',href:'www.baidu.com'}
+                ],
+                9:[
+                  {category:'技术',categoryHref:'www.baidu.com'}
                 ]
             },{
                 title: '中文说明',
-                href: 'www.163.com',
+                href: '/article/bar',
                 createData: '2020-01-02',
                 isTopping: false,
                 content: `<blockquote><p>12313465464161231346546416123134654641612313465464161231346546416123134654641612313465464161231346546416 <a href="">123123</a></p></blockquote>
               <p><img src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/picgo/ayer.jpg" alt=""></p>`,
                 tags: [
-                    {tag:'旅行',href:'www.baidu.com'},
+                    {tag:'旅行',href:'www.baidu.com',category:'旅行',categoryHref:'www.baidu.com'},
                     {tag:'国内',href:'www.vixcity.com'},
+                ],
+                categories:[
+                  {category:'旅行',categoryHref:'www.baidu.com'},
+                  {category:'国内',categoryHref:'www.vixcity.com'}
                 ]
             }
         ]
