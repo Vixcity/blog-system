@@ -6,7 +6,7 @@
             padding: .5rem .4rem;
             margin: .5rem auto 0;
             width: 75%;
-            border-radius: 8px;
+            border-radius: .08rem;
             background: $cardColor;
             box-shadow: 0 4px 8px 6px rgba(7,17,27,.06);
             transition: all .3s;
@@ -40,9 +40,9 @@
                 border: 1px solid #f5e295;
                 color: #de9e0e;
                 border-radius: 2px;
-                font-size: 14px;
-                margin-bottom: 20px;
-                padding: 10px 20px;
+                font-size: .14rem;
+                margin-bottom: .2rem;
+                padding: .1rem .2rem;
             }
             .article-content{
                 img {
@@ -63,7 +63,7 @@
                     text-decoration: underline;
                 }
                 a:hover {
-                    color: #FF5E52;
+                    color: #FF5E52!important;
                 }
                 blockquote {
                     margin: .3rem .3rem;
@@ -74,7 +74,9 @@
                     border-left: .04rem solid $btnHoverColor;
                 }
                 pre{
+                    padding: .1rem;
                     background-color: #23241f;
+                    color:white;
                 }
             }
             .post-actions {
@@ -87,11 +89,11 @@
                     display: inline-block;
                     opacity: 0.8;
                     line-height: 1;
-                    padding: 12px 20px;
+                    padding: .12rem .2rem;
                     border-radius: 2px;
                     color: #fff;
-                    font-size: 14px;
-                    margin: 0 7px;
+                    font-size: .14rem;
+                    margin: 0 .07rem;
                 }
                 .action.action-like:hover{
                     opacity: 1;
@@ -99,12 +101,12 @@
             }
             .post-copyright {
                 background-color: #eee;
-                font-size: 12px;
-                padding: 8px 30px;
+                font-size: .12rem;
+                padding: .08rem .3rem;
                 border-radius: 2px;
                 color: #aaa;
                 text-align: center;
-                margin-bottom: 18px;
+                margin-bottom: .18rem;
                 overflow: hidden;
                 clear: both;
                 transition: color 0.25s, background-color 0.25s;
@@ -121,6 +123,7 @@
                 }
             }
             .article-tags{
+                margin: .3rem 0;
                 a {
                     transition: all .3s;
                     color: #666;
@@ -132,11 +135,243 @@
                     border-bottom: 1px solid var(--btnHoverColor, #ff7242);
                 }
             }
-
-
+            .article-nav {
+                overflow: hidden;
+                margin-bottom: .3rem;
+                font-size: .14rem;
+                color: #bbb;
+                word-break: break-word;
+                span {
+                    float: left;
+                    position: relative;
+                    width: 50%;
+                    a{
+                        transition: all .3s;
+                        color: #999;
+                    }
+                    a:hover{
+                        color:$btnHoverColor;
+                        text-decoration: underline;
+                    }
+                }
+                span.article-nav-next {
+                    float: right;
+                    text-align: right;
+                }
+                .article-nav-next::before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    height: 100%;
+                    display: block;
+                    width: 1px;
+                    background-color: #eee;
+                }
+            }
+            .relates-imagetext {
+                margin-bottom: .1rem;
+                li {
+                    display: inline-block;
+                    vertical-align: top;
+                    width: 22%;
+                    margin-right: 3%;
+                    margin-bottom: .2rem;
+                }
+                img{
+                    margin-bottom: .1rem;
+                    max-width: 100%;
+                    vertical-align: middle;
+                }
+            }
+            .relates-title {
+                margin-bottom: .2rem;
+                border-bottom: 1px solid #eaeaea;
+                padding-bottom: .1rem;
+                overflow: hidden;
+            }
+            .relates {
+                overflow: hidden;
+                li {
+                    position: relative;
+                    word-break: break-word;
+                }
+                a {
+                    transition: all .3s;
+                    color: #999;
+                    .thumb {
+                        border-radius: 4px;
+                    }
+                }
+                a:hover {
+                    color: var(--btnHoverColor, #ff7242);
+                }
+            }
+            #comments b {
+                font-weight: normal;
+                color: #ff5e52;
+            }
+            #respond {
+                padding-bottom: .25rem;
+                position: relative;
+                .comt {
+                    position: relative;
+                    padding-left: .46rem;
+                }
+                .comt-title {
+                    font-size: .12rem;
+                    color: #999;
+                    float: left;
+                    margin-left: -.46rem;
+                    width: .36rem;
+                    text-align: center;
+                    .avatar {
+                        height: 36px;
+                        width: 36px;
+                        border-radius: 50%;
+                        margin-bottom: 5px;
+                    }
+                }
+                .comt-box {
+                    border: 2px solid #ccd4d9;
+                    border-radius: 2px;
+                    padding: 4px 0 0 4px;
+                    background-color: #fff;
+                    position: relative;
+                }
+                #comment {
+                    width: 99%;
+                    resize: none;
+                    overflow-x: hidden;
+                    overflow-y: auto;
+                    border: none;
+                    line-height: .22rem;
+                    font-size: .14rem;
+                    outline: 0;
+                    color: #666;
+                    height: .68rem;
+                    font-family: inherit;
+                }
+                .comt-ctrl {
+                    background-color: #fbfbfb;
+                    height: .36rem;
+                    margin-left: -4px;
+                    border-top: solid 1px #f2f2f2;
+                }
+                .comt-tips {
+                    text-align: center;
+                    margin-right: 1.1rem;
+                    line-height: 1.16rem;
+                    font-size: .18rem;
+                    color: #fff;
+                }
+                #submit {
+                    position: absolute;
+                    right: -2px;
+                    bottom: -2px;
+                    background: #45B6F7;
+                    border: none;
+                    border: 2px solid;
+                    border-color: #45B6F7;
+                    border-left: none;
+                    border-top: none;
+                    padding: 0px;
+                    width: 1rem;
+                    height: .38rem;
+                    color: #fff;
+                    outline: 0;
+                    border-radius: 0 0 2px 0;
+                    font-size: .16rem;
+                    cursor: pointer;
+                }
+                .comt-comterinfo {
+                    padding: 15px 0;
+                    text-align: center;
+                    ul {
+                        padding: 0;
+                        margin: 0;
+                        list-style: none;
+                        text-align: left;
+                        display: inline-block;
+                    }
+                    li {
+                        margin-bottom: 5px;
+                    }
+                    .hide {
+                        display: none!important;
+                    }
+                    input {
+                        margin-right: .1rem;
+                        position: relative;
+                        border: 2px solid #CCD4D9;
+                        border-radius: 2px;
+                        height: .2rem;
+                        padding: 3px 5px;
+                        outline: none;
+                        width: 2.2rem;
+                        box-shadow: none;
+                        font-family: inherit;
+                        line-height: inherit;
+                    }
+                    .text-muted {
+                        color: #777;
+                    }
+                }
+            }
+            #postcomments {
+                position: relative;
+                .depth-1 {
+                    border-bottom: #eee 1px solid;
+                    position: relative;
+                }
+                .depth-1:hover{
+                    .comt-f {
+                        color: #666;
+                    }
+                }
+                .comt-f {
+                    position: absolute;
+                    top: .15rem;
+                    right: 0;
+                    font-size: .16rem;
+                    color: #ccc;
+                }
+                .comt-avatar {
+                    background-color: #FFF;
+                    float: left;
+                    display: inline;
+                    position: relative;
+                    margin-top: .19rem;
+                    img{
+                        border-radius: 50%;
+                        width: .36rem;
+                        height: .36rem;
+                    }
+                }
+                .comt-main {
+                    margin-left: .46rem;
+                    margin-right: .6rem;
+                    color: #888;
+                    line-height: .22rem;
+                    position: relative;
+                    font-size: .14rem;
+                    padding: 0 0 15px;
+                    word-wrap: break-word;
+                    max-height: 3rem;
+                    overflow: hidden;
+                    p {
+                        margin-top: .15rem;
+                        margin-bottom: 0;
+                    }
+                    .comt-meta {
+                        font-size: .12rem;
+                        color: #bbb;
+                    }
+                }
+            }
         }
         .page:hover{
-            box-shadow: 0 4px 12px 12px rgba(7,17,27,.15);
+            box-shadow: 0 .04rem .12rem .12rem rgba(7,17,27,.15);
         }
     }
   }
