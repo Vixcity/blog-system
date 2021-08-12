@@ -94,6 +94,10 @@
         },
       }
     },
+    mounted() {
+      console.log(this)
+      window.vue = this
+    },
     methods: {
       handleSee() {
         this.$refs['form'].validate((valid) => {

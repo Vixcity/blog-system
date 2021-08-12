@@ -15,6 +15,14 @@
             <hr>
             <div>
               <div v-if="isUpdata" class="article-update-tips">本文于 {{ updataTime }} 更新，注意查看新内容</div>
+              <div class="article-content" v-html="content"></div>
+              <div class="post-actions">
+                <a href="javascript:;" etap="like" class="post-like action action-like" data-pid="72858">
+                  <i class="iconfont icon-zan" style="margin-right: .07rem"></i>赞(<span>35</span>)
+                </a>
+              </div>
+              <div class="post-copyright">本站文章未说明转载即为原创，转载请注明，<a href="https://fuliba2021.net">Vixcity</a> » <a href="https://fuliba2021.net/99.html">{{ title }}</a></div>
+              <div class="article-tags"><i class="iconfont icon-biaoqian" style="margin-right: 0.1rem;"></i><a href="https://fuliba2021.net/tag/%e8%b4%ad%e7%89%a9%e7%be%a4" rel="tag">购物群</a></div>
             </div>
           </div>
         </div>
@@ -49,7 +57,7 @@ export default {
       commentCount:'',
       updataTime:'',
       categories:'',
-      article:[]
+      content:''
     }
   },
   methods: {
@@ -63,8 +71,8 @@ export default {
         this.updataTime = r.data.updataTime
         this.isUpdata = r.data.isUpdata
       })
-      this.$api.getDocsList().then(r=>{
-        this.article = r.data
+      this.$api.getArticleContent().then(r=>{
+        this.content = r.data.content
       })
       this.$api.getArticlesBannerSrc().then(r=>{
         this.bannerSrc = r.data.url

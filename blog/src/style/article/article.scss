@@ -44,6 +44,96 @@
                 margin-bottom: 20px;
                 padding: 10px 20px;
             }
+            .article-content{
+                img {
+                    transition: all .5s;
+                    margin: .05rem auto;
+                    display: block;
+                    max-width: 100%;
+                    height: auto;
+                    filter: brightness(var(--avatarImgFilter, 1));
+                }
+                p {
+                    margin-bottom: .2rem;
+                    word-wrap: break-word;
+                }
+                a{
+                    color: $cardDocColor;
+                    transition: color 0.25s, background-color 0.25s;
+                    text-decoration: underline;
+                }
+                a:hover {
+                    color: #FF5E52;
+                }
+                blockquote {
+                    margin: .3rem .3rem;
+                    padding: .1rem .2rem;
+                    font-size: .16rem;
+                    color: #999;
+                    transition: all .5s;
+                    border-left: .04rem solid $btnHoverColor;
+                }
+                pre{
+                    background-color: #23241f;
+                }
+            }
+            .post-actions {
+                text-align: center;
+                overflow: hidden;
+                padding: .15rem 0 .3rem;
+                clear: both;
+                .action.action-like {
+                    background-color: $cardDocColor;
+                    display: inline-block;
+                    opacity: 0.8;
+                    line-height: 1;
+                    padding: 12px 20px;
+                    border-radius: 2px;
+                    color: #fff;
+                    font-size: 14px;
+                    margin: 0 7px;
+                }
+                .action.action-like:hover{
+                    opacity: 1;
+                }
+            }
+            .post-copyright {
+                background-color: #eee;
+                font-size: 12px;
+                padding: 8px 30px;
+                border-radius: 2px;
+                color: #aaa;
+                text-align: center;
+                margin-bottom: 18px;
+                overflow: hidden;
+                clear: both;
+                transition: color 0.25s, background-color 0.25s;
+                a{
+                    color:#aaa;
+                    transition: color 0.25s, background-color 0.25s;
+                }
+            }
+            .post-copyright:hover{
+                background-color: #ff7242;
+                color: #fff;
+                a{
+                    color:#fff
+                }
+            }
+            .article-tags{
+                a {
+                    transition: all .3s;
+                    color: #666;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0);
+                    padding-bottom: .03rem;
+                }
+                a:hover{
+                    color: var(--btnHoverColor, #ff7242);
+                    border-bottom: 1px solid var(--btnHoverColor, #ff7242);
+                }
+            }
+
+
         }
         .page:hover{
             box-shadow: 0 4px 12px 12px rgba(7,17,27,.15);
