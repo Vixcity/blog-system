@@ -1,7 +1,7 @@
 module.exports =[
     { //获取时间线
         name: 'getTimeDate',
-        method: 'get',
+        method: 'post',
         params: '',
         url: '/font/font/archives/getTimeDate'
     },

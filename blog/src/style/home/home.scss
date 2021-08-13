@@ -123,6 +123,14 @@
                 }
                 a{
                     color:$fontColor;
+                    margin-right: .15rem;
+                }
+                .zan{
+                    cursor: pointer;
+                    margin-right: 0;
+                }
+                .yizan{
+                    color:#2D93CA;
                 }
                 .article-category{
                     display: inline-block;

@@ -111,6 +111,22 @@ const routes = [
         },
         component: () => import('@/views/article/article')
       },
+      {
+        path: 'archivesDetail/:id',
+        name: 'archivesDetail',
+        meta: {
+          breadList: [{path: '/archivesDetail/:id', name: '归档'}]
+        },
+        component: () => import('@/views/archives/archivesDetail')
+      },
+      {
+        path: 'categoriesDetail/:id',
+        name: 'categoriesDetail',
+        meta: {
+          breadList: [{path: '/categoriesDetail/:id', name: '分类'}]
+        },
+        component: () => import('@/views/categories/categoriesDetail')
+      },
     ]
   },
   {

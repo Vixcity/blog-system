@@ -8,9 +8,9 @@
             <div class="article-title is-center">
               {{ title }}
               <br />
-              <span class="article-meta">{{ time }}</span>
-              <span class="article-meta"> <i class="iconfont icon-leibie"></i> <a v-for="(o,i) in categories" :key="i" :href="o.href">{{ o.categorie }}</a></span>
-              <span class="article-meta">评论（{{ commentCount }}）</span>
+              <span class="article-meta"><i class="iconfont icon-riqiqishu"></i><a :href="'/archivesDetail/'+time"><span>{{ time }}</span></a></span>
+              <span class="article-meta-fenlei"><i class="iconfont icon-leibie"></i><a v-for="(o,i) in categories" :key="i" :href="o.href">{{ o.categorie }}</a></span>
+              <span class="article-meta"><i class="iconfont icon-pinglun"></i>评论（{{ commentCount }}）</span>
             </div>
             <hr>
             <div>
@@ -19,8 +19,8 @@
             </div>
             <div>
               <div class="post-actions">
-                <a href="javascript:;" etap="like" class="post-like action action-like" data-pid="72858">
-                  <i class="iconfont icon-zan" style="margin-right: .07rem"></i>赞(<span>35</span>)
+                <a href="javascript:;" @click="addZan($event)" etap="like" class="post-like action action-like" data-pid="72858">
+                  <i class="iconfont icon-zan" style="margin-right: .07rem"></i>赞(<span>{{ zanCount }}</span>)
                 </a>
               </div>
               <div class="post-copyright">本站文章未说明转载即为原创，转载请注明，<a href="https://fuliba2021.net">Vixcity</a> » <a href="https://fuliba2021.net/99.html">{{ title }}</a></div>
@@ -103,6 +103,7 @@ export default {
     vuescroll
   },
   mounted() {
+    console.log(this.$route.params.id)
     this.ready(),
     this.$('.__vuescroll').css('height','100vh')
   },
@@ -113,6 +114,7 @@ export default {
       time:'',
       isUpdata:'',
       commentCount:'',
+      zanCount:'',
       updataTime:'',
       categories:'',
       content:''
@@ -131,6 +133,7 @@ export default {
       })
       this.$api.getArticleContent().then(r=>{
         this.content = r.data.content
+        this.zanCount = r.data.zanCount
       })
       this.$api.getArticlesBannerSrc().then(r=>{
         this.bannerSrc = r.data.url
@@ -141,6 +144,15 @@ export default {
         }
       })
     },
+    addZan(el){
+      console.log(el.path[1].className)
+      if (el.path[1].className.indexOf('yizan') != -1){
+        this.$message('您已经赞过');
+      } else {
+        el.path[1].className += ' yizan'
+        this.zanCount += 1
+      }
+    }
   },
 }
 </script>

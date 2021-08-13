@@ -1,7 +1,7 @@
 module.exports =[
     { //获取分类
         name: 'getCategoriesList',
-        method: 'get',
+        method: 'post',
         params: '',
         url: '/font/font/categories/getCategoriesList'
     },

@@ -36,13 +36,23 @@
                         transition: all .25s;
                         display: inline-block;
                         width: 100%;
+                        overflow: hidden;
+                        .iconfont{
+                            margin-right: .02rem;
+                        }
                     }
                     a:hover{
                         color:$cardDocColor;
                     }
                     .category-list-count {
-                        margin-left: .08rem;
+                        margin-left: .1rem;
                         color: #858585;
+                    }
+                    .category-list-count-detail{
+                        text-align: right;
+                        margin-left: .2rem;
+                        color: #858585;
+                        float: right;
                     }
                 }
                 .category-list-item:before {

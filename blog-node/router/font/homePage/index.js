@@ -13,29 +13,33 @@ router.get('/getTitle',function (req,res){
                 title: '中文说明',
                 href: '/article/foo',
                 createData: '2020-01-02',
+                commentCount:35,
+                zanCount:15,
                 isTopping: true,
                 content: `<blockquote><p>12313465464161231346546416123134654641612313465464161231346546416123134654641612313465464161231346546416 <a href="">123123</a></p></blockquote>
               <p><img src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/picgo/ayer.jpg" alt=""></p>`,
                 tags: [
-                    {tag:'技术',href:'www.baidu.com'}
+                    {tag:'技术',href:'www.biaoqian.com'}
                 ],
-                9:[
-                  {category:'技术',categoryHref:'www.baidu.com'}
+                categories:[
+                  {category:'技术',categoryHref:'www.fenlei.com'}
                 ]
             },{
                 title: '中文说明',
                 href: '/article/bar',
                 createData: '2020-01-02',
+                commentCount:35,
+                zanCount:20,
                 isTopping: false,
                 content: `<blockquote><p>12313465464161231346546416123134654641612313465464161231346546416123134654641612313465464161231346546416 <a href="">123123</a></p></blockquote>
               <p><img src="https://cdn.jsdelivr.net/gh/Shen-Yu/cdn/picgo/ayer.jpg" alt=""></p>`,
                 tags: [
-                    {tag:'旅行',href:'www.baidu.com',category:'旅行',categoryHref:'www.baidu.com'},
-                    {tag:'国内',href:'www.vixcity.com'},
+                    {tag:'旅行',href:'www.biaoqian.com'},
+                    {tag:'国内',href:'www.biaoqian.com'},
                 ],
                 categories:[
-                  {category:'旅行',categoryHref:'www.baidu.com'},
-                  {category:'国内',categoryHref:'www.vixcity.com'}
+                  {category:'旅行',categoryHref:'www.fenlei.com'},
+                  {category:'国内',categoryHref:'www.fenlei.com'}
                 ]
             }
         ]

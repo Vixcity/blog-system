@@ -7,6 +7,10 @@ html{
 	color:white
 }
 
+input,textarea{
+	caret-color: $btnHoverColor;
+}
+
 h2{
 	font-size: .28rem;
 }

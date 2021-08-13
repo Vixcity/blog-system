@@ -1,7 +1,7 @@
 <template>
   <vuescroll>
     <div class="archives">
-    <contentBanner :imgSrc="bannerSrc" :title="title" />
+    <contentBanner :imgSrc="bannerSrc" :title="time" />
     <div class="container">
       <div class="containers">
         <div class="archivesHeader flex">
@@ -42,7 +42,7 @@ import asideContent from "../../components/asideContent/asideContent"
 import vuescroll from 'vuescroll'
 
 export default {
-  name: "archives",
+  name: "archivesDetail",
   components:{
     contentBanner,
     asideContent,
@@ -54,6 +54,7 @@ export default {
       bannerSrc:'',
       title:'归档',
       subTitle:{},
+      time:'',
     }
   },
   created() {
@@ -66,6 +67,7 @@ export default {
     })
   },
   mounted() {
+    this.time = this.$route.params.id
     this.ready(),
     this.$('.__vuescroll').css('height','100vh')
   },
@@ -81,7 +83,7 @@ export default {
     },
     ready() {
       console.log('%c惊风飘白日,\n光景西驰流。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: red;font-wight:700;font-size:35px");
-      this.$api.getTimeDate({time:''}).then(r=>{
+      this.$api.getTimeDate({time:this.time}).then(r=>{
         this.timeData = r.data
       })
       this.$api.getArchivesTitle().then(r=>{

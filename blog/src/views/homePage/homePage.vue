@@ -34,10 +34,18 @@
               </h2>
             </div>
             <div class="article-meta">
-              <a :href="item.href" class="article-date">
+              <a :href="'/archivesDetail/'+item.createData" class="article-date">
                 <i class="iconfont icon-riqiqishu"></i>
                 <time>{{item.createData}}</time>
               </a>
+              <a :href="item.href" class="article-date">
+                <i class="iconfont icon-pinglun"></i>
+                <time>评论({{item.commentCount}})</time>
+              </a>
+              <span @click="addZan(index, $event)" class="article-date zan">
+                <i class="iconfont icon-zan"></i>
+                <time>{{item.zanCount}}</time>
+              </span>
               <div class="article-category">
                 <i class="iconfont icon-leibie"></i>
                 <span v-for="(o,i) in item.categories" :key="i">
@@ -137,8 +145,7 @@ export default {
       this.$api.getTitle().then(r=>{
         this.contentInfo = r.data
         let options  =  { 
-          strings: this.contentInfo.typed, 
-          typeSpeed: 40,
+          strings: this.contentInfo.typed,
           loop:true,
           typeSpeed:150,
           backSpeed:70,
@@ -149,6 +156,15 @@ export default {
         };
         new Typed('#typed', options);
       })
+    },
+    addZan(i,el){
+      console.log(i,el.path[1].className)
+      if (el.path[1].className.indexOf('yizan') != -1){
+        this.$message('您已经赞过');
+      } else {
+        el.path[1].className += ' yizan'
+        this.contentInfo.articleTypePost[i].zanCount += 1
+      }
     }
   }
 }
