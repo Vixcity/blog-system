@@ -22,7 +22,7 @@ router.get('/getTitle',function (req,res){
                     {tag:'技术',href:'www.biaoqian.com'}
                 ],
                 categories:[
-                  {category:'技术',categoryHref:'www.fenlei.com'}
+                  {category:'技术',categoryHref:'/categoriesDetail/技术'}
                 ]
             },{
                 title: '中文说明',
@@ -38,8 +38,8 @@ router.get('/getTitle',function (req,res){
                     {tag:'国内',href:'www.biaoqian.com'},
                 ],
                 categories:[
-                  {category:'旅行',categoryHref:'www.fenlei.com'},
-                  {category:'国内',categoryHref:'www.fenlei.com'}
+                  {category:'旅行',categoryHref:'/categoriesDetail/旅行'},
+                  {category:'国内',categoryHref:'/categoriesDetail/国内'}
                 ]
             }
         ]
