@@ -14,7 +14,11 @@
                 <li v-for="(item,index) in moreDemoList" :key="index" @click="clickDemo(index,item)"><a href="javascript:void(0);" :style="item.style">{{ item.title }}</a></li>
               </ul>
             </div>
-            <hr :class="{'cyberpunkLine':( showDemo === 6 || showDemo === 5 ), 'lightHr':( showDemo === 3 || showDemo === 4 )}">
+            <hr :class="{
+              'cyberpunkLine':( showDemo === 6 || showDemo === 5 ),
+              'lightHr':( showDemo === 3 || showDemo === 4 ),
+              'tabsHr':(showDemo === 10 || showDemo === 11 || showDemo === 12 || showDemo === 13 || showDemo === 14)
+            }">
             <div class="showDemos">
               <div v-if="showDemo==0">
                 <lightButton text="黑夜模式下" :color="{'--i': 1}"/>
@@ -72,6 +76,24 @@
               <div v-if="showDemo==9">
                 <codeRain/>
               </div>
+              <div v-if="showDemo==10">
+                <toDoList :list="ToDoList"/>
+              </div>
+              <div v-if="showDemo==11">
+                <toggle v-model="value"/>
+              </div>
+              <div v-if="showDemo==12">
+                <MateInput label="欢迎光临Vixcity的个人小站"/>
+              </div>
+              <div v-if="showDemo==13">
+                <ImageCropper @filesend="imgChange(arguments)"/>
+              </div>
+              <div v-if="showDemo==14">
+                <ColorfulTabs @filesend="imgChange(arguments)"/>
+              </div>
+              <div v-if="showDemo==15">
+                <NumProgress :send-num="70" :max-num="100" />
+              </div>
             </div>
           </div>
         </div>
@@ -93,6 +115,12 @@ import cyberpunkTitle from "../../components/cyberpunkTitle/cyberpunkTitle";
 import caizhi from "../../components/caizhi/caizhi";
 import nihongText from "../../components/nihongText/nihongText";
 import codeRain from "../../components/codeRain/codeRain";
+import toDoList from "../../components/toDoList/toDoList";
+import toggle from "../../components/toggle/toggle";
+import MateInput from "../../components/MateInput/MateInput";
+import ImageCropper from "../../components/ImageCropper/ImageCropper";
+import ColorfulTabs from "../../components/colorfulTabs/colorfulTabs";
+import NumProgress from "../../components/NumProgress/NumProgress";
 import vuescroll from 'vuescroll'
 
 export default {
@@ -109,6 +137,12 @@ export default {
     caizhi,
     nihongText,
     codeRain,
+    toDoList,
+    toggle,
+    MateInput,
+    ImageCropper,
+    ColorfulTabs,
+    NumProgress,
     vuescroll,
   },
   created() {
@@ -160,13 +194,46 @@ export default {
           title:'代码雨效果',
         },
         {
+          title:'ToDoList',
+        },
+        {
+          title:'开关效果',
+        },
+        {
+          title:'好看的输入框效果',
+        },
+        {
+          title:'上传头像组件',
+        },
+        {
+          title:'标签切换',
+        },
+        {
+          title:'进度条动画',
+        },
+        {
           title:'关闭所有显示效果',
         },
-      ]
+      ],
+      ToDoList:[
+        {
+          name: '选择第一个',
+          value: '1'
+        },
+        {
+          name: '选择第二个',
+          value: '2'
+        },
+        {
+          name: '选择第三个',
+          value: '3'
+        }
+      ],
+      value:false,
     }
   },
   methods:{
-     ready() {
+    ready() {
       console.log('%c青山看不厌，\n流水趣何长。',"font-family:演示夏行楷,缘缘体行书,华文行楷;color: #005CAF;font-wight:700;font-size:35px");
       this.$api.getMoreDemoTitle().then(r=>{
         this.title = r.data.title
@@ -197,6 +264,16 @@ export default {
       setTimeout(()=>{
         this.$loading.hide()
       },time)
+    },
+    imgChange(blob) {
+      const elink = document.createElement('a');
+      elink.download = blob[2];
+      elink.style.display = 'none';
+      elink.href = URL.createObjectURL(blob[1]);
+      document.body.appendChild(elink);
+      elink.click();
+      URL.revokeObjectURL(elink.href); //释放URL对象
+      document.body.removeChild(elink);
     }
   }
 }
