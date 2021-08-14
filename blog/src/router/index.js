@@ -127,6 +127,14 @@ const routes = [
         },
         component: () => import('@/views/categories/categoriesDetail')
       },
+      {
+        path: 'tagsDetail/:id',
+        name: 'tagsDetail',
+        meta: {
+          breadList: [{path: '/tagsDetail/:id', name: '标签'}]
+        },
+        component: () => import('@/views/tags/tagsDetail')
+      },
     ]
   },
   {

@@ -1,7 +1,7 @@
 module.exports =[
     { //获取标签列表
         name: 'getTagsList',
-        method: 'get',
+        method: 'post',
         params: '',
         url: '/font/font/tags/getTagsList'
     },

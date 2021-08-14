@@ -6,31 +6,31 @@ router.get('/getDocsList',function (req,res){
     new Result([
         {
           title:'🚀 快速开始',
-          href:'www.vip.com'
+          href:'/article/🚀 快速开始'
         },
         {
           title:'📑 主题页面',
-          href:'www.vip.com'
+          href:'/article/📑 主题页面'
         },
         {
           title:'🛠 主题配置-1',
-          href:'www.vip.com'
+          href:'/article/🛠 主题配置-1'
         },
         {
           title:'⚔️ 主题配置-2',
-          href:'www.vip.com'
+          href:'/article/⚔️ 主题配置-2'
         },
         {
           title:'❓ 主题问答',
-          href:'www.vip.com'
+          href:'/article/❓ 主题问答'
         },
         {
           title:'⚡️ 进阶教程',
-          href:'www.vip.com'
+          href:'/article/⚡️ 进阶教程'
         },
         {
           title:'✨ 更新日誌',
-          href:'www.vip.com'
+          href:'/article/✨ 更新日誌'
         },
       ],'欢迎使用小温博客管理系统，查询文档信息成功').success(res)
 })
