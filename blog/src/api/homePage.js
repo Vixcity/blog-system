@@ -13,7 +13,7 @@ module.exports =[
     },
     {
         name: 'getTitle',
-        method: 'get',
+        method: 'post',
         params: '',
         url: '/font/font/homePage/getTitle'
     },
@@ -54,7 +54,7 @@ module.exports =[
     {
         //右边的侧边栏最新评论
         name: 'getACComments',
-        method: 'get',
+        method: 'post',
         params: '',
         url: '/font/font/homePage/getACComments'
     },

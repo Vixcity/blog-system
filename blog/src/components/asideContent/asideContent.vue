@@ -204,7 +204,7 @@ export default {
       this.$api.getACArticleList().then(r=>{
         this.articleList = r.data
       })
-      this.$api.getACComments().then(r=>{
+      this.$api.getACComments({url:this.url}).then(r=>{
         this.comments = r.data
       })
       this.$api.getACCategoryList({url:this.url}).then(r=>{

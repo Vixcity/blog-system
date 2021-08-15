@@ -37,7 +37,7 @@
             </div>
           </div>
         </div>
-        <asideContent />
+        <asideContent url="messageBoard"/>
       </div>
     </div>
   </vuescroll>
