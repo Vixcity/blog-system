@@ -1,6 +1,5 @@
 const args = require('minimist')(process.argv.slice(2))
 const chalk = require('chalk')
-const currentVersion = require('../package.json').version
 const { prompt } = require('enquirer')
 const execa = require('execa')
 
@@ -42,6 +41,7 @@ Date.prototype.Format = function(formatStr)
 
 async function main() {
   let targetVersion = args._[0]
+  let whereCK
   let now = new Date().Format('YYYY-MM-DD hh:mm:ss')
 
   if (!targetVersion) {
@@ -79,7 +79,7 @@ async function main() {
   if (stdout) {
     step('\n提交更改的内容...')
     await runIfNotDry('git', ['add', '-A'])
-    await runIfNotDry('git', ['commit', '-m', `release: v${targetVersion}`])
+    await runIfNotDry('git', ['commit', '-m', `更新内容：${targetVersion}`])
   } else {
     console.log('No changes to commit.')
   }
@@ -89,7 +89,7 @@ async function main() {
   switch (whereCK.whereCK) {
     case '全部':
       await runIfNotDry('git', ['push', 'gitee', `master`])
-      step('\n\n')
+      step('\n')
       await runIfNotDry('git', ['push', 'github', `master`])
       break;
     case 'gitee':
