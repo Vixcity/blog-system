@@ -1,18 +1,23 @@
 {
   "name": "blog",
-  "version": "0.1.0",
+  "version": "0.1.12",
   "private": true,
   "scripts": {
+    "lint": "vue-cli-service lint",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "release": "node scripts/release.js",
+    "releaseDry": "node scripts/release.js --dry",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "dependencies": {
     "animate.css": "^4.1.1",
     "animation": "^0.1.3",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "conventional-changelog-cli": "^2.0.31",
     "element-ui": "^2.14.1",
+    "enquirer": "^2.3.6",
     "jquery": "^3.6.0",
     "lightgallery.js": "^1.4.0",
     "moment": "^2.29.1",
@@ -20,7 +25,7 @@
     "parallax-js": "^3.1.0",
     "quill-emoji": "^0.2.0",
     "typed.js": "^2.0.12",
-    "vue": "^2.6.11",
+    "vue": "0.1.12",
     "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.2.0",
     "vuescroll": "^4.17.3",
