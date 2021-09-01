@@ -4,19 +4,27 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "node scripts/release.js",
+    "releaseDry": "node scripts/release.js --dry",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
     "boom": "^7.3.0",
+    "chalk": "^4.1.2",
+    "conventional-changelog-cli": "^2.1.1",
     "cors": "^2.8.5",
+    "enquirer": "^2.3.6",
+    "execa": "^5.1.1",
     "express": "^4.17.1",
     "express-jwt": "^6.1.0",
     "fs": "0.0.1-security",
     "https": "^1.0.0",
     "lodash": "^4.17.21",
+    "minimist": "^1.2.5",
     "mysql": "^2.18.1"
   }
 }
