@@ -47,13 +47,11 @@ async function main() {
     })
   }
 
-  console.log(whereCK,111)
-
   // 产生 changelog
   await run(`yarn`, ['changelog'])
   const { stdout } = await run('git', ['diff'], { stdio: 'pipe' })
   if (stdout) {
-    step('\nCommitting changes...')
+    step('\n提交更改的内容...')
     await runIfNotDry('git', ['add', '-A'])
     await runIfNotDry('git', ['commit', '-m', `release: v${targetVersion}`])
   } else {
@@ -61,7 +59,7 @@ async function main() {
   }
 
   // 推送到 GitHub 和 Gitee
-  step('\nPushing to GitHub and Gitee...')
+  step('\n推送到GitHub and Gitee...')
   switch (whereCK.whereCK) {
     case '全部':
       await runIfNotDry('git', ['push', 'gitee', `master`])
