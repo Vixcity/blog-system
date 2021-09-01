@@ -91,12 +91,15 @@ async function main() {
       await runIfNotDry('git', ['push', 'gitee', `master`])
       step('\n')
       await runIfNotDry('git', ['push', 'github', `master`])
+      step('\n')
       break;
     case 'gitee':
       await runIfNotDry('git', ['push', 'gitee', `master`])
+      step('\n')
       break;
     case 'github':
       await runIfNotDry('git', ['push', 'github', `master`])
+      step('\n')
       break;
     default:
     break;
