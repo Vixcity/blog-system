@@ -73,8 +73,7 @@ async function main() {
     })
   }
 
-  // 产生 changelog
-  await run(`yarn`, ['changelog'])
+  // 提交代码
   const { stdout } = await run('git', ['diff'], { stdio: 'pipe' })
   if (stdout) {
     step('\n提交更改的内容...')
