@@ -1,39 +1,62 @@
-# 博客系统
+# 这是我的博客系统
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+主要由一下三部分组成
 
-#### 软件架构
-软件架构说明
+1. 博客展示页 ==> blog
+2. 博客后台管理系统 ==> blog-end
+3. 博客后端服务 ==> blog-node
 
+大家喜欢的可以来个 Star 关注一下，以后会有更多内容分享
 
-#### 安装教程
+## 博客展示页
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+启动命令如下
 
-#### 使用说明
+```bash
+1. yarn
+2. yarn serve
+3. yarn build(打包)
+```
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+## 博客后台管理系统
 
-#### 参与贡献
+启动命令如下
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+```bash
+1. yarn
+2. yarn serve
+3. yarn build(打包)
+```
 
+## 博客后端服务
 
-#### 特技
+启动命令如下
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+```bash
+1. yarn
+2. node app
+```
+
+## 自动化提交代码脚本
+
+自动化提交代码脚本 ==> 在对应的文件夹内可以输入如下命令进行提交
+
+```bash
+yarn release
+```
+
+## 目前进度
+
+- [ ] 待后续补充
+
+## 待完成
+
+- [ ] 待后续补充
+
+如果对我感兴趣的话，你也可以在以下渠道了解一下我
+
+Gitee：[![Gitee](https://camo.githubusercontent.com/2aeae18a20a92644d909b9c925e63520238d404db151f2c3cdc5d76d2c5cf976/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f566978636974792d47697465652d7265642e7376673f7374796c653d666c61742d737175617265266c6f676f3d6769746565)](https://gitee.com/vixcity)
+
+博客：[![Blog](https://camo.githubusercontent.com/90816be5895db1ca7e6f14d4df0d72f6d5c5c2a0305451c3a6f9969fd3e2bb0b/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f566978636974792d426c6f672d6f72616e67652e7376673f7374796c653d666c61742d737175617265266c6f676f3d626c6f67)](http://vixcity.gitee.io/my-gitee-blog/)
+
+Github：[![Github](https://camo.githubusercontent.com/8ae6b750741e19628321363ba73e412ebd00fd6fcb8bae728f4afa6c240408cc/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f566978636974792d4769746875622d626c61636b2e7376673f7374796c653d666c61742d737175617265266c6f676f3d676974687562)](https://github.com/Vixcity)
